@@ -5,6 +5,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-09-29
+### Added
+- Diagrams D1–D12 (Mermaid sources plus SVG and PNG), generated schema DDL, and real Playwright screenshots of every page.
+- Full README (with a results block generated from reports), statement.md, architecture, course mapping, rubric/FR traceability and viva prep.
+
 ## [0.7.0] - 2026-09-29
 ### Added
 - Security suite: secrets scan, AST checks against string-built SQL, eval and shell, and a hash-guard on deserialisation. bandit and pip-audit reports (0 findings).

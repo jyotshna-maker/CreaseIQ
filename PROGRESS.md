@@ -13,8 +13,8 @@ Status format: phase · done · next · blockers.
 | 4 Modeling & evaluation | v0.5.0 | ✅ done: metrics.json with CIs, model card, figures, registry; holdout reported honestly |
 | 5 Services, CLI, app | v0.6.0 | ✅ done: 7 pages pass AppTest, 12 CLI commands, NFR-01 met (6.6 s / 8.8 ms / 0.51 s / 40 MB) |
 | 6 Hardening | v0.7.0 | ✅ done: 8/8 NFRs verified with evidence (docs/nfr_verification.md), coverage 96.3%, bandit 0, pip-audit 0 |
-| 7 Documentation & diagrams | v0.8.0 | next |
-| 8 Report | v0.9.0 | pending |
+| 7 Documentation & diagrams | v0.8.0 | ✅ done: D1–D12, 7 real screenshots, README/statement, architecture, course mapping, traceability, viva prep (40 Q&A) |
+| 8 Report | v0.9.0 | next |
 | 9 Final QA & release | v1.0.0 | pending |
 
 ## Phase 0 checklist
