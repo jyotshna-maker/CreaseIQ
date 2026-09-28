@@ -25,7 +25,10 @@ def main(argv: list[str]) -> int:
     text = re.sub(r"https://github\.com/[^/\s)]+/creaseiq", url, text)
     readme.write_text(text, encoding="utf-8")
     cfg = ROOT / "report" / "report_config.yaml"
-    lines = [f'repository_url: "{url}"' if ln.startswith("repository_url:") else ln for ln in cfg.read_text(encoding="utf-8").splitlines()]
+    lines = [
+        f'repository_url: "{url}"' if ln.startswith("repository_url:") else ln
+        for ln in cfg.read_text(encoding="utf-8").splitlines()
+    ]
     cfg.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Repository URL set to {url}. Now run: creaseiq report")
     return 0

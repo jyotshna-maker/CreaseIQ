@@ -47,6 +47,9 @@ def test_pipeline_writes_structured_log_file(sample_project, tmp_path: Path) -> 
     from creaseiq.data.pipeline import run_data_pipeline
 
     log_file = tmp_path / "logs" / "creaseiq.log"
+    # configure_logging only attaches handlers on its first call in a process; when an earlier
+    # test already configured it, this test attaches its own file handler (directory first).
+    log_file.parent.mkdir(parents=True, exist_ok=True)
     logger = configure_logging("INFO", log_file)
     # configure_logging is idempotent; attach a file handler for this test explicitly if needed.
     if not any(
