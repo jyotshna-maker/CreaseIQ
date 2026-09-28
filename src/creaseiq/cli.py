@@ -8,6 +8,7 @@ exit with code 1 instead of showing a traceback (NFR-02).
 from __future__ import annotations
 
 from collections.abc import Callable
+from typing import Any
 
 import typer
 from rich.console import Console
@@ -117,6 +118,84 @@ def features() -> None:
         f"[green]OK[/] {len(fs.frame)} feature rows; current Elo leaders: "
         + ", ".join(f"{t} {r:.0f}" for t, r in top)
     )
+
+
+@app.command()
+def train(
+    no_register: bool = typer.Option(
+        False, "--no-register", help="Evaluate only; do not register serving models."
+    ),
+) -> None:
+    """Tune, select, calibrate, evaluate once on the holdout, and register models (FR-14..18, FR-22)."""
+    from creaseiq.analytics.summary import build_analytics_summary
+    from creaseiq.data.pipeline import load_processed
+    from creaseiq.models.experiment import run_experiment
+    from creaseiq.reporting.assets import write_training_outputs
+
+    settings = _bootstrap()
+    matches, players = _guard(lambda: load_processed(settings))
+    metrics, _outcomes, fs = _guard(
+        lambda: run_experiment(
+            settings,
+            matches,
+            players,
+            str(settings.get("paths.raw_sha256")),
+            register=not no_register,
+        )
+    )
+    write_training_outputs(
+        settings, metrics, fs.elo_history, build_analytics_summary(matches, players, settings.seed)
+    )
+    _print_metrics(metrics)
+
+
+@app.command()
+def evaluate() -> None:
+    """Print the evaluation summary from reports/metrics.json (FR-15)."""
+    from creaseiq.utils import read_json
+
+    settings = _bootstrap()
+    path = settings.path("reports_dir") / "metrics.json"
+    if not path.exists():
+        console.print("[red]Error:[/] No metrics yet. Run `creaseiq train` first.")
+        raise typer.Exit(code=1)
+    _print_metrics(read_json(path))
+
+
+def _print_metrics(metrics: dict[str, Any]) -> None:
+    from rich.table import Table
+
+    table = Table(title="Holdout evaluation (2025-26, evaluated once per frozen selection)")
+    for col in (
+        "tier",
+        "model",
+        "calibration",
+        "log-loss [95% CI]",
+        "Brier",
+        "accuracy",
+        "AUC",
+        "vs coin (Δ log-loss)",
+    ):
+        table.add_column(col)
+    for tier, t in metrics["tiers"].items():
+        h = t["holdout"]["model"]
+        ci = h["ci"]["log_loss"]
+        table.add_row(
+            tier,
+            t["selection"]["chosen"],
+            t["calibration"]["chosen"],
+            f"{h['log_loss']:.4f} [{ci['low']:.4f}, {ci['high']:.4f}]",
+            f"{h['brier']:.4f}",
+            f"{h['accuracy']:.1%}",
+            f"{h['auc']:.3f}",
+            f"{t['holdout_vs_baselines']['B0_constant']['diff']:+.4f}",
+        )
+    console.print(table)
+    for tier, t in metrics["tiers"].items():
+        if t["too_good_guard"]["suspicious"]:
+            console.print(
+                f"[yellow]Warning[/] {tier}: suspiciously good results: {t['too_good_guard']['reasons']}"
+            )
 
 
 def _bootstrap() -> Settings:

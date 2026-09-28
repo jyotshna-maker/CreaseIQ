@@ -5,6 +5,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-09-29
+### Added
+- Modelling (FR-14..FR-18): Elo grid search, five model families, walk-forward CV, one-SE selection, time-ordered calibration, fold-trained baselines B0–B4, ablations, a one-shot holdout with a ledger, bootstrap CIs, paired bootstrap and Diebold–Mariano tests, and a too-good guard.
+- Hash-verified model registry, a symmetric `Predictor` with plain-English drivers, and a first-innings score regressor.
+- PSI drift monitor, generated model card and 10 report figures. `creaseiq train` and `creaseiq evaluate`.
+
 ## [0.4.0] - 2026-09-29
 ### Added
 - Margin-aware Elo engine with season carry-over and an optional early-season K boost (FR-13).

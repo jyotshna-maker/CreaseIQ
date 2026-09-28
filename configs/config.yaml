@@ -59,7 +59,8 @@ modeling:
   too_good_auc: 0.72
   too_good_accuracy: 0.68
   elo_grid:
-    k: [10, 15, 20, 25, 32, 40]
+    # R3 grid, extended downward (5, 7) after K=10 came out on the grid boundary in the first search.
+    k: [5, 7, 10, 15, 20, 25, 32, 40]
     home_bonus: [0, 15, 30, 50, 75]
     season_regression: [0.0, 0.1, 0.2, 0.33, 0.5]
     use_margin: [false, true]

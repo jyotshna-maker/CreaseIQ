@@ -1,0 +1,100 @@
+{
+  "post_toss": {
+    "selections": {
+      "cb307204cef4d652": {
+        "evaluations": 2,
+        "first_evaluated_at": "2026-09-28T20:29:23Z",
+        "selection": {
+          "calibration": "none",
+          "data_sha256": "db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c",
+          "elo": {
+            "early_season_k_boost": 0.0,
+            "home_bonus": 75,
+            "initial": 1500,
+            "k": 5,
+            "scale": 400,
+            "season_regression": 0.1,
+            "use_margin": true
+          },
+          "features": [
+            "elo_diff",
+            "home_diff",
+            "form5_diff",
+            "form10_diff",
+            "runs_for10_diff",
+            "runs_against10_diff",
+            "season_winpct_diff",
+            "season_games_diff",
+            "rest_days_diff",
+            "h2h_edge",
+            "h2h_recent_edge",
+            "venue_team_edge",
+            "h2h_meetings",
+            "venue_first_innings",
+            "venue_bat_first_rate",
+            "is_playoff",
+            "impact_era",
+            "a_bats_first",
+            "a_won_toss",
+            "bats_first_x_venue",
+            "bats_first_x_impact",
+            "xi_experience_diff",
+            "xi_potm_diff",
+            "xi_debutants_diff",
+            "xi_continuity_diff"
+          ],
+          "model": "logreg",
+          "params": {
+            "C": 0.003
+          },
+          "tier": "post_toss"
+        }
+      }
+    }
+  },
+  "pre_toss": {
+    "selections": {
+      "ca1c1c58a4c3147e": {
+        "evaluations": 2,
+        "first_evaluated_at": "2026-09-28T20:28:39Z",
+        "selection": {
+          "calibration": "none",
+          "data_sha256": "db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c",
+          "elo": {
+            "early_season_k_boost": 0.0,
+            "home_bonus": 75,
+            "initial": 1500,
+            "k": 5,
+            "scale": 400,
+            "season_regression": 0.1,
+            "use_margin": true
+          },
+          "features": [
+            "elo_diff",
+            "home_diff",
+            "form5_diff",
+            "form10_diff",
+            "runs_for10_diff",
+            "runs_against10_diff",
+            "season_winpct_diff",
+            "season_games_diff",
+            "rest_days_diff",
+            "h2h_edge",
+            "h2h_recent_edge",
+            "venue_team_edge",
+            "h2h_meetings",
+            "venue_first_innings",
+            "venue_bat_first_rate",
+            "is_playoff",
+            "impact_era"
+          ],
+          "model": "elo_logit",
+          "params": {
+            "C": 1.0
+          },
+          "tier": "pre_toss"
+        }
+      }
+    }
+  }
+}

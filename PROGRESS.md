@@ -10,8 +10,8 @@ Status format: phase · done · next · blockers.
 | 1 Data layer | v0.2.0 | ✅ done: 0 quarantined, 37 venues / 15 franchises, champions verified, 96% data coverage |
 | 2 Database + analytics | v0.3.0 | ✅ done: idempotent DB (checksum test), analytics 1-10, findings generated, 96% coverage |
 | 3 Features + Elo | v0.4.0 | ✅ done: leakage tests (5 kinds) pass, symmetry verified per feature, build 0.33 s |
-| 4 Modeling & evaluation | v0.5.0 | next |
-| 5 Services, CLI, app | v0.6.0 | pending |
+| 4 Modeling & evaluation | v0.5.0 | ✅ done: metrics.json with CIs, model card, figures, registry; holdout reported honestly |
+| 5 Services, CLI, app | v0.6.0 | next |
 | 6 Hardening | v0.7.0 | pending |
 | 7 Documentation & diagrams | v0.8.0 | pending |
 | 8 Report | v0.9.0 | pending |
@@ -52,6 +52,13 @@ Status format: phase · done · next · blockers.
 - Univariate AUCs are weak, as expected: elo_diff 0.536 overall and 0.512 on 2023+. The best single features are xi_experience_diff and xi_potm_diff at 0.545. Several features invert on 2023+ (home_diff 0.473). The honest expectation is a modest gain over baselines at best.
 - The per-season elo_diff AUC ranges from 0.41 (2022) to 0.68 (2014). Season-to-season variance is large, so walk-forward std must be reported.
 
+## Phase 4 notes
+- The tuned Elo parameters (K=5, home 75, regression 0.1, margin on) sit on the grid edge for K and home. Differences between candidates are about 0.001 log-loss, which is noise level.
+- Selected models: pre-toss elo_logit (one-SE rule), post-toss logreg C=0.003, calibration none for both (time-ordered comparison).
+- The walk-forward log-loss of the chosen models is below a coin flip. **On the 2025–26 holdout, neither tier beats the coin**, and the ledger shows one frozen selection per tier. The home side won only 40% in 2023 and in 2025, versus 53% historically, so the pre-2023 patterns broke down.
+- Score regression: ridge holdout MAE of about 30 runs against 30.1 for the recent-league-mean baseline, a negligible gain. The venue-level baseline has a -22 run bias because it lags the Impact Player scoring jump.
+- **Integrity disclosure:** an exploratory smoke run evaluated the holdout for the same frozen selection. Its ledger file was deleted before the official run, and this is disclosed in ADR-006. The results were identical.
+
 ## Blockers
 - **GitHub push:** `gh` must be authenticated by the student (`gh auth login`). Work continues locally with full history until then.
 
@@ -68,4 +75,6 @@ Status format: phase · done · next · blockers.
 11. **pandas 3 defaults:** the Arrow-backed string dtype and Copy-on-Write needed explicit handling. For example, `np.select` with a `None` default was replaced.
 12. **Slow feature builds:** in pandas 3, `itertuples` over roughly 950 date groups took 7 s per build, which made grid search and the leakage tests impractical. Profiling showed 117k indexer calls. Converting to plain records once cut this to 0.33 s.
 13. **Weak signal:** pre-match features carry little signal, especially since 2023, when the Impact Player rule and auction churn arrived. This had to be reported honestly rather than tuned away.
+14. **A holdout that is worse than a coin flip:** the tempting move was to re-tune until 2025–26 looked good. Instead the selection was frozen and hashed before evaluation, and the negative result is reported as a finding about regime change.
+15. **A bug caught by tests:** the asset writer assumed `docs/` existed, which failed in an isolated project. A loop-variable shadowing bug in the registry code was caught by mypy.
 9. **Baseline leakage in the plan:** the B1 prior of 54.7% was computed on data that includes the holdout seasons.
