@@ -7,7 +7,7 @@ name = "creaseiq"
 version = "0.1.0"
 description = "CreaseIQ - IPL match intelligence: validated data pipeline, analytics and a leakage-safe win-probability engine."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 license = { text = "MIT" }
 authors = [{ name = "Jyotshna Payasi" }]
 dependencies = [
@@ -66,7 +66,7 @@ omit = ["*/app/*", "*/__main__.py"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py312"
 extend-exclude = ["notebooks"]
 
 [tool.ruff.lint]

@@ -1,0 +1,11 @@
+# Development / QA dependencies (pinned; see ADR-002).
+pytest==9.1.1
+pytest-cov==7.1.0
+hypothesis==6.168.3
+ruff==0.16.9
+mypy==2.3.1
+bandit==1.9.4
+pip-audit==2.10.1
+import-linter==2.15
+pypdf==6.19.0
+types-PyYAML
