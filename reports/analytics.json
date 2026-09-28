@@ -1,0 +1,1548 @@
+{
+  "appearances_top": [
+    {
+      "matches": 282,
+      "player": "V Kohli",
+      "seasons": 19,
+      "teams": "rcb"
+    },
+    {
+      "matches": 281,
+      "player": "RG Sharma",
+      "seasons": 19,
+      "teams": "deccan_chargers, mi"
+    },
+    {
+      "matches": 277,
+      "player": "MS Dhoni",
+      "seasons": 18,
+      "teams": "csk, rps"
+    },
+    {
+      "matches": 267,
+      "player": "RA Jadeja",
+      "seasons": 18,
+      "teams": "csk, gujarat_lions, kochi_tuskers, rr"
+    },
+    {
+      "matches": 257,
+      "player": "KD Karthik",
+      "seasons": 17,
+      "teams": "dc, gujarat_lions, kkr, mi, pbks, rcb"
+    },
+    {
+      "matches": 222,
+      "player": "S Dhawan",
+      "seasons": 17,
+      "teams": "dc, deccan_chargers, mi, pbks, srh"
+    },
+    {
+      "matches": 219,
+      "player": "R Ashwin",
+      "seasons": 16,
+      "teams": "csk, dc, pbks, rps, rr"
+    },
+    {
+      "matches": 212,
+      "player": "AM Rahane",
+      "seasons": 18,
+      "teams": "csk, dc, kkr, mi, rps, rr"
+    },
+    {
+      "matches": 206,
+      "player": "B Kumar",
+      "seasons": 16,
+      "teams": "pune_warriors, rcb, srh"
+    },
+    {
+      "matches": 205,
+      "player": "RV Uthappa",
+      "seasons": 15,
+      "teams": "csk, kkr, mi, pune_warriors, rcb, rr"
+    }
+  ],
+  "chasing": {
+    "by_season": [
+      {
+        "ci_high": 0.7343572732271242,
+        "ci_low": 0.492028071927689,
+        "n": 58,
+        "rate": 0.6206896551724138,
+        "season_year": 2008,
+        "successes": 36
+      },
+      {
+        "ci_high": 0.6598014708777623,
+        "ci_low": 0.40704181935661177,
+        "n": 56,
+        "rate": 0.5357142857142857,
+        "season_year": 2009,
+        "successes": 30
+      },
+      {
+        "ci_high": 0.5996020482998292,
+        "ci_low": 0.35265876715068556,
+        "n": 59,
+        "rate": 0.4745762711864407,
+        "season_year": 2010,
+        "successes": 28
+      },
+      {
+        "ci_high": 0.6646092943867861,
+        "ci_low": 0.440873908658052,
+        "n": 72,
+        "rate": 0.5555555555555556,
+        "season_year": 2011,
+        "successes": 40
+      },
+      {
+        "ci_high": 0.649266290736203,
+        "ci_low": 0.4278134568803063,
+        "n": 74,
+        "rate": 0.5405405405405406,
+        "season_year": 2012,
+        "successes": 40
+      },
+      {
+        "ci_high": 0.611074051196022,
+        "ci_low": 0.388925948803978,
+        "n": 74,
+        "rate": 0.5,
+        "season_year": 2013,
+        "successes": 37
+      },
+      {
+        "ci_high": 0.7391600120767886,
+        "ci_low": 0.4995359106706382,
+        "n": 59,
+        "rate": 0.6271186440677966,
+        "season_year": 2014,
+        "successes": 37
+      },
+      {
+        "ci_high": 0.5586237926918696,
+        "ci_low": 0.3076896268393824,
+        "n": 56,
+        "rate": 0.42857142857142855,
+        "season_year": 2015,
+        "successes": 24
+      },
+      {
+        "ci_high": 0.7869413244763347,
+        "ci_low": 0.5576623297382323,
+        "n": 60,
+        "rate": 0.6833333333333333,
+        "season_year": 2016,
+        "successes": 41
+      },
+      {
+        "ci_high": 0.6725014595221879,
+        "ci_low": 0.42452083125844636,
+        "n": 58,
+        "rate": 0.5517241379310345,
+        "season_year": 2017,
+        "successes": 32
+      },
+      {
+        "ci_high": 0.6537209395856151,
+        "ci_low": 0.4089342702715789,
+        "n": 60,
+        "rate": 0.5333333333333333,
+        "season_year": 2018,
+        "successes": 32
+      },
+      {
+        "ci_high": 0.7293727611385934,
+        "ci_low": 0.4842973291580957,
+        "n": 57,
+        "rate": 0.6140350877192983,
+        "season_year": 2019,
+        "successes": 35
+      },
+      {
+        "ci_high": 0.6433178058754173,
+        "ci_low": 0.39010383924176983,
+        "n": 56,
+        "rate": 0.5178571428571429,
+        "season_year": 2020,
+        "successes": 29
+      },
+      {
+        "ci_high": 0.7391600120767886,
+        "ci_low": 0.4995359106706382,
+        "n": 59,
+        "rate": 0.6271186440677966,
+        "season_year": 2021,
+        "successes": 37
+      },
+      {
+        "ci_high": 0.611074051196022,
+        "ci_low": 0.388925948803978,
+        "n": 74,
+        "rate": 0.5,
+        "season_year": 2022,
+        "successes": 37
+      },
+      {
+        "ci_high": 0.5657567849019168,
+        "ci_low": 0.34314655832671476,
+        "n": 73,
+        "rate": 0.4520547945205479,
+        "season_year": 2023,
+        "successes": 33
+      },
+      {
+        "ci_high": 0.6199484948878713,
+        "ci_low": 0.39341308325020075,
+        "n": 71,
+        "rate": 0.5070422535211268,
+        "season_year": 2024,
+        "successes": 36
+      },
+      {
+        "ci_high": 0.6409512360361571,
+        "ci_low": 0.4132188746832562,
+        "n": 70,
+        "rate": 0.5285714285714286,
+        "season_year": 2025,
+        "successes": 37
+      },
+      {
+        "ci_high": 0.7278082165816159,
+        "ci_low": 0.5095289902692696,
+        "n": 72,
+        "rate": 0.625,
+        "season_year": 2026,
+        "successes": 45
+      }
+    ],
+    "era_test_impact_minus_pre": {
+      "ci_high": 0.04147725653352795,
+      "ci_low": -0.0906834151817466,
+      "diff": -0.024603079324109323,
+      "n_a": 286,
+      "n_b": 932,
+      "p_value": 0.4646968460529166,
+      "rate_a": 0.527972027972028,
+      "rate_b": 0.5525751072961373,
+      "z": -0.7311347573647125
+    },
+    "overall": {
+      "ci_high": 0.5745638677450792,
+      "ci_low": 0.5187379261799946,
+      "effect": 0.046798029556650245,
+      "mde": 0.04013748880873495,
+      "n": 1218,
+      "p0": 0.5,
+      "p_value": 0.0011955359814807378,
+      "rate": 0.5467980295566502,
+      "successes": 666
+    }
+  },
+  "era_scoring": {
+    "ci_high": 31.707320831282082,
+    "ci_low": 22.573437331743527,
+    "cohens_d": 0.8195642087942547,
+    "diff": 27.140379081512805,
+    "mannwhitney_p": 2.8487658946724106e-30,
+    "mean_post": 189.70486111111111,
+    "mean_pre": 162.5644820295983,
+    "n_post": 288,
+    "n_pre": 946,
+    "share_200_post": 0.4166666666666667,
+    "share_200_pre": 0.1014799154334038,
+    "welch_p": 2.4319691126913857e-27,
+    "welch_t": 11.647869825020761
+  },
+  "field_first_share": [
+    {
+      "ci_high": 0.6725014595221879,
+      "ci_low": 0.42452083125844636,
+      "n": 58,
+      "rate": 0.5517241379310345,
+      "season_year": 2008,
+      "successes": 32
+    },
+    {
+      "ci_high": 0.5157026708419042,
+      "ci_low": 0.2706272388614066,
+      "n": 57,
+      "rate": 0.38596491228070173,
+      "season_year": 2009,
+      "successes": 22
+    },
+    {
+      "ci_high": 0.47637381158245135,
+      "ci_low": 0.24167774406017556,
+      "n": 60,
+      "rate": 0.35,
+      "season_year": 2010,
+      "successes": 21
+    },
+    {
+      "ci_high": 0.7560513266068143,
+      "ci_low": 0.5432662599276812,
+      "n": 73,
+      "rate": 0.6575342465753424,
+      "season_year": 2011,
+      "successes": 48
+    },
+    {
+      "ci_high": 0.611074051196022,
+      "ci_low": 0.388925948803978,
+      "n": 74,
+      "rate": 0.5,
+      "season_year": 2012,
+      "successes": 37
+    },
+    {
+      "ci_high": 0.5202144748256049,
+      "ci_low": 0.30443802768639416,
+      "n": 76,
+      "rate": 0.40789473684210525,
+      "season_year": 2013,
+      "successes": 31
+    },
+    {
+      "ci_high": 0.7869413244763347,
+      "ci_low": 0.5576623297382323,
+      "n": 60,
+      "rate": 0.6833333333333333,
+      "season_year": 2014,
+      "successes": 41
+    },
+    {
+      "ci_high": 0.6938727256481132,
+      "ci_low": 0.449344828000343,
+      "n": 59,
+      "rate": 0.576271186440678,
+      "season_year": 2015,
+      "successes": 34
+    },
+    {
+      "ci_high": 0.8944220311080237,
+      "ci_low": 0.7008024625353194,
+      "n": 60,
+      "rate": 0.8166666666666667,
+      "season_year": 2016,
+      "successes": 49
+    },
+    {
+      "ci_high": 0.8925727805799468,
+      "ci_low": 0.6962104955303725,
+      "n": 59,
+      "rate": 0.8135593220338984,
+      "season_year": 2017,
+      "successes": 48
+    },
+    {
+      "ci_high": 0.9068682302080855,
+      "ci_low": 0.7196838683638547,
+      "n": 60,
+      "rate": 0.8333333333333334,
+      "season_year": 2018,
+      "successes": 50
+    },
+    {
+      "ci_high": 0.9068682302080855,
+      "ci_low": 0.7196838683638547,
+      "n": 60,
+      "rate": 0.8333333333333334,
+      "season_year": 2019,
+      "successes": 50
+    },
+    {
+      "ci_high": 0.6690634559324476,
+      "ci_low": 0.4249193588533434,
+      "n": 60,
+      "rate": 0.55,
+      "season_year": 2020,
+      "successes": 33
+    },
+    {
+      "ci_high": 0.8286735999671945,
+      "ci_low": 0.6099128690331636,
+      "n": 60,
+      "rate": 0.7333333333333333,
+      "season_year": 2021,
+      "successes": 44
+    },
+    {
+      "ci_high": 0.8731292519590741,
+      "ci_low": 0.6921222305619936,
+      "n": 74,
+      "rate": 0.7972972972972973,
+      "season_year": 2022,
+      "successes": 59
+    },
+    {
+      "ci_high": 0.8062645289197747,
+      "ci_low": 0.6048274583682747,
+      "n": 74,
+      "rate": 0.7162162162162162,
+      "season_year": 2023,
+      "successes": 53
+    },
+    {
+      "ci_high": 0.8214719651349224,
+      "ci_low": 0.6194601134214525,
+      "n": 71,
+      "rate": 0.7323943661971831,
+      "season_year": 2024,
+      "successes": 52
+    },
+    {
+      "ci_high": 0.8838203043326546,
+      "ci_low": 0.7071244273939165,
+      "n": 74,
+      "rate": 0.8108108108108109,
+      "season_year": 2025,
+      "successes": 60
+    },
+    {
+      "ci_high": 0.8943579146331688,
+      "ci_low": 0.7222800662989051,
+      "n": 74,
+      "rate": 0.8243243243243243,
+      "season_year": 2026,
+      "successes": 61
+    }
+  ],
+  "home_advantage": {
+    "ci_high": 0.5646143774168639,
+    "ci_low": 0.49955616868275504,
+    "effect": 0.03222222222222226,
+    "mde": 0.04669308696854947,
+    "n": 900,
+    "p0": 0.5,
+    "p_value": 0.05737282708489674,
+    "rate": 0.5322222222222223,
+    "successes": 479
+  },
+  "potm_top": [
+    {
+      "awards": 25,
+      "first": 2009,
+      "last": 2021,
+      "player": "AB de Villiers",
+      "teams": "dc, rcb"
+    },
+    {
+      "awards": 22,
+      "first": 2011,
+      "last": 2026,
+      "player": "V Kohli",
+      "teams": "rcb"
+    },
+    {
+      "awards": 22,
+      "first": 2009,
+      "last": 2020,
+      "player": "CH Gayle",
+      "teams": "kkr, pbks, rcb"
+    },
+    {
+      "awards": 21,
+      "first": 2009,
+      "last": 2025,
+      "player": "RG Sharma",
+      "teams": "deccan_chargers, mi"
+    },
+    {
+      "awards": 18,
+      "first": 2012,
+      "last": 2026,
+      "player": "SP Narine",
+      "teams": "kkr"
+    },
+    {
+      "awards": 18,
+      "first": 2008,
+      "last": 2025,
+      "player": "MS Dhoni",
+      "teams": "csk, rps"
+    },
+    {
+      "awards": 18,
+      "first": 2010,
+      "last": 2022,
+      "player": "DA Warner",
+      "teams": "dc, srh"
+    },
+    {
+      "awards": 17,
+      "first": 2018,
+      "last": 2026,
+      "player": "KL Rahul",
+      "teams": "dc, lsg, pbks"
+    },
+    {
+      "awards": 17,
+      "first": 2012,
+      "last": 2026,
+      "player": "RA Jadeja",
+      "teams": "csk, rr"
+    },
+    {
+      "awards": 16,
+      "first": 2015,
+      "last": 2025,
+      "player": "AD Russell",
+      "teams": "kkr"
+    }
+  ],
+  "scoring_by_season": [
+    {
+      "matches": 58,
+      "max_first_innings": 240.0,
+      "mean_first_innings": 160.9655172413793,
+      "median_first_innings": 160.0,
+      "season_year": 2008,
+      "share_200_plus": 0.1206896551724138
+    },
+    {
+      "matches": 57,
+      "max_first_innings": 211.0,
+      "mean_first_innings": 150.26315789473685,
+      "median_first_innings": 149.0,
+      "season_year": 2009,
+      "share_200_plus": 0.017543859649122806
+    },
+    {
+      "matches": 60,
+      "max_first_innings": 246.0,
+      "mean_first_innings": 164.78333333333333,
+      "median_first_innings": 169.0,
+      "season_year": 2010,
+      "share_200_plus": 0.08333333333333333
+    },
+    {
+      "matches": 72,
+      "max_first_innings": 232.0,
+      "mean_first_innings": 153.70833333333334,
+      "median_first_innings": 156.5,
+      "season_year": 2011,
+      "share_200_plus": 0.05555555555555555
+    },
+    {
+      "matches": 74,
+      "max_first_innings": 222.0,
+      "mean_first_innings": 157.54054054054055,
+      "median_first_innings": 159.0,
+      "season_year": 2012,
+      "share_200_plus": 0.05405405405405406
+    },
+    {
+      "matches": 76,
+      "max_first_innings": 263.0,
+      "mean_first_innings": 155.89473684210526,
+      "median_first_innings": 158.0,
+      "season_year": 2013,
+      "share_200_plus": 0.05263157894736842
+    },
+    {
+      "matches": 60,
+      "max_first_innings": 231.0,
+      "mean_first_innings": 163.06666666666666,
+      "median_first_innings": 160.0,
+      "season_year": 2014,
+      "share_200_plus": 0.08333333333333333
+    },
+    {
+      "matches": 57,
+      "max_first_innings": 235.0,
+      "mean_first_innings": 165.2982456140351,
+      "median_first_innings": 167.0,
+      "season_year": 2015,
+      "share_200_plus": 0.10526315789473684
+    },
+    {
+      "matches": 60,
+      "max_first_innings": 248.0,
+      "mean_first_innings": 162.6,
+      "median_first_innings": 162.0,
+      "season_year": 2016,
+      "share_200_plus": 0.08333333333333333
+    },
+    {
+      "matches": 59,
+      "max_first_innings": 230.0,
+      "mean_first_innings": 165.77966101694915,
+      "median_first_innings": 163.0,
+      "season_year": 2017,
+      "share_200_plus": 0.13559322033898305
+    },
+    {
+      "matches": 60,
+      "max_first_innings": 245.0,
+      "mean_first_innings": 172.46666666666667,
+      "median_first_innings": 174.0,
+      "season_year": 2018,
+      "share_200_plus": 0.18333333333333332
+    },
+    {
+      "matches": 59,
+      "max_first_innings": 232.0,
+      "mean_first_innings": 168.5084745762712,
+      "median_first_innings": 170.0,
+      "season_year": 2019,
+      "share_200_plus": 0.13559322033898305
+    },
+    {
+      "matches": 60,
+      "max_first_innings": 228.0,
+      "mean_first_innings": 169.5,
+      "median_first_innings": 167.0,
+      "season_year": 2020,
+      "share_200_plus": 0.15
+    },
+    {
+      "matches": 60,
+      "max_first_innings": 235.0,
+      "mean_first_innings": 159.31666666666666,
+      "median_first_innings": 157.5,
+      "season_year": 2021,
+      "share_200_plus": 0.1
+    },
+    {
+      "matches": 74,
+      "max_first_innings": 222.0,
+      "mean_first_innings": 171.1216216216216,
+      "median_first_innings": 169.5,
+      "season_year": 2022,
+      "share_200_plus": 0.17567567567567569
+    },
+    {
+      "matches": 73,
+      "max_first_innings": 257.0,
+      "mean_first_innings": 183.5205479452055,
+      "median_first_innings": 185.0,
+      "season_year": 2023,
+      "share_200_plus": 0.3287671232876712
+    },
+    {
+      "matches": 71,
+      "max_first_innings": 287.0,
+      "mean_first_innings": 189.59154929577466,
+      "median_first_innings": 185.0,
+      "season_year": 2024,
+      "share_200_plus": 0.36619718309859156
+    },
+    {
+      "matches": 71,
+      "max_first_innings": 286.0,
+      "mean_first_innings": 190.3943661971831,
+      "median_first_innings": 196.0,
+      "season_year": 2025,
+      "share_200_plus": 0.4507042253521127
+    },
+    {
+      "matches": 73,
+      "max_first_innings": 264.0,
+      "mean_first_innings": 195.32876712328766,
+      "median_first_innings": 201.0,
+      "season_year": 2026,
+      "share_200_plus": 0.5205479452054794
+    }
+  ],
+  "teams": [
+    {
+      "best_season": 2011,
+      "ci_high": 0.6191813136608493,
+      "ci_low": 0.5002923486351074,
+      "finals": 10,
+      "losses": 116,
+      "matches": 266,
+      "no_decision": 2,
+      "seasons": 17,
+      "team": "csk",
+      "titles": 5,
+      "win_pct": 0.5606060606060606,
+      "wins": 148,
+      "worst_season": 2022
+    },
+    {
+      "best_season": 2020,
+      "ci_high": 0.596821284131911,
+      "ci_low": 0.4822596010117014,
+      "finals": 6,
+      "losses": 132,
+      "matches": 291,
+      "no_decision": 4,
+      "seasons": 19,
+      "team": "mi",
+      "titles": 5,
+      "win_pct": 0.5400696864111498,
+      "wins": 155,
+      "worst_season": 2022
+    },
+    {
+      "best_season": 2024,
+      "ci_high": 0.5754531039254964,
+      "ci_low": 0.4572930473961337,
+      "finals": 4,
+      "losses": 131,
+      "matches": 278,
+      "no_decision": 7,
+      "seasons": 19,
+      "team": "kkr",
+      "titles": 3,
+      "win_pct": 0.5166051660516605,
+      "wins": 140,
+      "worst_season": 2009
+    },
+    {
+      "best_season": 2025,
+      "ci_high": 0.5687235757519122,
+      "ci_low": 0.4524149852776456,
+      "finals": 5,
+      "losses": 137,
+      "matches": 286,
+      "no_decision": 6,
+      "seasons": 19,
+      "team": "rcb",
+      "titles": 2,
+      "win_pct": 0.5107142857142857,
+      "wins": 143,
+      "worst_season": 2017
+    },
+    {
+      "best_season": 2022,
+      "ci_high": 0.7115774709359347,
+      "ci_low": 0.4987106689367745,
+      "finals": 3,
+      "losses": 30,
+      "matches": 77,
+      "no_decision": 0,
+      "seasons": 5,
+      "team": "gt",
+      "titles": 1,
+      "win_pct": 0.6103896103896104,
+      "wins": 47,
+      "worst_season": 2024
+    },
+    {
+      "best_season": 2008,
+      "ci_high": 0.5641324179049683,
+      "ci_low": 0.43988620505576814,
+      "finals": 2,
+      "losses": 122,
+      "matches": 251,
+      "no_decision": 6,
+      "seasons": 17,
+      "team": "rr",
+      "titles": 1,
+      "win_pct": 0.5020408163265306,
+      "wins": 123,
+      "worst_season": 2025
+    },
+    {
+      "best_season": 2016,
+      "ci_high": 0.5628820911275806,
+      "ci_low": 0.4275869038401442,
+      "finals": 3,
+      "losses": 104,
+      "matches": 211,
+      "no_decision": 5,
+      "seasons": 14,
+      "team": "srh",
+      "titles": 1,
+      "win_pct": 0.49514563106796117,
+      "wins": 102,
+      "worst_season": 2021
+    },
+    {
+      "best_season": 2009,
+      "ci_high": 0.4998252331617777,
+      "ci_low": 0.284552171134325,
+      "finals": 1,
+      "losses": 46,
+      "matches": 75,
+      "no_decision": 0,
+      "seasons": 5,
+      "team": "deccan_chargers",
+      "titles": 1,
+      "win_pct": 0.38666666666666666,
+      "wins": 29,
+      "worst_season": 2008
+    },
+    {
+      "best_season": 2017,
+      "ci_high": 0.6684587435946623,
+      "ci_low": 0.33154125640533766,
+      "finals": 1,
+      "losses": 15,
+      "matches": 30,
+      "no_decision": 0,
+      "seasons": 2,
+      "team": "rps",
+      "titles": 0,
+      "win_pct": 0.5,
+      "wins": 15,
+      "worst_season": 2016
+    },
+    {
+      "best_season": 2022,
+      "ci_high": 0.6004561608099076,
+      "ci_low": 0.37245878383038566,
+      "finals": 0,
+      "losses": 36,
+      "matches": 72,
+      "no_decision": 2,
+      "seasons": 5,
+      "team": "lsg",
+      "titles": 0,
+      "win_pct": 0.4857142857142857,
+      "wins": 34,
+      "worst_season": 2026
+    },
+    {
+      "best_season": 2014,
+      "ci_high": 0.524403370973139,
+      "ci_low": 0.406465865125642,
+      "finals": 2,
+      "losses": 145,
+      "matches": 277,
+      "no_decision": 6,
+      "seasons": 19,
+      "team": "pbks",
+      "titles": 0,
+      "win_pct": 0.46494464944649444,
+      "wins": 126,
+      "worst_season": 2015
+    },
+    {
+      "best_season": 2009,
+      "ci_high": 0.5189363302007479,
+      "ci_low": 0.40130771109001134,
+      "finals": 1,
+      "losses": 147,
+      "matches": 280,
+      "no_decision": 8,
+      "seasons": 19,
+      "team": "dc",
+      "titles": 0,
+      "win_pct": 0.45955882352941174,
+      "wins": 125,
+      "worst_season": 2014
+    },
+    {
+      "best_season": 2016,
+      "ci_high": 0.6245203678902909,
+      "ci_low": 0.28413168023037194,
+      "finals": 0,
+      "losses": 16,
+      "matches": 30,
+      "no_decision": 1,
+      "seasons": 2,
+      "team": "gujarat_lions",
+      "titles": 0,
+      "win_pct": 0.4482758620689655,
+      "wins": 13,
+      "worst_season": 2017
+    },
+    {
+      "best_season": 2011,
+      "ci_high": 0.6740935542034926,
+      "ci_low": 0.21380798904474121,
+      "finals": 0,
+      "losses": 8,
+      "matches": 14,
+      "no_decision": 0,
+      "seasons": 1,
+      "team": "kochi_tuskers",
+      "titles": 0,
+      "win_pct": 0.42857142857142855,
+      "wins": 6,
+      "worst_season": 2011
+    },
+    {
+      "best_season": 2011,
+      "ci_high": 0.4103883775313494,
+      "ci_low": 0.1596490352106652,
+      "finals": 0,
+      "losses": 33,
+      "matches": 46,
+      "no_decision": 1,
+      "seasons": 3,
+      "team": "pune_warriors",
+      "titles": 0,
+      "win_pct": 0.26666666666666666,
+      "wins": 12,
+      "worst_season": 2012
+    }
+  ],
+  "toss": {
+    "by_decision": [
+      {
+        "ci_high": 0.5019473426761698,
+        "ci_low": 0.40578414188875767,
+        "n": 408,
+        "rate": 0.4534313725490196,
+        "successes": 185,
+        "toss_decision": "bat"
+      },
+      {
+        "ci_high": 0.5808930117597659,
+        "ci_low": 0.5124912698792263,
+        "n": 810,
+        "rate": 0.5469135802469136,
+        "successes": 443,
+        "toss_decision": "field"
+      }
+    ],
+    "by_era": [
+      {
+        "ci_high": 0.5644570292760308,
+        "ci_low": 0.4493436188999588,
+        "era": "impact_2023+",
+        "n": 286,
+        "rate": 0.506993006993007,
+        "successes": 145
+      },
+      {
+        "ci_high": 0.5501786607712953,
+        "ci_low": 0.48615227934632377,
+        "era": "pre_2023",
+        "n": 932,
+        "rate": 0.5182403433476395,
+        "successes": 483
+      }
+    ],
+    "by_venue": [
+      {
+        "ci_high": 0.8135673850128435,
+        "ci_low": 0.47824760507320074,
+        "n": 27,
+        "p_holm": 1.0,
+        "p_value": 0.12207812070846558,
+        "rate": 0.6666666666666666,
+        "venue_id": "ekana"
+      },
+      {
+        "ci_high": 0.734914528758763,
+        "ci_low": 0.3907078562746876,
+        "n": 28,
+        "p_holm": 1.0,
+        "p_value": 0.5715881884098053,
+        "rate": 0.5714285714285714,
+        "venue_id": "sharjah"
+      },
+      {
+        "ci_high": 0.6705376603046981,
+        "ci_low": 0.44081865304588186,
+        "n": 68,
+        "p_holm": 1.0,
+        "p_value": 0.39612484029702977,
+        "rate": 0.5588235294117647,
+        "venue_id": "sms_jaipur"
+      },
+      {
+        "ci_high": 0.6438546202048803,
+        "ci_low": 0.45244602997442135,
+        "n": 100,
+        "p_holm": 1.0,
+        "p_value": 0.3682016173266958,
+        "rate": 0.55,
+        "venue_id": "chinnaswamy"
+      },
+      {
+        "ci_high": 0.6773248145062598,
+        "ci_low": 0.41384708550368815,
+        "n": 51,
+        "p_holm": 1.0,
+        "p_value": 0.5758493477318467,
+        "rate": 0.5490196078431373,
+        "venue_id": "mca_pune"
+      },
+      {
+        "ci_high": 0.6896143019562697,
+        "ci_low": 0.3838404689217949,
+        "n": 37,
+        "p_holm": 1.0,
+        "p_value": 0.7428293587290682,
+        "rate": 0.5405405405405406,
+        "venue_id": "dy_patil"
+      },
+      {
+        "ci_high": 0.6028735404819058,
+        "ci_low": 0.43420704321786535,
+        "n": 131,
+        "p_holm": 1.0,
+        "p_value": 0.7268761029664557,
+        "rate": 0.5190839694656488,
+        "venue_id": "wankhede"
+      },
+      {
+        "ci_high": 0.6925677302378153,
+        "ci_low": 0.3398561575495229,
+        "n": 27,
+        "p_holm": 1.0,
+        "p_value": 1.0,
+        "rate": 0.5185185185185185,
+        "venue_id": "brabourne"
+      },
+      {
+        "ci_high": 0.6099753683074952,
+        "ci_low": 0.41863926595785556,
+        "n": 101,
+        "p_holm": 1.0,
+        "p_value": 0.8423820985077438,
+        "rate": 0.5148514851485149,
+        "venue_id": "arun_jaitley"
+      },
+      {
+        "ci_high": 0.6700576399749026,
+        "ci_low": 0.35568804595868564,
+        "n": 35,
+        "p_holm": 1.0,
+        "p_value": 1.0,
+        "rate": 0.5142857142857142,
+        "venue_id": "zayed_abu_dhabi"
+      },
+      {
+        "ci_high": 0.6080713876874437,
+        "ci_low": 0.41196037089885484,
+        "n": 96,
+        "p_holm": 1.0,
+        "p_value": 0.918778035364537,
+        "rate": 0.5104166666666666,
+        "venue_id": "chepauk"
+      },
+      {
+        "ci_high": 0.5985233174442801,
+        "ci_low": 0.41066435801353784,
+        "n": 105,
+        "p_holm": 1.0,
+        "p_value": 1.0,
+        "rate": 0.5047619047619047,
+        "venue_id": "eden_gardens"
+      },
+      {
+        "ci_high": 0.5984284307501431,
+        "ci_low": 0.3553048742284526,
+        "n": 61,
+        "p_holm": 1.0,
+        "p_value": 0.7981526273057179,
+        "rate": 0.47540983606557374,
+        "venue_id": "pca_mohali"
+      },
+      {
+        "ci_high": 0.6125352873233052,
+        "ci_low": 0.32056233976336046,
+        "n": 41,
+        "p_holm": 1.0,
+        "p_value": 0.755228657504631,
+        "rate": 0.4634146341463415,
+        "venue_id": "narendra_modi"
+      },
+      {
+        "ci_high": 0.5667142261303578,
+        "ci_low": 0.28384550927849195,
+        "n": 43,
+        "p_holm": 1.0,
+        "p_value": 0.3603776529357674,
+        "rate": 0.4186046511627907,
+        "venue_id": "dubai_ics"
+      },
+      {
+        "ci_high": 0.47937753734796973,
+        "ci_low": 0.28107922931825335,
+        "n": 88,
+        "p_holm": 0.39396530530865653,
+        "p_value": 0.024622831581791033,
+        "rate": 0.375,
+        "venue_id": "uppal"
+      }
+    ],
+    "decision_outcome_chi2_associational": {
+      "chi2": 9.493770639602772,
+      "cramers_v": 0.08828678935929052,
+      "dof": 1,
+      "p_value": 0.002061706779891016,
+      "table": [
+        [
+          223,
+          185
+        ],
+        [
+          367,
+          443
+        ]
+      ]
+    },
+    "era_test_impact_minus_pre": {
+      "ci_high": 0.05498321403710449,
+      "ci_low": -0.07747788674636946,
+      "diff": -0.011247336354632487,
+      "n_a": 286,
+      "n_b": 932,
+      "p_value": 0.7391839165355043,
+      "rate_a": 0.506993006993007,
+      "rate_b": 0.5182403433476395,
+      "z": -0.33293424810401073
+    },
+    "overall": {
+      "ci_high": 0.543572346618829,
+      "ci_low": 0.4875282513561957,
+      "effect": 0.015599343185550119,
+      "mde": 0.04013748880873495,
+      "n": 1218,
+      "p0": 0.5,
+      "p_value": 0.28906035704588223,
+      "rate": 0.5155993431855501,
+      "successes": 628
+    }
+  },
+  "venue_clusters": {
+    "assignments": [
+      {
+        "avg_first_innings_shrunk": 174.55229036935938,
+        "chase_win_rate_shrunk": 0.5802156836639595,
+        "cluster": 0,
+        "field_share": 0.7931034482758621,
+        "label": "high-scoring, defend-friendly",
+        "matches": 29,
+        "venue": "BRSABV Ekana Cricket Stadium",
+        "venue_id": "ekana"
+      },
+      {
+        "avg_first_innings_shrunk": 175.9185684874502,
+        "chase_win_rate_shrunk": 0.49913460258287845,
+        "cluster": 0,
+        "field_share": 0.6666666666666666,
+        "label": "high-scoring, defend-friendly",
+        "matches": 27,
+        "venue": "Brabourne Stadium",
+        "venue_id": "brabourne"
+      },
+      {
+        "avg_first_innings_shrunk": 185.7138226441306,
+        "chase_win_rate_shrunk": 0.4452850105559465,
+        "cluster": 0,
+        "field_share": 0.8947368421052632,
+        "label": "high-scoring, defend-friendly",
+        "matches": 19,
+        "venue": "HPCA Stadium",
+        "venue_id": "hpca"
+      },
+      {
+        "avg_first_innings_shrunk": 174.25213544176268,
+        "chase_win_rate_shrunk": 0.5587998208687864,
+        "cluster": 0,
+        "field_share": 0.9134615384615384,
+        "label": "high-scoring, defend-friendly",
+        "matches": 104,
+        "venue": "M. Chinnaswamy Stadium",
+        "venue_id": "chinnaswamy"
+      },
+      {
+        "avg_first_innings_shrunk": 180.03655681613543,
+        "chase_win_rate_shrunk": 0.5358511220580187,
+        "cluster": 0,
+        "field_share": 0.7058823529411765,
+        "label": "high-scoring, defend-friendly",
+        "matches": 17,
+        "venue": "Maharaja Yadavindra Singh International Cricket Stadium",
+        "venue_id": "mys_mullanpur"
+      },
+      {
+        "avg_first_innings_shrunk": 182.4899418438364,
+        "chase_win_rate_shrunk": 0.5189800057954216,
+        "cluster": 0,
+        "field_share": 0.8048780487804879,
+        "label": "high-scoring, defend-friendly",
+        "matches": 41,
+        "venue": "Narendra Modi Stadium",
+        "venue_id": "narendra_modi"
+      },
+      {
+        "avg_first_innings_shrunk": 172.8308946058849,
+        "chase_win_rate_shrunk": 0.5494182999685568,
+        "cluster": 0,
+        "field_share": 0.7651515151515151,
+        "label": "high-scoring, defend-friendly",
+        "matches": 132,
+        "venue": "Wankhede Stadium",
+        "venue_id": "wankhede"
+      },
+      {
+        "avg_first_innings_shrunk": 169.2958160753947,
+        "chase_win_rate_shrunk": 0.5358511220580187,
+        "cluster": 1,
+        "field_share": 0.5294117647058824,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 17,
+        "venue": "ACA-VDCA Cricket Stadium",
+        "venue_id": "aca_vdca"
+      },
+      {
+        "avg_first_innings_shrunk": 172.53085870828016,
+        "chase_win_rate_shrunk": 0.5357475702303289,
+        "cluster": 1,
+        "field_share": 0.625,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 104,
+        "venue": "Arun Jaitley Stadium",
+        "venue_id": "arun_jaitley"
+      },
+      {
+        "avg_first_innings_shrunk": 161.61674540501397,
+        "chase_win_rate_shrunk": 0.541871921182266,
+        "cluster": 1,
+        "field_share": 0.7297297297297297,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 37,
+        "venue": "DY Patil Stadium",
+        "venue_id": "dy_patil"
+      },
+      {
+        "avg_first_innings_shrunk": 164.67833989349384,
+        "chase_win_rate_shrunk": 0.5182637791616321,
+        "cluster": 1,
+        "field_share": 0.5869565217391305,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 46,
+        "venue": "Dubai International Cricket Stadium",
+        "venue_id": "dubai_ics"
+      },
+      {
+        "avg_first_innings_shrunk": 169.6259742090057,
+        "chase_win_rate_shrunk": 0.5692867851788392,
+        "cluster": 1,
+        "field_share": 0.6728971962616822,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 107,
+        "venue": "Eden Gardens",
+        "venue_id": "eden_gardens"
+      },
+      {
+        "avg_first_innings_shrunk": 168.3660145638825,
+        "chase_win_rate_shrunk": 0.5558870464164296,
+        "cluster": 1,
+        "field_share": 0.7213114754098361,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 61,
+        "venue": "I. S. Bindra PCA Stadium",
+        "venue_id": "pca_mohali"
+      },
+      {
+        "avg_first_innings_shrunk": 158.75948136142625,
+        "chase_win_rate_shrunk": 0.4987192118226601,
+        "cluster": 1,
+        "field_share": 0.3333333333333333,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 15,
+        "venue": "Kingsmead",
+        "venue_id": "kingsmead"
+      },
+      {
+        "avg_first_innings_shrunk": 165.87025031514497,
+        "chase_win_rate_shrunk": 0.47611302165628777,
+        "cluster": 1,
+        "field_share": 0.47959183673469385,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 98,
+        "venue": "M. A. Chidambaram Stadium",
+        "venue_id": "chepauk"
+      },
+      {
+        "avg_first_innings_shrunk": 163.44241039402715,
+        "chase_win_rate_shrunk": 0.466688201566664,
+        "cluster": 1,
+        "field_share": 0.6274509803921569,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 51,
+        "venue": "MCA Stadium",
+        "venue_id": "mca_pune"
+      },
+      {
+        "avg_first_innings_shrunk": 168.75744478823896,
+        "chase_win_rate_shrunk": 0.545591635669046,
+        "cluster": 1,
+        "field_share": 0.5777777777777777,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 90,
+        "venue": "Rajiv Gandhi International Cricket Stadium",
+        "venue_id": "uppal"
+      },
+      {
+        "avg_first_innings_shrunk": 165.77213791071165,
+        "chase_win_rate_shrunk": 0.49847525216983346,
+        "cluster": 1,
+        "field_share": 0.5,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 12,
+        "venue": "Sardar Patel Stadium (old Motera)",
+        "venue_id": "motera_old"
+      },
+      {
+        "avg_first_innings_shrunk": 168.89935170178282,
+        "chase_win_rate_shrunk": 0.6035779102929738,
+        "cluster": 1,
+        "field_share": 0.7,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 10,
+        "venue": "Saurashtra Cricket Association Stadium",
+        "venue_id": "sca_rajkot"
+      },
+      {
+        "avg_first_innings_shrunk": 169.03829530814943,
+        "chase_win_rate_shrunk": 0.6342048755841859,
+        "cluster": 1,
+        "field_share": 0.5882352941176471,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 68,
+        "venue": "Sawai Mansingh Stadium",
+        "venue_id": "sms_jaipur"
+      },
+      {
+        "avg_first_innings_shrunk": 161.63123773778042,
+        "chase_win_rate_shrunk": 0.6175784288306974,
+        "cluster": 1,
+        "field_share": 0.7142857142857143,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 28,
+        "venue": "Sharjah Cricket Stadium",
+        "venue_id": "sharjah"
+      },
+      {
+        "avg_first_innings_shrunk": 161.22668336525712,
+        "chase_win_rate_shrunk": 0.6121809225257501,
+        "cluster": 1,
+        "field_share": 0.5,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 12,
+        "venue": "SuperSport Park",
+        "venue_id": "supersport_park"
+      },
+      {
+        "avg_first_innings_shrunk": 161.02100072416292,
+        "chase_win_rate_shrunk": 0.5881773399014778,
+        "cluster": 1,
+        "field_share": 0.5135135135135135,
+        "label": "lower-scoring, chase-friendly",
+        "matches": 37,
+        "venue": "Zayed Cricket Stadium",
+        "venue_id": "zayed_abu_dhabi"
+      }
+    ],
+    "centroids": [
+      {
+        "avg_first_innings_shrunk": 177.97060145836568,
+        "chase_win_rate_shrunk": 0.5268120779276526,
+        "cluster": 0,
+        "field_share": 0.7919829160546443,
+        "label": "high-scoring, defend-friendly"
+      },
+      {
+        "avg_first_innings_shrunk": 165.65825265385953,
+        "chase_win_rate_shrunk": 0.5498884390154432,
+        "cluster": 1,
+        "field_share": 0.5874684461250685,
+        "label": "lower-scoring, chase-friendly"
+      }
+    ],
+    "k": 2,
+    "silhouette_by_k": {
+      "2": 0.3208738018784837,
+      "3": 0.299893642500943,
+      "4": 0.3050654470404052,
+      "5": 0.2515729910693497
+    }
+  },
+  "venues_top": [
+    {
+      "avg_first_innings": 173.12878787878788,
+      "avg_first_innings_shrunk": 172.8308946058849,
+      "bat_first_win_rate": 0.45038167938931295,
+      "bat_first_win_rate_shrunk": 0.4505817000314432,
+      "chase_win_rate_shrunk": 0.5494182999685568,
+      "city": "Mumbai",
+      "country": "India",
+      "decided": 131,
+      "field_share": 0.7651515151515151,
+      "first_season": 2008,
+      "last_season": 2026,
+      "matches": 132,
+      "venue": "Wankhede Stadium",
+      "venue_id": "wankhede"
+    },
+    {
+      "avg_first_innings": 169.6952380952381,
+      "avg_first_innings_shrunk": 169.6259742090057,
+      "bat_first_win_rate": 0.42857142857142855,
+      "bat_first_win_rate_shrunk": 0.4307132148211608,
+      "chase_win_rate_shrunk": 0.5692867851788392,
+      "city": "Kolkata",
+      "country": "India",
+      "decided": 105,
+      "field_share": 0.6728971962616822,
+      "first_season": 2008,
+      "last_season": 2026,
+      "matches": 107,
+      "venue": "Eden Gardens",
+      "venue_id": "eden_gardens"
+    },
+    {
+      "avg_first_innings": 174.78217821782178,
+      "avg_first_innings_shrunk": 174.25213544176268,
+      "bat_first_win_rate": 0.44,
+      "bat_first_win_rate_shrunk": 0.44120017913121357,
+      "chase_win_rate_shrunk": 0.5587998208687864,
+      "city": "Bengaluru",
+      "country": "India",
+      "decided": 100,
+      "field_share": 0.9134615384615384,
+      "first_season": 2008,
+      "last_season": 2026,
+      "matches": 104,
+      "venue": "M. Chinnaswamy Stadium",
+      "venue_id": "chinnaswamy"
+    },
+    {
+      "avg_first_innings": 172.88349514563106,
+      "avg_first_innings_shrunk": 172.53085870828016,
+      "bat_first_win_rate": 0.46534653465346537,
+      "bat_first_win_rate_shrunk": 0.4642524297696711,
+      "chase_win_rate_shrunk": 0.5357475702303289,
+      "city": "Delhi",
+      "country": "India",
+      "decided": 101,
+      "field_share": 0.625,
+      "first_season": 2008,
+      "last_season": 2026,
+      "matches": 104,
+      "venue": "Arun Jaitley Stadium",
+      "venue_id": "arun_jaitley"
+    },
+    {
+      "avg_first_innings": 165.5612244897959,
+      "avg_first_innings_shrunk": 165.87025031514497,
+      "bat_first_win_rate": 0.53125,
+      "bat_first_win_rate_shrunk": 0.5238869783437122,
+      "chase_win_rate_shrunk": 0.47611302165628777,
+      "city": "Chennai",
+      "country": "India",
+      "decided": 96,
+      "field_share": 0.47959183673469385,
+      "first_season": 2008,
+      "last_season": 2026,
+      "matches": 98,
+      "venue": "M. A. Chidambaram Stadium",
+      "venue_id": "chepauk"
+    },
+    {
+      "avg_first_innings": 168.74157303370785,
+      "avg_first_innings_shrunk": 168.75744478823896,
+      "bat_first_win_rate": 0.45454545454545453,
+      "bat_first_win_rate_shrunk": 0.45440836433095405,
+      "chase_win_rate_shrunk": 0.545591635669046,
+      "city": "Hyderabad",
+      "country": "India",
+      "decided": 88,
+      "field_share": 0.5777777777777777,
+      "first_season": 2008,
+      "last_season": 2026,
+      "matches": 90,
+      "venue": "Rajiv Gandhi International Cricket Stadium",
+      "venue_id": "uppal"
+    },
+    {
+      "avg_first_innings": 169.05882352941177,
+      "avg_first_innings_shrunk": 169.03829530814943,
+      "bat_first_win_rate": 0.35294117647058826,
+      "bat_first_win_rate_shrunk": 0.3657951244158141,
+      "chase_win_rate_shrunk": 0.6342048755841859,
+      "city": "Jaipur",
+      "country": "India",
+      "decided": 68,
+      "field_share": 0.5882352941176471,
+      "first_season": 2008,
+      "last_season": 2026,
+      "matches": 68,
+      "venue": "Sawai Mansingh Stadium",
+      "venue_id": "sms_jaipur"
+    },
+    {
+      "avg_first_innings": 168.27868852459017,
+      "avg_first_innings_shrunk": 168.3660145638825,
+      "bat_first_win_rate": 0.4426229508196721,
+      "bat_first_win_rate_shrunk": 0.4441129535835704,
+      "chase_win_rate_shrunk": 0.5558870464164296,
+      "city": "Mohali",
+      "country": "India",
+      "decided": 61,
+      "field_share": 0.7213114754098361,
+      "first_season": 2008,
+      "last_season": 2023,
+      "matches": 61,
+      "venue": "I. S. Bindra PCA Stadium",
+      "venue_id": "pca_mohali"
+    },
+    {
+      "avg_first_innings": 162.37254901960785,
+      "avg_first_innings_shrunk": 163.44241039402715,
+      "bat_first_win_rate": 0.5490196078431373,
+      "bat_first_win_rate_shrunk": 0.533311798433336,
+      "chase_win_rate_shrunk": 0.466688201566664,
+      "city": "Pune",
+      "country": "India",
+      "decided": 51,
+      "field_share": 0.6274509803921569,
+      "first_season": 2012,
+      "last_season": 2022,
+      "matches": 51,
+      "venue": "MCA Stadium",
+      "venue_id": "mca_pune"
+    },
+    {
+      "avg_first_innings": 163.7608695652174,
+      "avg_first_innings_shrunk": 164.67833989349384,
+      "bat_first_win_rate": 0.4883720930232558,
+      "bat_first_win_rate_shrunk": 0.48173622083836787,
+      "chase_win_rate_shrunk": 0.5182637791616321,
+      "city": "Dubai",
+      "country": "UAE",
+      "decided": 43,
+      "field_share": 0.5869565217391305,
+      "first_season": 2014,
+      "last_season": 2021,
+      "matches": 46,
+      "venue": "Dubai International Cricket Stadium",
+      "venue_id": "dubai_ics"
+    },
+    {
+      "avg_first_innings": 185.8048780487805,
+      "avg_first_innings_shrunk": 182.4899418438364,
+      "bat_first_win_rate": 0.4878048780487805,
+      "bat_first_win_rate_shrunk": 0.4810199942045784,
+      "chase_win_rate_shrunk": 0.5189800057954216,
+      "city": "Ahmedabad",
+      "country": "India",
+      "decided": 41,
+      "field_share": 0.8048780487804879,
+      "first_season": 2021,
+      "last_season": 2026,
+      "matches": 41,
+      "venue": "Narendra Modi Stadium",
+      "venue_id": "narendra_modi"
+    },
+    {
+      "avg_first_innings": 158.8918918918919,
+      "avg_first_innings_shrunk": 161.02100072416292,
+      "bat_first_win_rate": 0.4,
+      "bat_first_win_rate_shrunk": 0.4118226600985222,
+      "chase_win_rate_shrunk": 0.5881773399014778,
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "decided": 35,
+      "field_share": 0.5135135135135135,
+      "first_season": 2014,
+      "last_season": 2021,
+      "matches": 37,
+      "venue": "Zayed Cricket Stadium",
+      "venue_id": "zayed_abu_dhabi"
+    }
+  ]
+}
