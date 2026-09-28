@@ -1,0 +1,23 @@
+%% D3 User workflow (activity): analyst path and predictor path
+flowchart TB
+  S((Start)) --> H["Open dashboard<br/>Home: KPIs, data quality, model status"]
+  H --> Q{"Goal?"}
+  Q -- "explore / analyse" --> E1["Data Explorer:<br/>set season / team / venue / stage filters"]
+  E1 --> E2{"Rows found?"}
+  E2 -- no --> E3["Empty-state hint:<br/>widen filters"] --> E1
+  E2 -- yes --> E4["Inspect table · download sanitised CSV"]
+  E4 --> E5["Team Analytics / Venue & Toss:<br/>records, H2H, Elo, toss test with CIs"]
+  E5 --> Z((End))
+  Q -- "predict a match" --> P1["Predict Match:<br/>team A, team B, venue preselected"]
+  P1 --> P2{"Toss known?"}
+  P2 -- yes --> P3["Add toss winner + decision<br/>(post-toss tier)"] --> P4
+  P2 -- no --> P4["Click Predict"]
+  P4 --> P5{"Valid input?"}
+  P5 -- no --> P6["Friendly error<br/>(e.g. same team twice)"] --> P1
+  P5 -- yes --> P7["Probability bar · drivers · model info<br/>logged to prediction_log"]
+  P7 --> P8["What-If: toss / venue / opponent Δ"]
+  P8 --> Z
+  Q -- "maintain data" --> M1["Upload CSV (≤ 5 MB)"] --> M2["Dry-run validation report"]
+  M2 --> M3{"Apply?"}
+  M3 -- yes --> M4["Atomic append · rebuild cache + DB"] --> Z
+  M3 -- no --> Z

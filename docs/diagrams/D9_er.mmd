@@ -1,0 +1,114 @@
+%% D9 ER diagram (from src/creaseiq/db/models.py)
+erDiagram
+  FRANCHISE ||--o{ TEAM_ALIAS : "is known as"
+  FRANCHISE ||--o{ MATCH : "team1 / team2 / toss / bat first / winner"
+  FRANCHISE ||--o{ SEASON : "champion of"
+  SEASON ||--o{ MATCH : contains
+  VENUE ||--o{ MATCH : hosts
+  MATCH ||--o{ MATCH_PLAYER : lists
+  PLAYER ||--o{ MATCH_PLAYER : "plays in"
+  FRANCHISE ||--o{ MATCH_PLAYER : "for"
+  PLAYER |o--o{ MATCH : "player of the match"
+  OFFICIAL |o--o{ MATCH : "referee / umpires"
+  FRANCHISE ||--o{ PREDICTION_LOG : "team A / B"
+  VENUE ||--o{ PREDICTION_LOG : at
+  FRANCHISE {
+    string franchise_id PK
+    string canonical_name UK
+    string short_code
+    bool active
+    text lineage_note
+  }
+  TEAM_ALIAS {
+    string alias PK
+    string franchise_id FK
+    int valid_from_year
+    int valid_to_year
+  }
+  VENUE {
+    string venue_id PK
+    string canonical_name UK
+    string city
+    string country
+  }
+  SEASON {
+    int season_id PK
+    int season_year UK
+    string raw_label
+    text host_note
+    int n_matches
+    string champion_id FK
+  }
+  PLAYER {
+    int player_id PK
+    string name UK
+  }
+  OFFICIAL {
+    int official_id PK
+    string name UK
+  }
+  MATCH {
+    int match_id PK
+    int season_id FK
+    date date
+    int match_number
+    string stage
+    string venue_id FK
+    string team1_id FK
+    string team2_id FK
+    string toss_winner_id FK
+    string toss_decision "CHECK bat|field"
+    string bat_first_id FK
+    int team1_runs
+    int team1_wkts
+    int team2_runs
+    int team2_wkts
+    float first_innings_runs
+    float second_innings_runs
+    string winner_id FK
+    string super_over_winner_id FK
+    string result_type "CHECK complete|tie|no result"
+    string margin_type
+    float margin_value
+    bool dls_flag
+    bool voided
+    bool team1_home
+    bool team2_home
+    int potm_player_id FK
+    int referee_id FK
+    int umpire1_id FK
+    int umpire2_id FK
+    int tv_umpire_id FK
+    int reserve_umpire_id FK
+  }
+  MATCH_PLAYER {
+    int match_id PK, FK
+    string team_id PK, FK
+    int player_id PK, FK
+    int slot_no
+  }
+  MODEL_RUN {
+    string run_id PK
+    datetime created_at
+    string model_name
+    string tier
+    text params_json
+    string data_sha256
+    string git_commit
+    text metrics_json
+    text artifact_path
+    string artifact_sha256
+  }
+  PREDICTION_LOG {
+    int prediction_id PK
+    datetime created_at
+    string run_id
+    string tier
+    string team_a_id FK
+    string team_b_id FK
+    string venue_id FK
+    string stage
+    text toss_json
+    float p_a "CHECK 0..1"
+    float latency_ms
+  }

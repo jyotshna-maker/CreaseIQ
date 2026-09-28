@@ -1,0 +1,24 @@
+%% D2 Data pipeline / process flow (creaseiq all)
+flowchart LR
+  A[("raw CSV<br/>1,243 × 31")] --> B{"SHA-256<br/>matches config?"}
+  B -- no --> X1["DataValidationError<br/>(raw is immutable)"]
+  B -- yes --> AP[("+ appended<br/>uploads")]
+  AP --> C["validate_raw<br/>pandera schema + 9 row rules"]
+  C -- "violations (lenient)" --> Q[("quarantine.csv<br/>with reasons")]
+  C -- valid --> D["clean_matches<br/>canonical teams/venues · bat_first from toss<br/>tie correction · voided · dls_flag · stages"]
+  E[("configs/*.yaml<br/>data/external")] --> D
+  D --> F[("matches.parquet<br/>match_players.parquet")]
+  D --> G["quality report<br/>+ data dictionary"]
+  F --> H["load_database<br/>upsert dims · refresh facts (1 txn)"]
+  H --> I[("SQLite<br/>3NF + views")]
+  F --> J["tune_elo<br/>walk-forward grid"]
+  J --> K["FeatureBuilder<br/>as-of date batches"]
+  K --> L["walk-forward CV<br/>5 families + baselines"]
+  L --> M["one-SE selection<br/>time-ordered calibration"]
+  M --> N["freeze + hash selection<br/>holdout ledger"]
+  N --> O["holdout 2025-26<br/>evaluated once"]
+  O --> P["refit on all data<br/>register (SHA-256)"]
+  P --> R[("models/registry.json")]
+  O --> S[("reports/metrics.json<br/>model card · figures")]
+  R --> T["Predictor → PredictionService<br/>CLI · dashboard"]
+  I --> T

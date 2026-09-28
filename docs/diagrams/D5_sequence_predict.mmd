@@ -1,0 +1,38 @@
+%% D5 Sequence: serving one prediction (Predict Match page → prediction_log)
+sequenceDiagram
+  autonumber
+  actor U as User
+  participant UI as Streamlit page 4_Predict_Match
+  participant PS as PredictionService
+  participant P as Predictor
+  participant R as ModelRegistry
+  participant FB as FeatureBuilder / MatchState
+  participant M as SymmetricModel
+  participant C as Calibrator
+  participant X as explain
+  participant DB as MatchRepository (prediction_log)
+  U->>UI: choose teams, venue (+ toss) · click Predict
+  UI->>PS: predict(PredictionRequest)
+  PS->>PS: validate() against allow-lists
+  alt invalid input
+    PS-->>UI: InputError → friendly message
+  end
+  PS->>P: predict(Fixture)
+  opt first use (cached afterwards)
+    P->>R: load(tier)
+    R->>R: sha256(artifact) == registry entry?
+    R-->>P: ModelBundle (or ModelIntegrityError)
+    P->>FB: state_as_of(matches, players, date)
+  end
+  P->>FB: pair_features(A, B, venue, date, toss, XI)
+  FB-->>P: allow-listed feature row
+  P->>M: predict_proba(x) = ½[p(A,B) + 1 − p(B,A)]
+  M-->>P: raw probability
+  P->>C: symmetric_transform(p)
+  C-->>P: calibrated p
+  P->>X: linear_contributions + driver_sentence
+  X-->>P: top drivers
+  P-->>PS: {p_a, tier, drivers, run_id}
+  PS->>DB: log_prediction(inputs, p_a, latency)
+  PS-->>UI: result + latency_ms
+  UI-->>U: probability bar · explanation · model info

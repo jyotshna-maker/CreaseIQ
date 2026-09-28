@@ -1,0 +1,122 @@
+%% D7 Class diagram (key classes; names and members match the source code)
+classDiagram
+  direction LR
+  class Settings {
+    +Path root
+    +dict data
+    +get(key) Any
+    +require(key) Any
+    +path(key) Path
+    +seed int
+    +db_url str
+  }
+  class MatchSource {
+    <<Protocol>>
+    +name str
+    +load() DataFrame
+    +fingerprint() str
+  }
+  class CsvMatchSource
+  class CombinedCsvSource
+  MatchSource <|.. CsvMatchSource
+  MatchSource <|.. CombinedCsvSource
+  CombinedCsvSource o-- CsvMatchSource
+  class CanonicalMaps {
+    +team_id(raw, season_year) str
+    +venue_id(raw) str
+    +is_home(team, venue, year) bool
+  }
+  class MatchRepository {
+    +matches(season_from, season_to, team_id) DataFrame
+    +head_to_head(team_id) DataFrame
+    +log_prediction(...)
+    +record_model_run(record)
+  }
+  class EloRatingSystem {
+    +EloParams params
+    +rating(team) float
+    +start_season(year)
+    +compute_update(...) tuple
+    +apply(deltas, played)
+  }
+  class MatchState {
+    +pair_features(a, b, ...) dict
+    +update_batch(batch, xis)
+  }
+  class FeatureBuilder {
+    +FeatureParams params
+    +build(matches, players) FeatureSet
+    +state_as_of(matches, players, date) MatchState
+  }
+  class FeatureSet {
+    +DataFrame frame
+    +xy(tier) tuple
+  }
+  MatchState *-- EloRatingSystem
+  MatchState *-- FormState
+  MatchState *-- HeadToHeadState
+  MatchState *-- VenueState
+  MatchState *-- SquadState
+  FeatureBuilder ..> MatchState : creates
+  FeatureBuilder ..> FeatureSet : returns
+  class SymmetricModel {
+    +estimator
+    +columns list
+    +fit(x, y)
+    +predict_proba(x) ndarray
+  }
+  class BlendModel {
+    +weight float
+    +predict_proba(x) ndarray
+  }
+  BlendModel o-- SymmetricModel : 2
+  class Calibrator {
+    +method
+    +fit(p, y)
+    +symmetric_transform(p) ndarray
+  }
+  class ModelBundle {
+    +tier str
+    +model
+    +calibrator
+    +feature_columns list
+  }
+  class ModelRegistry {
+    +register(bundle, ...) dict
+    +load(tier) ModelBundle
+  }
+  class Predictor {
+    +predict(Fixture) dict
+    +swap_check(Fixture) float
+  }
+  class PredictionService {
+    +validate(PredictionRequest) Fixture
+    +predict(PredictionRequest) dict
+  }
+  class AppContext {
+    +Settings settings
+    +matches DataFrame
+    +repo MatchRepository
+    +predictor Predictor
+  }
+  ModelBundle o-- SymmetricModel
+  ModelBundle o-- Calibrator
+  ModelRegistry ..> ModelBundle : hash-verified load
+  Predictor --> ModelRegistry
+  Predictor --> FeatureBuilder
+  Predictor --> CanonicalMaps
+  PredictionService --> AppContext
+  AppContext --> Predictor
+  AppContext --> MatchRepository
+  AppContext --> Settings
+  class CreaseIQError
+  class DataValidationError
+  class FeatureLeakageError
+  class ModelIntegrityError
+  class InputError
+  class ConfigError
+  CreaseIQError <|-- DataValidationError
+  CreaseIQError <|-- FeatureLeakageError
+  CreaseIQError <|-- ModelIntegrityError
+  CreaseIQError <|-- InputError
+  CreaseIQError <|-- ConfigError

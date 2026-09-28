@@ -1,0 +1,33 @@
+%% D6 Sequence: training and evaluation (creaseiq train)
+sequenceDiagram
+  autonumber
+  actor Mt as Maintainer
+  participant CLI as cli.train
+  participant EX as experiment.run_experiment
+  participant ET as elo_tuning
+  participant FB as FeatureBuilder
+  participant TR as train (walk_forward, select_model)
+  participant CA as calibrate
+  participant LG as holdout ledger
+  participant EV as evaluate
+  participant RG as ModelRegistry
+  participant RP as reporting (assets, model card)
+  Mt->>CLI: creaseiq train
+  CLI->>EX: run_experiment(settings, matches, players)
+  EX->>ET: tune_elo(grid) on dev folds 2012–2024
+  ET-->>EX: best Elo params
+  EX->>FB: build(matches, players) with tuned Elo
+  loop each tier (pre_toss, post_toss)
+    EX->>TR: baselines + 5 families × small grids (walk-forward)
+    TR-->>EX: CV results → one-SE selection
+    EX->>CA: time_ordered_calibration(OOF) → choose method
+    EX->>LG: log_holdout_access(hash(frozen selection))
+    EX->>EV: fit on dev → predict holdout 2025–26 (once)
+    EV-->>EX: metrics + bootstrap CIs + paired tests + too-good guard
+    EX->>TR: refit frozen config on all decided matches
+    EX->>RG: register(bundle) → artifact SHA-256
+  end
+  EX->>EX: score regressor · PSI drift
+  EX-->>CLI: metrics
+  CLI->>RP: metrics.json · model_card.md · figures
+  CLI-->>Mt: holdout table

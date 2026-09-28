@@ -1,0 +1,47 @@
+%% D8 Component / package diagram. Arrows = allowed imports (import-linter contract + AST test)
+flowchart TB
+  subgraph L4["layer 4: presentation"]
+    app["creaseiq.app"]
+    cli["creaseiq.cli"]
+  end
+  subgraph L3["layer 3: services"]
+    services["creaseiq.services"]
+  end
+  subgraph L2["layer 2: domain"]
+    analytics["creaseiq.analytics"]
+    features["creaseiq.features"]
+    models["creaseiq.models"]
+    simulation["creaseiq.simulation"]
+    reporting["creaseiq.reporting"]
+    viz["creaseiq.viz"]
+  end
+  subgraph L1["layer 1: data access"]
+    data["creaseiq.data"]
+    db["creaseiq.db"]
+  end
+  subgraph L0["layer 0: core"]
+    core["config · logging_setup · exceptions · utils"]
+  end
+  app --> services
+  app --> viz
+  cli --> services
+  cli --> data
+  cli --> db
+  cli --> models
+  cli --> analytics
+  cli --> reporting
+  services --> analytics
+  services --> models
+  services --> simulation
+  services --> data
+  services --> db
+  models --> features
+  models --> reporting
+  features --> analytics
+  analytics --> core
+  reporting --> core
+  simulation --> models
+  data --> core
+  db --> data
+  db --> core
+  viz --> core

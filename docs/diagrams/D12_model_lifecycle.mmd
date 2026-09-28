@@ -1,0 +1,16 @@
+%% D12 Model lifecycle state diagram
+stateDiagram-v2
+  [*] --> Candidate: grid configuration
+  Candidate --> Validated: walk-forward CV on dev seasons
+  Validated --> Rejected: outside one SE of best
+  Validated --> Selected: one-SE rule (simplest adequate)
+  Selected --> Calibrated: time-ordered calibration choice
+  Calibrated --> Frozen: selection hashed + logged in ledger
+  Frozen --> Evaluated: holdout 2025-26 (once)
+  Evaluated --> Flagged: too-good guard fires (AUC > 0.72)
+  Flagged --> [*]: investigate leakage
+  Evaluated --> Registered: refit on all data · SHA-256 recorded
+  Registered --> Served: hash verified on load
+  Served --> Monitored: prediction_log · PSI drift
+  Monitored --> Candidate: drift alert / new season → retrain
+  Rejected --> [*]
