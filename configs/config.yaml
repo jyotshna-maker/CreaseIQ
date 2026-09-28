@@ -1,0 +1,69 @@
+# CreaseIQ runtime configuration. Every path is relative to the project root.
+# Override the DB URL and log level with the env vars CREASEIQ_DB_URL / CREASEIQ_LOG_LEVEL.
+
+project:
+  name: CreaseIQ
+  seed: 42
+
+paths:
+  raw_csv: data/raw/ipl_matches.csv
+  raw_sha256: db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c
+  interim_dir: data/interim
+  processed_dir: data/processed
+  external_dir: data/external
+  models_dir: models
+  reports_dir: reports
+  figures_dir: reports/figures
+  docs_dir: docs
+  logs_dir: logs
+  team_lineage: configs/team_lineage.yaml
+  venue_canonical: configs/venue_canonical.yaml
+  home_grounds: configs/home_grounds.yaml
+
+database:
+  url: sqlite:///data/creaseiq.db
+
+logging:
+  level: INFO
+  file: logs/creaseiq.log
+  max_bytes: 1000000
+  backup_count: 3
+
+data:
+  # Matches voided and replayed in full (R8/R10); dates are dd-mm-yyyy as in the raw file.
+  voided_matches:
+    - {date: "08-05-2025", teams: ["Punjab Kings", "Delhi Capitals"], reason: "Stopped at 10.1 overs by a security blackout; voided and replayed at Jaipur on 24-05-2025"}
+  impact_player_from: 2023
+  upload_max_bytes: 5000000
+
+features:
+  shrinkage_m: 10          # prior strength for smoothed win rates (tuned in Phase 4)
+  form_windows: [5, 10]
+  h2h_recent_seasons: 5
+  elo:
+    initial: 1500
+    scale: 400
+    k: 20
+    home_bonus: 30
+    season_regression: 0.33
+    use_margin: true
+    early_season_k_boost: 0.0
+
+modeling:
+  dev_last_season: 2024
+  holdout_seasons: [2025, 2026]
+  first_validation_season: 2012
+  bootstrap_resamples: 2000
+  paired_bootstrap_resamples: 10000
+  calibration: sigmoid
+  too_good_auc: 0.72
+  too_good_accuracy: 0.68
+  elo_grid:
+    k: [10, 15, 20, 25, 32, 40]
+    home_bonus: [0, 15, 30, 50, 75]
+    season_regression: [0.0, 0.1, 0.2, 0.33, 0.5]
+    use_margin: [false, true]
+
+monitoring:
+  psi_warn: 0.1
+  psi_alert: 0.25
