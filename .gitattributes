@@ -1,0 +1,19 @@
+# Byte-exact files: never convert line endings (the raw CSV is verified by SHA-256,
+# model artifacts by SHA-256, and Git for Windows defaults to core.autocrlf=true).
+data/raw/** -text
+data/external/*.csv -text
+*.csv -text
+*.joblib binary
+*.png binary
+*.pdf binary
+*.parquet binary
+
+# Source files: normalise to LF in the repository.
+*.py text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.mmd text eol=lf
+*.svg text eol=lf
