@@ -38,10 +38,11 @@ def version() -> None:
 def info() -> None:
     """Show resolved configuration: project root, raw data path and database URL."""
     settings = get_settings()
-    console.print(f"root     : {settings.root}")
-    console.print(f"raw csv  : {settings.path('raw_csv')}")
-    console.print(f"database : {settings.db_url}")
-    console.print(f"seed     : {settings.seed}")
+    # soft_wrap: never break long paths mid-name (they must stay copy-pasteable).
+    console.print(f"root     : {settings.root}", soft_wrap=True)
+    console.print(f"raw csv  : {settings.path('raw_csv')}", soft_wrap=True)
+    console.print(f"database : {settings.db_url}", soft_wrap=True)
+    console.print(f"seed     : {settings.seed}", soft_wrap=True)
 
 
 @app.command()
