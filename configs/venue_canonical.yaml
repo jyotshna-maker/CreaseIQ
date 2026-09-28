@@ -1,0 +1,106 @@
+# Canonical venues (FR-02). Built from Phase 0 research R2 (docs/research_notes.md).
+# 60 raw venue strings -> 37 venue_ids (36 grounds + old Motera, kept separate because the
+# stadium was demolished in 2015 and rebuilt as the Narendra Modi Stadium). Coverage is
+# asserted by tests/unit/test_canonical.py.
+# Any raw string not listed here makes the pipeline fail loudly (DataValidationError).
+
+venues:
+  arun_jaitley:     {name: Arun Jaitley Stadium, city: Delhi, country: India, note: "Feroz Shah Kotla until Sep 2019"}
+  barabati:         {name: Barabati Stadium, city: Cuttack, country: India}
+  aca_guwahati:     {name: Barsapara Cricket Stadium, city: Guwahati, country: India}
+  ekana:            {name: BRSABV Ekana Cricket Stadium, city: Lucknow, country: India}
+  brabourne:        {name: Brabourne Stadium, city: Mumbai, country: India}
+  buffalo_park:     {name: Buffalo Park, city: East London, country: South Africa}
+  diamond_oval:     {name: De Beers Diamond Oval, city: Kimberley, country: South Africa}
+  dy_patil:         {name: DY Patil Stadium, city: Navi Mumbai, country: India}
+  aca_vdca:         {name: ACA-VDCA Cricket Stadium, city: Visakhapatnam, country: India}
+  dubai_ics:        {name: Dubai International Cricket Stadium, city: Dubai, country: UAE}
+  eden_gardens:     {name: Eden Gardens, city: Kolkata, country: India}
+  green_park:       {name: Green Park Stadium, city: Kanpur, country: India}
+  hpca:             {name: HPCA Stadium, city: Dharamsala, country: India}
+  holkar:           {name: Holkar Cricket Stadium, city: Indore, country: India}
+  jsca:             {name: JSCA International Stadium Complex, city: Ranchi, country: India}
+  kingsmead:        {name: Kingsmead, city: Durban, country: South Africa}
+  chinnaswamy:      {name: M. Chinnaswamy Stadium, city: Bengaluru, country: India}
+  chepauk:          {name: M. A. Chidambaram Stadium, city: Chennai, country: India}
+  mys_mullanpur:    {name: Maharaja Yadavindra Singh International Cricket Stadium, city: New Chandigarh, country: India, note: "New ground (2024+), not PCA Mohali"}
+  mca_pune:         {name: MCA Stadium, city: Pune, country: India, note: "Branded Subrata Roy Sahara Stadium 2012-13"}
+  narendra_modi:    {name: Narendra Modi Stadium, city: Ahmedabad, country: India, note: "Opened 2020 on the old Motera site"}
+  motera_old:       {name: Sardar Patel Stadium (old Motera), city: Ahmedabad, country: India, note: "Demolished 2015; distinct pitch/ground era"}
+  nehru_kochi:      {name: Jawaharlal Nehru Stadium, city: Kochi, country: India}
+  wanderers:        {name: Wanderers Stadium, city: Johannesburg, country: South Africa}
+  newlands:         {name: Newlands, city: Cape Town, country: South Africa}
+  mangaung_oval:    {name: Mangaung Oval, city: Bloemfontein, country: South Africa, note: "Raw name OUTsurance Oval (sponsor)"}
+  pca_mohali:       {name: I. S. Bindra PCA Stadium, city: Mohali, country: India}
+  uppal:            {name: Rajiv Gandhi International Cricket Stadium, city: Hyderabad, country: India}
+  sca_rajkot:       {name: Saurashtra Cricket Association Stadium, city: Rajkot, country: India}
+  sms_jaipur:       {name: Sawai Mansingh Stadium, city: Jaipur, country: India}
+  raipur:           {name: Shaheed Veer Narayan Singh International Stadium, city: Raipur, country: India}
+  sharjah:          {name: Sharjah Cricket Stadium, city: Sharjah, country: UAE}
+  zayed_abu_dhabi:  {name: Zayed Cricket Stadium, city: Abu Dhabi, country: UAE, note: "Also recorded as Sheikh Zayed Stadium"}
+  st_georges_park:  {name: St George's Park, city: Gqeberha, country: South Africa, note: "City formerly Port Elizabeth"}
+  supersport_park:  {name: SuperSport Park, city: Centurion, country: South Africa}
+  vca_jamtha:       {name: VCA Stadium Jamtha, city: Nagpur, country: India}
+  wankhede:         {name: Wankhede Stadium, city: Mumbai, country: India}
+
+aliases:
+  "Arun Jaitley Stadium": arun_jaitley
+  "Arun Jaitley Stadium, Delhi": arun_jaitley
+  "Feroz Shah Kotla": arun_jaitley
+  "Barabati Stadium": barabati
+  "Barsapara Cricket Stadium, Guwahati": aca_guwahati
+  "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow": ekana
+  "Brabourne Stadium": brabourne
+  "Brabourne Stadium, Mumbai": brabourne
+  "Buffalo Park": buffalo_park
+  "De Beers Diamond Oval": diamond_oval
+  "Dr DY Patil Sports Academy": dy_patil
+  "Dr DY Patil Sports Academy, Mumbai": dy_patil
+  "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium": aca_vdca
+  "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam": aca_vdca
+  "Dubai International Cricket Stadium": dubai_ics
+  "Eden Gardens": eden_gardens
+  "Eden Gardens, Kolkata": eden_gardens
+  "Green Park": green_park
+  "Himachal Pradesh Cricket Association Stadium": hpca
+  "Himachal Pradesh Cricket Association Stadium, Dharamsala": hpca
+  "Holkar Cricket Stadium": holkar
+  "JSCA International Stadium Complex": jsca
+  "Kingsmead": kingsmead
+  "M Chinnaswamy Stadium": chinnaswamy
+  "M Chinnaswamy Stadium, Bengaluru": chinnaswamy
+  "M.Chinnaswamy Stadium": chinnaswamy
+  "MA Chidambaram Stadium": chepauk
+  "MA Chidambaram Stadium, Chepauk": chepauk
+  "MA Chidambaram Stadium, Chepauk, Chennai": chepauk
+  "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur": mys_mullanpur
+  "Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh": mys_mullanpur
+  "Maharashtra Cricket Association Stadium": mca_pune
+  "Maharashtra Cricket Association Stadium, Pune": mca_pune
+  "Subrata Roy Sahara Stadium": mca_pune
+  "Narendra Modi Stadium, Ahmedabad": narendra_modi
+  "Sardar Patel Stadium, Motera": motera_old
+  "Nehru Stadium": nehru_kochi
+  "New Wanderers Stadium": wanderers
+  "Newlands": newlands
+  "OUTsurance Oval": mangaung_oval
+  "Punjab Cricket Association IS Bindra Stadium": pca_mohali
+  "Punjab Cricket Association IS Bindra Stadium, Mohali": pca_mohali
+  "Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh": pca_mohali
+  "Punjab Cricket Association Stadium, Mohali": pca_mohali
+  "Rajiv Gandhi International Stadium": uppal
+  "Rajiv Gandhi International Stadium, Uppal": uppal
+  "Rajiv Gandhi International Stadium, Uppal, Hyderabad": uppal
+  "Saurashtra Cricket Association Stadium": sca_rajkot
+  "Sawai Mansingh Stadium": sms_jaipur
+  "Sawai Mansingh Stadium, Jaipur": sms_jaipur
+  "Shaheed Veer Narayan Singh International Stadium": raipur
+  "Shaheed Veer Narayan Singh International Stadium, Raipur": raipur
+  "Sharjah Cricket Stadium": sharjah
+  "Sheikh Zayed Stadium": zayed_abu_dhabi
+  "Zayed Cricket Stadium, Abu Dhabi": zayed_abu_dhabi
+  "St George's Park": st_georges_park
+  "SuperSport Park": supersport_park
+  "Vidarbha Cricket Association Stadium, Jamtha": vca_jamtha
+  "Wankhede Stadium": wankhede
+  "Wankhede Stadium, Mumbai": wankhede

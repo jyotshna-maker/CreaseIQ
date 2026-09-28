@@ -1,0 +1,63 @@
+# Home grounds by franchise and era (R2). Used for the is_home feature and home-advantage analytics.
+# A match is "home" for a team if the venue is one of its home venue_ids for that season_year,
+# and the season is not neutral. Secondary homes count as home (the franchise sold the tickets).
+
+neutral_seasons:
+  2009: "Held in South Africa"
+  2020: "Held in the UAE"
+  2021: "India phase in neutral hubs, then UAE"
+# The 2014 first leg (UAE) and 2022 league stage (Maharashtra hub) are neutral in part. UAE and
+# hub venues are simply not listed as anyone's home, so those matches resolve to neutral automatically.
+
+homes:
+  csk:
+    - {venues: [chepauk], from: 2008, to: 2026}
+    - {venues: [jsca], from: 2014, to: 2014}
+    - {venues: [mca_pune], from: 2018, to: 2018}
+  mi:
+    - {venues: [wankhede], from: 2008, to: 2026}
+    - {venues: [dy_patil], from: 2008, to: 2008}
+    - {venues: [brabourne], from: 2010, to: 2010}
+    - {venues: [aca_vdca], from: 2016, to: 2016}
+  kkr:
+    - {venues: [eden_gardens], from: 2008, to: 2026}
+    - {venues: [jsca], from: 2013, to: 2013}
+  rcb:
+    - {venues: [chinnaswamy], from: 2008, to: 2026}
+    - {venues: [raipur], from: 2026, to: 2026}
+  dc:
+    - {venues: [arun_jaitley], from: 2008, to: 2026}
+    - {venues: [raipur], from: 2013, to: 2016}
+    - {venues: [aca_vdca], from: 2024, to: 2025}
+  pbks:
+    - {venues: [pca_mohali], from: 2008, to: 2023}
+    - {venues: [mys_mullanpur], from: 2024, to: 2026}
+    - {venues: [hpca], from: 2010, to: 2013}
+    - {venues: [hpca], from: 2023, to: 2026}
+    - {venues: [holkar], from: 2017, to: 2018}
+    - {venues: [barabati], from: 2014, to: 2014}
+  rr:
+    - {venues: [sms_jaipur], from: 2008, to: 2026}
+    - {venues: [motera_old], from: 2010, to: 2015}
+    - {venues: [aca_guwahati], from: 2023, to: 2026}
+  srh:
+    - {venues: [uppal], from: 2013, to: 2026}
+    - {venues: [aca_vdca], from: 2015, to: 2016}
+  deccan_chargers:
+    - {venues: [uppal], from: 2008, to: 2012}
+    - {venues: [dy_patil, vca_jamtha, barabati], from: 2010, to: 2010}
+    - {venues: [barabati, aca_vdca], from: 2012, to: 2012}
+  gt:
+    - {venues: [narendra_modi], from: 2023, to: 2026}
+  lsg:
+    - {venues: [ekana], from: 2023, to: 2026}
+  gujarat_lions:
+    - {venues: [sca_rajkot, green_park], from: 2016, to: 2017}
+  rps:
+    - {venues: [mca_pune], from: 2016, to: 2017}
+    - {venues: [aca_vdca], from: 2016, to: 2016}
+  pune_warriors:
+    - {venues: [dy_patil], from: 2011, to: 2011}
+    - {venues: [mca_pune], from: 2012, to: 2013}
+  kochi_tuskers:
+    - {venues: [nehru_kochi, holkar], from: 2011, to: 2011}
