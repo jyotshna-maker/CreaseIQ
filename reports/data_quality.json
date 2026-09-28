@@ -1,0 +1,747 @@
+{
+  "dls_rows": [
+    {
+      "date_raw": "17-05-2008",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "dc",
+      "team2": "pbks",
+      "winner": "pbks"
+    },
+    {
+      "date_raw": "18-05-2008",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "kkr",
+      "team2": "csk",
+      "winner": "csk"
+    },
+    {
+      "date_raw": "19-04-2009",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "dc",
+      "team2": "pbks",
+      "winner": "dc"
+    },
+    {
+      "date_raw": "21-04-2009",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "pbks",
+      "team2": "kkr",
+      "winner": "kkr"
+    },
+    {
+      "date_raw": "07-05-2009",
+      "dls_external": true,
+      "dls_heuristic": false,
+      "team1": "csk",
+      "team2": "pbks",
+      "winner": "csk"
+    },
+    {
+      "date_raw": "18-04-2011",
+      "dls_external": true,
+      "dls_heuristic": false,
+      "team1": "kochi_tuskers",
+      "team2": "csk",
+      "winner": "kochi_tuskers"
+    },
+    {
+      "date_raw": "07-05-2011",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "kkr",
+      "team2": "csk",
+      "winner": "kkr"
+    },
+    {
+      "date_raw": "14-05-2011",
+      "dls_external": true,
+      "dls_heuristic": false,
+      "team1": "rcb",
+      "team2": "kkr",
+      "winner": "rcb"
+    },
+    {
+      "date_raw": "10-05-2014",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "dc",
+      "team2": "srh",
+      "winner": "srh"
+    },
+    {
+      "date_raw": "22-04-2015",
+      "dls_external": true,
+      "dls_heuristic": false,
+      "team1": "srh",
+      "team2": "kkr",
+      "winner": "srh"
+    },
+    {
+      "date_raw": "15-05-2015",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "srh",
+      "team2": "rcb",
+      "winner": "rcb"
+    },
+    {
+      "date_raw": "26-04-2016",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "srh",
+      "team2": "rps",
+      "winner": "rps"
+    },
+    {
+      "date_raw": "14-05-2016",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "kkr",
+      "team2": "rps",
+      "winner": "kkr"
+    },
+    {
+      "date_raw": "17-05-2016",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "rps",
+      "team2": "dc",
+      "winner": "rps"
+    },
+    {
+      "date_raw": "18-05-2016",
+      "dls_external": true,
+      "dls_heuristic": false,
+      "team1": "rcb",
+      "team2": "pbks",
+      "winner": "rcb"
+    },
+    {
+      "date_raw": "17-05-2017",
+      "dls_external": true,
+      "dls_heuristic": true,
+      "team1": "srh",
+      "team2": "kkr",
+      "winner": "kkr"
+    },
+    {
+      "date_raw": "21-04-2018",
+      "dls_external": false,
+      "dls_heuristic": true,
+      "team1": "kkr",
+      "team2": "pbks",
+      "winner": "pbks"
+    },
+    {
+      "date_raw": "29-05-2023",
+      "dls_external": false,
+      "dls_heuristic": true,
+      "team1": "gt",
+      "team2": "csk",
+      "winner": "csk"
+    },
+    {
+      "date_raw": "06-05-2025",
+      "dls_external": false,
+      "dls_heuristic": true,
+      "team1": "mi",
+      "team2": "gt",
+      "winner": "gt"
+    }
+  ],
+  "fixes": {
+    "city_corrected": 170,
+    "city_unknown_imputed": 51,
+    "dls_flag_external": 16,
+    "dls_flag_heuristic": 14,
+    "dls_flag_total": 19,
+    "no_result_scores_excluded": 9,
+    "player_lists_parsed": 2486,
+    "season_label_mapped": 178,
+    "stage_derived_playoff": 74,
+    "team_alias_canonicalised": 651,
+    "tie_innings_corrected_super_over_removed": 16,
+    "venue_alias_canonicalised": 862,
+    "voided_flagged": 1
+  },
+  "identity": {
+    "franchises": 15,
+    "players": 811,
+    "raw_team_strings": 19,
+    "raw_venue_strings": 60,
+    "venues": 37
+  },
+  "notes": {
+    "dls_external_unmatched": 0,
+    "n_decided": 1218,
+    "n_matches": 1243,
+    "super_over_records_unmatched": 0
+  },
+  "raw": {
+    "column_names": [
+      "event_name",
+      "season",
+      "match_number",
+      "date",
+      "city",
+      "venue",
+      "team1",
+      "team2",
+      "toss_winner",
+      "toss_decision",
+      "team1_runs",
+      "team1_wickets",
+      "team2_runs",
+      "team2_wickets",
+      "winner",
+      "result_type",
+      "win_by_runs",
+      "win_by_wickets",
+      "player_of_match",
+      "match_referee",
+      "umpire1",
+      "umpire2",
+      "tv_umpire",
+      "reserve_umpire",
+      "match_type",
+      "overs_limit",
+      "balls_per_over",
+      "gender",
+      "team_type",
+      "team1_players",
+      "team2_players"
+    ],
+    "columns": 31,
+    "constant_columns": {
+      "balls_per_over": [
+        "6"
+      ],
+      "event_name": [
+        "Indian Premier League"
+      ],
+      "gender": [
+        "male"
+      ],
+      "match_type": [
+        "T20"
+      ],
+      "overs_limit": [
+        "20"
+      ],
+      "team_type": [
+        "club"
+      ]
+    },
+    "nulls": {
+      "match_number": 74,
+      "player_of_match": 9,
+      "winner": 25
+    },
+    "rows": 1243,
+    "sha256": "db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c"
+  },
+  "results": {
+    "bat_first_win_rate": 0.4532,
+    "decided": 1218,
+    "matches": 1243,
+    "no_results": 9,
+    "team1_bats_first_share_by_year": {
+      "2008": 0.552,
+      "2009": 0.474,
+      "2010": 0.517,
+      "2011": 0.603,
+      "2012": 0.5,
+      "2013": 0.434,
+      "2014": 0.55,
+      "2015": 0.627,
+      "2016": 0.583,
+      "2017": 0.458,
+      "2018": 1.0,
+      "2019": 1.0,
+      "2020": 1.0,
+      "2021": 1.0,
+      "2022": 1.0,
+      "2023": 1.0,
+      "2024": 1.0,
+      "2025": 1.0,
+      "2026": 1.0
+    },
+    "ties": 16,
+    "toss_decision_counts": {
+      "bat": 418,
+      "field": 825
+    },
+    "toss_winner_win_rate": 0.5156,
+    "voided": 1
+  },
+  "seasons": [
+    {
+      "champion": "rr",
+      "decided": 58,
+      "first_match": "2008-04-18",
+      "last_match": "2008-06-01",
+      "matches": 58,
+      "no_results": 0,
+      "raw_label": "2007/08",
+      "season_year": 2008,
+      "ties": 0
+    },
+    {
+      "champion": "deccan_chargers",
+      "decided": 56,
+      "first_match": "2009-04-18",
+      "last_match": "2009-05-24",
+      "matches": 57,
+      "no_results": 0,
+      "raw_label": "2009",
+      "season_year": 2009,
+      "ties": 1
+    },
+    {
+      "champion": "csk",
+      "decided": 59,
+      "first_match": "2010-03-12",
+      "last_match": "2010-04-25",
+      "matches": 60,
+      "no_results": 0,
+      "raw_label": "2009/10",
+      "season_year": 2010,
+      "ties": 1
+    },
+    {
+      "champion": "csk",
+      "decided": 72,
+      "first_match": "2011-04-08",
+      "last_match": "2011-05-28",
+      "matches": 73,
+      "no_results": 1,
+      "raw_label": "2011",
+      "season_year": 2011,
+      "ties": 0
+    },
+    {
+      "champion": "kkr",
+      "decided": 74,
+      "first_match": "2012-04-04",
+      "last_match": "2012-05-27",
+      "matches": 74,
+      "no_results": 0,
+      "raw_label": "2012",
+      "season_year": 2012,
+      "ties": 0
+    },
+    {
+      "champion": "mi",
+      "decided": 74,
+      "first_match": "2013-04-03",
+      "last_match": "2013-05-26",
+      "matches": 76,
+      "no_results": 0,
+      "raw_label": "2013",
+      "season_year": 2013,
+      "ties": 2
+    },
+    {
+      "champion": "kkr",
+      "decided": 59,
+      "first_match": "2014-04-16",
+      "last_match": "2014-06-01",
+      "matches": 60,
+      "no_results": 0,
+      "raw_label": "2014",
+      "season_year": 2014,
+      "ties": 1
+    },
+    {
+      "champion": "mi",
+      "decided": 56,
+      "first_match": "2015-04-08",
+      "last_match": "2015-05-24",
+      "matches": 59,
+      "no_results": 2,
+      "raw_label": "2015",
+      "season_year": 2015,
+      "ties": 1
+    },
+    {
+      "champion": "srh",
+      "decided": 60,
+      "first_match": "2016-04-09",
+      "last_match": "2016-05-29",
+      "matches": 60,
+      "no_results": 0,
+      "raw_label": "2016",
+      "season_year": 2016,
+      "ties": 0
+    },
+    {
+      "champion": "mi",
+      "decided": 58,
+      "first_match": "2017-04-05",
+      "last_match": "2017-05-21",
+      "matches": 59,
+      "no_results": 0,
+      "raw_label": "2017",
+      "season_year": 2017,
+      "ties": 1
+    },
+    {
+      "champion": "csk",
+      "decided": 60,
+      "first_match": "2018-04-07",
+      "last_match": "2018-05-27",
+      "matches": 60,
+      "no_results": 0,
+      "raw_label": "2018",
+      "season_year": 2018,
+      "ties": 0
+    },
+    {
+      "champion": "mi",
+      "decided": 57,
+      "first_match": "2019-03-23",
+      "last_match": "2019-05-12",
+      "matches": 60,
+      "no_results": 1,
+      "raw_label": "2019",
+      "season_year": 2019,
+      "ties": 2
+    },
+    {
+      "champion": "mi",
+      "decided": 56,
+      "first_match": "2020-09-19",
+      "last_match": "2020-11-10",
+      "matches": 60,
+      "no_results": 0,
+      "raw_label": "2020/21",
+      "season_year": 2020,
+      "ties": 4
+    },
+    {
+      "champion": "csk",
+      "decided": 59,
+      "first_match": "2021-04-09",
+      "last_match": "2021-10-15",
+      "matches": 60,
+      "no_results": 0,
+      "raw_label": "2021",
+      "season_year": 2021,
+      "ties": 1
+    },
+    {
+      "champion": "gt",
+      "decided": 74,
+      "first_match": "2022-03-26",
+      "last_match": "2022-05-29",
+      "matches": 74,
+      "no_results": 0,
+      "raw_label": "2022",
+      "season_year": 2022,
+      "ties": 0
+    },
+    {
+      "champion": "csk",
+      "decided": 73,
+      "first_match": "2023-03-31",
+      "last_match": "2023-05-29",
+      "matches": 74,
+      "no_results": 1,
+      "raw_label": "2023",
+      "season_year": 2023,
+      "ties": 0
+    },
+    {
+      "champion": "kkr",
+      "decided": 71,
+      "first_match": "2024-03-22",
+      "last_match": "2024-05-26",
+      "matches": 71,
+      "no_results": 0,
+      "raw_label": "2024",
+      "season_year": 2024,
+      "ties": 0
+    },
+    {
+      "champion": "rcb",
+      "decided": 70,
+      "first_match": "2025-03-22",
+      "last_match": "2025-06-03",
+      "matches": 74,
+      "no_results": 3,
+      "raw_label": "2025",
+      "season_year": 2025,
+      "ties": 1
+    },
+    {
+      "champion": "rcb",
+      "decided": 72,
+      "first_match": "2026-03-28",
+      "last_match": "2026-05-31",
+      "matches": 74,
+      "no_results": 1,
+      "raw_label": "2026",
+      "season_year": 2026,
+      "ties": 1
+    }
+  ],
+  "squad_size_by_season": {
+    "2008": {
+      "11": 58,
+      "12": 0,
+      "13": 0
+    },
+    "2009": {
+      "11": 57,
+      "12": 0,
+      "13": 0
+    },
+    "2010": {
+      "11": 60,
+      "12": 0,
+      "13": 0
+    },
+    "2011": {
+      "11": 73,
+      "12": 0,
+      "13": 0
+    },
+    "2012": {
+      "11": 74,
+      "12": 0,
+      "13": 0
+    },
+    "2013": {
+      "11": 76,
+      "12": 0,
+      "13": 0
+    },
+    "2014": {
+      "11": 60,
+      "12": 0,
+      "13": 0
+    },
+    "2015": {
+      "11": 59,
+      "12": 0,
+      "13": 0
+    },
+    "2016": {
+      "11": 60,
+      "12": 0,
+      "13": 0
+    },
+    "2017": {
+      "11": 59,
+      "12": 0,
+      "13": 0
+    },
+    "2018": {
+      "11": 60,
+      "12": 0,
+      "13": 0
+    },
+    "2019": {
+      "11": 60,
+      "12": 0,
+      "13": 0
+    },
+    "2020": {
+      "11": 60,
+      "12": 0,
+      "13": 0
+    },
+    "2021": {
+      "11": 60,
+      "12": 0,
+      "13": 0
+    },
+    "2022": {
+      "11": 74,
+      "12": 0,
+      "13": 0
+    },
+    "2023": {
+      "11": 1,
+      "12": 73,
+      "13": 0
+    },
+    "2024": {
+      "11": 1,
+      "12": 70,
+      "13": 0
+    },
+    "2025": {
+      "11": 1,
+      "12": 72,
+      "13": 1
+    },
+    "2026": {
+      "11": 1,
+      "12": 72,
+      "13": 1
+    }
+  },
+  "tie_rows": [
+    {
+      "date_raw": "23-04-2009",
+      "first_innings_runs": 150.0,
+      "super_over_winner": "rr",
+      "team1": "kkr",
+      "team1_runs": 165,
+      "team2": "rr",
+      "team2_runs": 168
+    },
+    {
+      "date_raw": "21-03-2010",
+      "first_innings_runs": 136.0,
+      "super_over_winner": "pbks",
+      "team1": "csk",
+      "team1_runs": 145,
+      "team2": "pbks",
+      "team2_runs": 146
+    },
+    {
+      "date_raw": "07-04-2013",
+      "first_innings_runs": 130.0,
+      "super_over_winner": "srh",
+      "team1": "srh",
+      "team1_runs": 150,
+      "team2": "rcb",
+      "team2_runs": 145
+    },
+    {
+      "date_raw": "16-04-2013",
+      "first_innings_runs": 152.0,
+      "super_over_winner": "rcb",
+      "team1": "rcb",
+      "team1_runs": 167,
+      "team2": "dc",
+      "team2_runs": 163
+    },
+    {
+      "date_raw": "29-04-2014",
+      "first_innings_runs": 152.0,
+      "super_over_winner": "rr",
+      "team1": "kkr",
+      "team1_runs": 163,
+      "team2": "rr",
+      "team2_runs": 163
+    },
+    {
+      "date_raw": "21-04-2015",
+      "first_innings_runs": 191.0,
+      "super_over_winner": "pbks",
+      "team1": "rr",
+      "team1_runs": 197,
+      "team2": "pbks",
+      "team2_runs": 206
+    },
+    {
+      "date_raw": "29-04-2017",
+      "first_innings_runs": 153.0,
+      "super_over_winner": "mi",
+      "team1": "gujarat_lions",
+      "team1_runs": 159,
+      "team2": "mi",
+      "team2_runs": 164
+    },
+    {
+      "date_raw": "30-03-2019",
+      "first_innings_runs": 185.0,
+      "super_over_winner": "dc",
+      "team1": "kkr",
+      "team1_runs": 192,
+      "team2": "dc",
+      "team2_runs": 195
+    },
+    {
+      "date_raw": "02-05-2019",
+      "first_innings_runs": 162.0,
+      "super_over_winner": "mi",
+      "team1": "mi",
+      "team1_runs": 171,
+      "team2": "srh",
+      "team2_runs": 170
+    },
+    {
+      "date_raw": "20-09-2020",
+      "first_innings_runs": 157.0,
+      "super_over_winner": "dc",
+      "team1": "dc",
+      "team1_runs": 160,
+      "team2": "pbks",
+      "team2_runs": 159
+    },
+    {
+      "date_raw": "28-09-2020",
+      "first_innings_runs": 201.0,
+      "super_over_winner": "rcb",
+      "team1": "rcb",
+      "team1_runs": 212,
+      "team2": "mi",
+      "team2_runs": 208
+    },
+    {
+      "date_raw": "18-10-2020",
+      "first_innings_runs": 163.0,
+      "super_over_winner": "kkr",
+      "team1": "kkr",
+      "team1_runs": 166,
+      "team2": "srh",
+      "team2_runs": 165
+    },
+    {
+      "date_raw": "18-10-2020",
+      "first_innings_runs": 176.0,
+      "super_over_winner": "pbks",
+      "team1": "mi",
+      "team1_runs": 192,
+      "team2": "pbks",
+      "team2_runs": 196
+    },
+    {
+      "date_raw": "25-04-2021",
+      "first_innings_runs": 159.0,
+      "super_over_winner": "dc",
+      "team1": "dc",
+      "team1_runs": 167,
+      "team2": "srh",
+      "team2_runs": 166
+    },
+    {
+      "date_raw": "16-04-2025",
+      "first_innings_runs": 188.0,
+      "super_over_winner": "dc",
+      "team1": "dc",
+      "team1_runs": 201,
+      "team2": "rr",
+      "team2_runs": 199
+    },
+    {
+      "date_raw": "26-04-2026",
+      "first_innings_runs": 155.0,
+      "super_over_winner": "kkr",
+      "team1": "kkr",
+      "team1_runs": 159,
+      "team2": "lsg",
+      "team2_runs": 156
+    }
+  ],
+  "validation": {
+    "quarantined": 0,
+    "reasons": {}
+  },
+  "voided_rows": [
+    {
+      "date_raw": "08-05-2025",
+      "team1": "pbks",
+      "team2": "dc",
+      "venue_id": "hpca"
+    }
+  ]
+}

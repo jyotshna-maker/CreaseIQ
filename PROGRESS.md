@@ -7,8 +7,8 @@ Status format: phase · done · next · blockers.
 | Phase | Tag | Status |
 |---|---|---|
 | 0 Research, review, scaffolding | v0.1.0 | ✅ done (CI is verified locally only until the first push) |
-| 1 Data layer | v0.2.0 | next |
-| 2 Database + analytics | v0.3.0 | pending |
+| 1 Data layer | v0.2.0 | ✅ done: 0 quarantined, 37 venues / 15 franchises, champions verified, 96% data coverage |
+| 2 Database + analytics | v0.3.0 | next |
 | 3 Features + Elo | v0.4.0 | pending |
 | 4 Modeling & evaluation | v0.5.0 | pending |
 | 5 Services, CLI, app | v0.6.0 | pending |
@@ -34,6 +34,11 @@ Status format: phase · done · next · blockers.
 - Quality report (MD + JSON) and data dictionary.
 - Validate champions against R10.
 
+## Phase 1 notes
+- The real CSV validates with 0 quarantined rows (strict mode passes). 4,547 fixes are counted in `docs/data_quality_report.md`.
+- The D/L heuristic flags 14 rows, and every one in the years the external list covers is confirmed there. In total 19 rows are flagged (heuristic OR external).
+- 2022 was added to the neutral seasons. Visakhapatnam in 2016 is home to three teams, and those flags cancel out in the home-difference feature.
+
 ## Blockers
 - **GitHub push:** `gh` must be authenticated by the student (`gh auth login`). Work continues locally with full history until then.
 
@@ -46,4 +51,6 @@ Status format: phase · done · next · blockers.
 6. **A voided match looks like a washout:** 08-05-2025 was abandoned for security reasons and replayed elsewhere.
 7. **Venue identity is subtle:** the same site was rebuilt (Motera), a new ground sits in the same district (Mullanpur vs Mohali), and naming rights changed (Sahara / MCA Pune).
 8. **Research-tool reliability:** ESPNcricinfo blocks automated fetches, and the page summariser misreported some facts. The subagents fell back to raw Wikipedia wikitext, and one subagent's venue tally (40) disagreed with the mapping's own count (37). We trust the count derived from the mapping.
+10. **Logging vs test runners:** a console log handler kept a reference to a stream that CliRunner had closed, and the second CLI test crashed. The fix is to resolve `sys.stderr` on every emit.
+11. **pandas 3 defaults:** the Arrow-backed string dtype and Copy-on-Write needed explicit handling. For example, `np.select` with a `None` default was replaced.
 9. **Baseline leakage in the plan:** the B1 prior of 54.7% was computed on data that includes the holdout seasons.

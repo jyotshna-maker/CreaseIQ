@@ -11,6 +11,7 @@ Every pipeline run gets a ``run_id``. :func:`log_event` attaches it automaticall
 from __future__ import annotations
 
 import logging
+import sys
 import time
 import uuid
 from collections.abc import Iterator
@@ -64,6 +65,22 @@ class KeyValueFormatter(logging.Formatter):
         return line
 
 
+class _StderrHandler(logging.StreamHandler):
+    """Console handler that looks up ``sys.stderr`` on every emit.
+
+    A plain StreamHandler keeps the stream object it was created with. Test runners and
+    Streamlit swap ``sys.stderr``, so a stale reference would write to a closed stream.
+    """
+
+    @property
+    def stream(self) -> Any:
+        return sys.stderr
+
+    @stream.setter
+    def stream(self, _value: Any) -> None:
+        pass
+
+
 def configure_logging(
     level: str = "INFO",
     log_file: Path | None = None,
@@ -86,7 +103,7 @@ def configure_logging(
     if getattr(logger, _CONFIGURED_FLAG, False):
         return logger
     formatter = KeyValueFormatter()
-    console = logging.StreamHandler()
+    console = _StderrHandler()
     console.setFormatter(formatter)
     logger.addHandler(console)
     if log_file is not None:
