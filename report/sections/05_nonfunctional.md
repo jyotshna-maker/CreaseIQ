@@ -34,4 +34,6 @@ Pipeline stage times (seconds):
 | Features | {{ p.stages_s.features | f(2) }} |
 | Training the registered configuration | {{ p.stages_s.train_best | f(2) }} |
 
-The cross-platform requirement (Windows and macOS) is verified locally on Windows 11. The GitHub Actions matrix runs Ubuntu, Windows and macOS on Python 3.12 and 3.13.
+NFR-01 covers the operational pipeline, which trains the registered configuration. The one-off model-selection experiment is not part of it. That experiment (the Elo grid, five model families and their grids, 13 walk-forward folds, two tiers, calibration, ablations and bootstrap tests) took {{ m.experiment_runtime_s }} s in the recorded `creaseiq train` run.
+
+The cross-platform requirement is verified locally on Windows 11, including a clean-clone install and run. The GitHub Actions workflow is configured to run on Ubuntu, Windows and macOS with Python 3.12 and 3.13, and it executes on every push once the repository is published.

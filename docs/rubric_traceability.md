@@ -9,7 +9,7 @@
 | Clear input/output structure | Module I/O table (report §4, §9); CLI `--help`; D2 pipeline |
 | Logical user workflow | D3 user workflow; ≤ 3-click prediction |
 | ≥ 4 non-functional requirements | 8 NFRs, each measured: `docs/nfr_verification.md`, report §5 |
-| Architecture, correct concepts, modular code, docs and comments, validation and error handling, Git | `docs/architecture.md`; `src/creaseiq` (79 Python files in 11 subpackages); docstrings with FR IDs; `exceptions.py`; git history (feature branches, tags) |
+| Architecture, correct concepts, modular code, docs and comments, validation and error handling, Git | `docs/architecture.md`; `src/creaseiq` (11 subpackages); docstrings with FR IDs; `exceptions.py`; git history (feature branches, tags) |
 | 5–10+ modules/files, package structure, tests | 11 subpackages; 200+ tests in `tests/unit`, `integration` and `validation` |
 | Problem statement, objectives, FR, NFR | `statement.md`, `PLAN.md` §3–4, report §3–5 |
 | System architecture diagram | `docs/diagrams/D1_architecture.png` |
@@ -32,7 +32,7 @@
 |---|---|
 | Problem understanding & requirements (10) | `statement.md`; FR-01…22 and NFR-01…08 with IDs cited in docstrings and tests; this matrix |
 | Design & documentation (20) | D1–D12; ADR-001…006; architecture, data dictionary, quality report, model card, research notes, plan review, viva prep |
-| Implementation quality (25) | Layered package (enforced); type hints (mypy clean); ruff clean; 96% coverage; typed errors; CI matrix |
+| Implementation quality (25) | Layered package (enforced); type hints (mypy clean); ruff clean; coverage in `reports/coverage.json` (see `docs/nfr_verification.md`); typed errors; CI matrix |
 | Innovation, depth & complexity (15) | as-of engine with 5 leakage tests; hash-seeded orientation and exact antisymmetry; margin-aware tuned Elo; walk-forward + one-SE + time-ordered calibration + ledger-logged holdout; paired bootstrap and Diebold–Mariano; causal-vs-associational toss analysis with MDE; super-over and D/L data discoveries; k-means venues; what-if; Monte Carlo; PSI drift |
 | GitHub & version control (10) | Conventional Commits on feature branches, `--no-ff` merges, tags v0.1.0…v1.0.0, `CHANGELOG.md`, CI workflow |
 | Project report (20) | `report/CreaseIQ_Project_Report.pdf` (generated from `reports/*.json`, with real screenshots and figures) |

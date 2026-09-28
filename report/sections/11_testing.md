@@ -55,4 +55,4 @@ In addition:
 |---|---|---|---|---|
 | {{ cov.data | f(1) }}% | {{ cov.features | f(1) }}% | {{ cov.models | f(1) }}% | {{ cov.analytics | f(1) }}% | {{ cov.total | f(1) }}% |
 
-The GitHub Actions workflow runs a matrix of {Ubuntu, Windows, macOS} × {Python 3.12, 3.13}. Each run executes `ruff check`, `ruff format --check`, `mypy src`, `lint-imports` (the layer contract), `pytest --cov` and `bandit`, plus `pip-audit` once. All gates pass locally on Windows 11.
+The GitHub Actions workflow runs a matrix of {Ubuntu, Windows, macOS} × {Python 3.12, 3.13}. Each run executes `ruff check`, `ruff format --check`, `mypy src`, `lint-imports` (the layer contract), `pytest --cov` and `bandit`, plus `pip-audit` once. All gates pass locally on Windows 11, and a clean clone (fresh virtual environment, `creaseiq all`, full test suite) was verified before release. CI runs on every push once the repository is published on GitHub.

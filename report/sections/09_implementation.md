@@ -26,14 +26,15 @@ The input is a Cricsheet-derived IPL match file [1]:
 
 1. A pandera schema checks types, value ranges, allowed values and the six constant columns.
 2. Nine vectorised row rules check cross-column logic:
-   - the teams are distinct;
-   - the toss winner and the winner both took part in the match;
-   - a winner is present exactly when the result is "complete";
-   - exactly one margin is recorded;
-   - there are no margins on ties;
-   - at most 10 wickets except on ties;
-   - the date is valid;
-   - each squad lists 11–13 players.
+
+    - the teams are distinct;
+    - the toss winner and the winner both took part in the match;
+    - a winner is present exactly when the result is "complete";
+    - exactly one margin is recorded;
+    - there are no margins on ties;
+    - at most 10 wickets except on ties;
+    - the date is valid;
+    - each squad lists 11–13 players.
 
 In lenient mode, failing rows go to `quarantine.csv` with named reasons. Strict mode raises with the row indices. The real file passes strict validation with **{{ q.validation.quarantined }} quarantined rows**.
 
@@ -115,7 +116,7 @@ The tree ensembles did not beat the linear models. That is expected with n ≈ 1
 - **Metrics:**
   - Primary: log-loss.
   - Also: Brier score with its Murphy decomposition, accuracy, ROC-AUC, and ECE on equal-mass bins (descriptive only [14]–[16]).
-- **Uncertainty:** percentile bootstrap with {{ m.seed }}-seeded resampling (2,000 resamples) for every holdout metric.
+- **Uncertainty:** a percentile bootstrap (2,000 resamples, seed {{ m.seed }}) for every holdout metric.
 - **Comparison with baselines:** a paired bootstrap of per-match log-loss differences (10,000 resamples), plus the Diebold–Mariano test with the Harvey–Leybourne–Newbold correction [18].
 - **Baselines:** all rates are fitted on the training fold only. The plan's all-data chase rate would have leaked the holdout base rate (plan review finding 6).
 - **Guards:**
@@ -136,6 +137,6 @@ The tree ensembles did not beat the linear models. That is expected with n ≈ 1
 | `simulation` | `what_if`, `season_monte_carlo` | FR-19, FR-20 |
 | `services` | `context`, `prediction_service`, `analytics_service`, `scenario_service`, `ingest_service`, `benchmark_service` | Use cases for the CLI and UI |
 | `reporting` | `figures`, `model_card`, `drift`, `nfr`, `readme`, `report_builder`, `assets` | FR-21, FR-22, this report |
-| `viz`, `app`, `cli` | Plotly charts; 7 Streamlit pages; 12 CLI commands | Presentation |
+| `viz`, `app`, `cli` | Plotly charts; 7 Streamlit pages; 15 CLI commands | Presentation |
 
-The main CLI commands are `validate`, `build-db`, `analyze`, `features`, `train`, `evaluate`, `predict`, `whatif`, `simulate`, `ingest`, `benchmark`, `report` and `all`. Expected errors exit with code 1 and a one-line message.
+Besides `version` and `info`, the CLI commands are `validate`, `build-db`, `analyze`, `features`, `train`, `evaluate`, `predict`, `whatif`, `simulate`, `ingest`, `benchmark`, `report` and `all`. Expected errors exit with code 1 and a one-line message.

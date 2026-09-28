@@ -24,7 +24,7 @@ CreaseIQ turns a raw IPL match file (1,243 matches, 2008–2026, Cricsheet-deriv
    - Every feature is computed *as of the day before* the match, and five automated leakage tests check this.
    - Orientation is symmetric, so which team you list first does not matter.
    - Walk-forward validation and calibration.
-   - Baselines and bootstrap CIs, with a holdout evaluated **once**.
+   - Baselines and bootstrap CIs, with a holdout touched only after the model selection was frozen and hashed.
 
 The headline finding is that pre-match IPL outcomes are close to a coin flip. CreaseIQ measures that honestly instead of claiming 90% accuracy.
 
@@ -153,10 +153,10 @@ pytest --cov
 ruff check . && mypy src && lint-imports
 ```
 
-There are more than 200 tests:
+The test suite contains several hundred tests (the exact count is in report §11.1):
 - **Unit:** including Hypothesis property tests.
 - **Data contract.**
-- **Leakage:** future perturbation, same-day isolation, label shuffle, column allow-list, orientation signal.
+- **Leakage:** future deletion, future mutation, same-day isolation, label shuffle and the column allow-list, plus an orientation-signal check.
 - **Reproducibility.**
 - **Security:** secrets scan, SQL-injection strings, tampered artifacts, CSV injection, upload guards.
 - **Streamlit:** `AppTest` for every page.
