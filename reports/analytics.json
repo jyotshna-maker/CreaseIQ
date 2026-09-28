@@ -419,6 +419,83 @@
     "rate": 0.5322222222222223,
     "successes": 479
   },
+  "home_by_season": [
+    {
+      "home_win_rate": 0.5272727272727272,
+      "n": 55,
+      "season_year": 2008
+    },
+    {
+      "home_win_rate": 0.543859649122807,
+      "n": 57,
+      "season_year": 2010
+    },
+    {
+      "home_win_rate": 0.5428571428571428,
+      "n": 70,
+      "season_year": 2011
+    },
+    {
+      "home_win_rate": 0.4444444444444444,
+      "n": 72,
+      "season_year": 2012
+    },
+    {
+      "home_win_rate": 0.7,
+      "n": 70,
+      "season_year": 2013
+    },
+    {
+      "home_win_rate": 0.5,
+      "n": 36,
+      "season_year": 2014
+    },
+    {
+      "home_win_rate": 0.574468085106383,
+      "n": 47,
+      "season_year": 2015
+    },
+    {
+      "home_win_rate": 0.5,
+      "n": 56,
+      "season_year": 2016
+    },
+    {
+      "home_win_rate": 0.5454545454545454,
+      "n": 55,
+      "season_year": 2017
+    },
+    {
+      "home_win_rate": 0.6206896551724138,
+      "n": 58,
+      "season_year": 2018
+    },
+    {
+      "home_win_rate": 0.5925925925925926,
+      "n": 54,
+      "season_year": 2019
+    },
+    {
+      "home_win_rate": 0.4027777777777778,
+      "n": 72,
+      "season_year": 2023
+    },
+    {
+      "home_win_rate": 0.582089552238806,
+      "n": 67,
+      "season_year": 2024
+    },
+    {
+      "home_win_rate": 0.4032258064516129,
+      "n": 62,
+      "season_year": 2025
+    },
+    {
+      "home_win_rate": 0.5217391304347826,
+      "n": 69,
+      "season_year": 2026
+    }
+  ],
   "potm_top": [
     {
       "awards": 25,

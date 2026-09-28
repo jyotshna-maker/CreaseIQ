@@ -99,6 +99,7 @@ def build_analytics_summary(
         },
         "field_first_share": _records(toss_analysis.field_first_share(m)),
         "home_advantage": team_stats.home_advantage(m)["overall"],
+        "home_by_season": _records(team_stats.home_advantage(m)["by_season"]),
         "teams": _records(teams),
         "scoring_by_season": _records(season_trends.scoring_by_season(m)),
         "era_scoring": season_trends.era_scoring_test(m),
