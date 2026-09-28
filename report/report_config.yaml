@@ -1,0 +1,11 @@
+# Cover-page metadata for the PDF report. Fill in any blank value before submission.
+title: "CreaseIQ: IPL Match Intelligence Platform"
+subtitle: "A validated data pipeline, honest analytics and a leakage-safe win-probability engine"
+programme: "Build Your Own Project – VITyarthi"
+course: "Machine Learning (Fundamentals of AI & ML)"
+student: "Jyotshna Payasi"
+registration_number: "26BCE10651"
+section: ""            # e.g. "Slot A1". Left blank on purpose; fill in before submitting.
+university: "Vellore Institute of Technology, Bhopal"
+date: "29 September 2026"
+repository_url: "(link added when the repository is published on GitHub)"   # set to the real URL after `gh repo create`

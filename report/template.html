@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>{{ meta.title }}: Project Report</title>
+<style>{{ css }}</style>
+</head>
+<body>
+<section class="cover">
+  <p class="cover-label">1 · Cover Page</p>
+  <div class="cover-main">
+    <p class="programme">{{ meta.programme }}</p>
+    <h1 class="cover-title">{{ meta.title }}</h1>
+    <p class="cover-sub">{{ meta.subtitle }}</p>
+    <table class="cover-table">
+      <tr><th>Course</th><td>{{ meta.course }}</td></tr>
+      <tr><th>Student</th><td>{{ meta.student }}</td></tr>
+      <tr><th>Registration number</th><td>{{ meta.registration_number }}</td></tr>
+      <tr><th>Section</th><td>{{ meta.section if meta.section else "—" }}</td></tr>
+      <tr><th>University</th><td>{{ meta.university }}</td></tr>
+      <tr><th>Date</th><td>{{ meta.date }}</td></tr>
+      <tr><th>Repository</th><td>{{ meta.repository_url }}</td></tr>
+    </table>
+  </div>
+  <p class="cover-foot">All figures and numbers in this report are generated from the project's own outputs (<code>reports/*.json</code>) by <code>creaseiq report</code>.</p>
+</section>
+<section class="toc">
+  <h1 class="toc-title">Contents</h1>
+  <ol class="toc-list">
+    <li>Cover Page</li>
+    {% for item in toc %}<li>{{ item.split(". ", 1)[1] if ". " in item else item }}</li>
+    {% endfor %}
+  </ol>
+</section>
+{{ body }}
+</body>
+</html>
