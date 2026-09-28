@@ -5,6 +5,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-09-29
+### Added
+- Security suite: secrets scan, AST checks against string-built SQL, eval and shell, and a hash-guard on deserialisation. bandit and pip-audit reports (0 findings).
+- AST architecture test mirroring the import-linter layer contract, with docstring and annotation checks.
+- Evidence-backed NFR verification (`docs/nfr_verification.md`, `reports/nfr.json`). All 8 NFRs pass; coverage 96.3%.
+
 ## [0.6.0] - 2026-09-29
 ### Added
 - Services layer: prediction with allow-list validation and a prediction log, an analytics facade with CSV-injection-safe export, all-or-nothing uploads with atomic append and rollback, what-if analysis, and season Monte Carlo.

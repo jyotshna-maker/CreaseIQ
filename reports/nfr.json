@@ -1,0 +1,85 @@
+{
+  "context": {
+    "holdout_logged": {
+      "post_toss": {
+        "distinct_selections_evaluated": 1,
+        "evaluations_of_this_selection": 2,
+        "first_evaluated_at": "2026-09-28T20:29:23Z",
+        "reused_with_new_selection": false,
+        "selection_hash": "cb307204cef4d652"
+      },
+      "pre_toss": {
+        "distinct_selections_evaluated": 1,
+        "evaluations_of_this_selection": 2,
+        "first_evaluated_at": "2026-09-28T20:28:39Z",
+        "reused_with_new_selection": false,
+        "selection_hash": "ca1c1c58a4c3147e"
+      }
+    },
+    "machine": {
+      "cpu_count": 16,
+      "platform": "Windows-11-10.0.26200-SP0",
+      "processor": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
+      "python": "3.12.10"
+    },
+    "quarantined_rows": 0
+  },
+  "rows": [
+    {
+      "category": "Performance",
+      "evidence": "reports/perf.json",
+      "id": "NFR-01",
+      "measured": "pipeline 6.6 s (\u2264 90); prediction 8.8 ms median, p95 9.8 ms (\u2264 200); slowest page 0.51 s (\u2264 2)",
+      "passed": true
+    },
+    {
+      "category": "Reliability & error handling",
+      "evidence": "tests/integration/test_app.py, tests/unit/test_db.py::test_rebuild_is_idempotent",
+      "id": "NFR-02",
+      "measured": "typed exception hierarchy; CLI exit code 1 with a friendly message; UI guard with no stack traces; idempotent DB rebuild (checksum test)",
+      "passed": true
+    },
+    {
+      "category": "Security",
+      "evidence": "reports/bandit.json, reports/pip_audit.json, tests/validation/test_security.py",
+      "id": "NFR-03",
+      "measured": "bandit issues: 0; known vulnerable dependencies: 0; parameterised SQL, hash-verified artifacts, upload guards and CSV-injection escaping all tested",
+      "passed": true
+    },
+    {
+      "category": "Usability",
+      "evidence": "src/creaseiq/app/, tests/integration/test_app.py, docs/screenshots/",
+      "id": "NFR-04",
+      "measured": "prediction in \u2264 3 clicks (defaults preselected, one Predict button); colour-blind-safe palettes; tooltips, empty states and a disclaimer on every page",
+      "passed": true
+    },
+    {
+      "category": "Maintainability",
+      "evidence": "reports/coverage.json, CI",
+      "id": "NFR-05",
+      "measured": "coverage total 96.3%, core minimum 98.7% (data 99%, features 100%, models 99%, analytics 100%); ruff, mypy and the layer contract are clean",
+      "passed": true
+    },
+    {
+      "category": "Reproducibility",
+      "evidence": "tests/validation/test_experiment.py::test_reproducible_metrics",
+      "id": "NFR-06",
+      "measured": "seeded, config-driven, pinned dependencies; two full experiment runs give identical metrics",
+      "passed": true
+    },
+    {
+      "category": "Logging & monitoring",
+      "evidence": "tests/unit/test_figures_logging.py, reports/metrics.json['drift']",
+      "id": "NFR-07",
+      "measured": "key=value logs with a run_id and per-stage durations (console plus rotating file); prediction_log table; PSI drift report",
+      "passed": true
+    },
+    {
+      "category": "Scalability & resource efficiency",
+      "evidence": "reports/perf.json, src/creaseiq/data/source.py",
+      "id": "NFR-08",
+      "measured": "peak Python memory 40 MB (< 1024); DB backend chosen by URL; MatchSource protocol; incremental O(n) features; Parquet cache",
+      "passed": true
+    }
+  ]
+}
