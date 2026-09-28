@@ -35,6 +35,10 @@ def git_commit(root: Path) -> str:
     """Return the current git commit hash, or ``"unknown"`` outside a repository."""
     git = shutil.which("git")
     if git is None:
+        # Git for Windows is often installed but missing from PATH in child processes.
+        fallback = Path("C:/Program Files/Git/cmd/git.exe")
+        git = str(fallback) if fallback.is_file() else None
+    if git is None:
         return "unknown"
     try:
         # Fixed argv with an absolute executable path and no user input.
