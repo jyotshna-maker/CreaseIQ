@@ -1,0 +1,16 @@
+# Runtime dependencies, pinned to the versions verified on PyPI on 2026-09-28 (see docs/research_notes.md R6, ADR-002).
+pandas==3.0.6
+numpy==2.5.3
+scipy==1.18.1
+statsmodels==0.15.0
+scikit-learn==1.9.1
+SQLAlchemy==2.1.1
+pandera==0.33.1
+typer==0.27.2
+rich==15.0.0
+streamlit==1.64.0
+plotly==7.1.0
+PyYAML==6.0.3
+Jinja2==3.1.6
+joblib==1.6.0
+pyarrow==25.0.1
