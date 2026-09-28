@@ -262,6 +262,24 @@ def _match_row(r: dict[str, Any], pid: dict[str, int], oid: dict[str, int]) -> d
     }
 
 
+def schema_ddl(dialect_name: str = "sqlite") -> str:
+    """CREATE TABLE / CREATE VIEW statements generated from the ORM models (docs/schema.sql)."""
+    from sqlalchemy.dialects import postgresql as pg
+    from sqlalchemy.dialects import sqlite as sq
+    from sqlalchemy.schema import CreateIndex, CreateTable
+
+    dialect = sq.dialect() if dialect_name == "sqlite" else pg.dialect()
+    parts = ["-- Generated from src/creaseiq/db/models.py by `creaseiq report`. Do not edit.\n"]
+    for table in Base.metadata.sorted_tables:
+        parts.append(str(CreateTable(table).compile(dialect=dialect)).strip() + ";\n")
+        parts.extend(
+            str(CreateIndex(ix).compile(dialect=dialect)).strip() + ";\n"
+            for ix in sorted(table.indexes, key=lambda i: str(i.name))
+        )
+    parts.extend(" ".join(ddl.split()) + ";\n" for ddl in VIEWS.values())
+    return "\n".join(parts)
+
+
 def table_counts(engine: Engine) -> dict[str, int]:
     """Row count of every table (for logging and tests)."""
     with Session(engine) as s:
