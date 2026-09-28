@@ -31,15 +31,17 @@ class VenueClustering:
 
 
 def _label(row: pd.Series, med: pd.Series) -> str:
+    # Labels are relative to the median venue: chase rates are above 50% almost everywhere,
+    # so "less chase-friendly" is accurate where "defend-friendly" would overstate it.
     score = (
-        "high-scoring"
+        "higher-scoring"
         if row["avg_first_innings_shrunk"] >= med["avg_first_innings_shrunk"]
         else "lower-scoring"
     )
     chase = (
-        "chase-friendly"
+        "more chase-friendly"
         if row["chase_win_rate_shrunk"] >= med["chase_win_rate_shrunk"]
-        else "defend-friendly"
+        else "less chase-friendly"
     )
     return f"{score}, {chase}"
 

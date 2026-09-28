@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import time
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -396,6 +397,7 @@ def run_experiment(
     register: bool = True,
 ) -> tuple[dict[str, Any], dict[str, TierOutcome], FeatureSet]:
     """Run the whole experiment; optionally register serving models. Returns (metrics, outcomes, features)."""
+    started = time.perf_counter()
     cfg = ExperimentConfig.from_settings(settings)
     base_params = feature_params_from_settings(settings)
     with timed(logger, "elo_tuning"):
@@ -432,6 +434,7 @@ def run_experiment(
     commit = git_commit(settings.root)
     metrics: dict[str, Any] = {
         "generated_by": "creaseiq train",
+        "experiment_runtime_s": round(time.perf_counter() - started, 1),
         "git_commit": commit,
         "data_sha256": data_sha,
         "seed": cfg.seed,

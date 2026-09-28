@@ -49,7 +49,7 @@ def build_nfr_summary(reports: Path) -> dict[str, Any]:
             {
                 "id": "NFR-01",
                 "category": "Performance",
-                "measured": f"pipeline {perf['pipeline_s']:.1f} s (≤ 90); prediction {perf['prediction_ms']:.1f} ms median, p95 {perf['prediction_p95_ms']:.1f} ms (≤ 200); slowest page {perf.get('page_render_s', float('nan')):.2f} s (≤ 2)",
+                "measured": f"pipeline ingest→DB→features→train of the registered configuration {perf['pipeline_s']:.1f} s (≤ 90; the one-off model-selection search is reported separately in metrics.json); prediction {perf['prediction_ms']:.1f} ms median, p95 {perf['prediction_p95_ms']:.1f} ms (≤ 200); slowest page {perf.get('page_render_s', float('nan')):.2f} s (≤ 2)",
                 "passed": all(perf["passed"].values()),
                 "evidence": "reports/perf.json",
             }

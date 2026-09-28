@@ -97,7 +97,7 @@ def walk_forward_timeline(
     ]
     ax.legend(
         handles,
-        ["train", "validate", "holdout (evaluated once)"],
+        ["train", "validate", "holdout (after selection is frozen)"],
         frameon=False,
         fontsize=8,
         loc="lower left",
