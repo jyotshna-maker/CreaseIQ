@@ -8,4 +8,5 @@ bandit==1.9.4
 pip-audit==2.10.1
 import-linter==2.15
 pypdf==6.19.0
+playwright==1.63.0
 types-PyYAML
