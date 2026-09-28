@@ -59,6 +59,46 @@ def validate(
     )
 
 
+@app.command("build-db")
+def build_db() -> None:
+    """Load the canonical tables into the database idempotently (FR-04)."""
+    from creaseiq.data.pipeline import run_data_pipeline
+    from creaseiq.db.loader import load_database
+    from creaseiq.db.session import make_engine
+
+    settings = _bootstrap()
+    result = _guard(lambda: run_data_pipeline(settings))
+    counts = _guard(
+        lambda: load_database(
+            make_engine(settings.db_url), result.clean.matches, result.clean.players, result.maps
+        )
+    )
+    console.print(f"[green]OK[/] database {settings.db_url}")
+    for table, n in counts.items():
+        console.print(f"  {table:<16} {n:>6}")
+
+
+@app.command()
+def analyze() -> None:
+    """Compute headline analytics and write reports/analytics.json (FR-06..FR-10)."""
+    from creaseiq.analytics.summary import build_analytics_summary, render_findings_markdown
+    from creaseiq.data.pipeline import load_processed
+    from creaseiq.utils import write_json
+
+    settings = _bootstrap()
+    matches, players = _guard(lambda: load_processed(settings))
+    summary = build_analytics_summary(matches, players, settings.seed)
+    out = settings.path("reports_dir") / "analytics.json"
+    write_json(out, summary)
+    findings = settings.path("docs_dir") / "analytics_findings.md"
+    findings.write_text(render_findings_markdown(summary), encoding="utf-8")
+    toss, chase = summary["toss"]["overall"], summary["chasing"]["overall"]
+    console.print(
+        f"[green]OK[/] toss winner won {toss['rate']:.1%} (95% CI {toss['ci_low']:.1%}-{toss['ci_high']:.1%}, "
+        f"p={toss['p_value']:.2f}); chasing side won {chase['rate']:.1%} (p={chase['p_value']:.3f}) -> {out.name}"
+    )
+
+
 def _bootstrap() -> Settings:
     """Load settings, configure logging and start a run id."""
     settings = get_settings()
