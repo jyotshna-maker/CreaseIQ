@@ -1,5 +1,5 @@
 %% D2 Data pipeline / process flow (creaseiq all)
-flowchart LR
+flowchart TB
   A[("raw CSV<br/>1,243 × 31")] --> B{"SHA-256<br/>matches config?"}
   B -- no --> X1["DataValidationError<br/>(raw is immutable)"]
   B -- yes --> AP[("+ appended<br/>uploads")]

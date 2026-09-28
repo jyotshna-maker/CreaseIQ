@@ -57,7 +57,7 @@
       "category": "Maintainability",
       "evidence": "reports/coverage.json, CI",
       "id": "NFR-05",
-      "measured": "coverage total 96.3%, core minimum 98.7% (data 99%, features 100%, models 99%, analytics 100%); ruff, mypy and the layer contract are clean",
+      "measured": "coverage total 94.6%, core minimum 98.7% (data 99%, features 100%, models 99%, analytics 100%); ruff, mypy and the layer contract are clean",
       "passed": true
     },
     {

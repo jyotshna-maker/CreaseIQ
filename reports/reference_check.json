@@ -1,0 +1,21 @@
+{
+  "checked": [
+    "https://cricsheet.org/format/json/",
+    "https://cricsheet.org/matches/",
+    "https://cricsheet.org/register/",
+    "https://devguide.python.org/versions/",
+    "https://docs.streamlit.io/develop/api-reference/app-testing/st.testing.v1.apptest",
+    "https://en.wikipedia.org/wiki/Brier_score",
+    "https://en.wikipedia.org/wiki/List_of_Indian_Premier_League_seasons_and_results",
+    "https://en.wikipedia.org/wiki/Promotion_and_Regulation_of_Online_Gaming_Act,_2025",
+    "https://github.com/fivethirtyeight/nfl-elo-game",
+    "https://opendatacommons.org/licenses/by/summary/",
+    "https://playwright.dev/python/docs/api/class-page#page-pdf",
+    "https://real-statistics.com/time-series-analysis/forecasting-accuracy/diebold-mariano-test/",
+    "https://scikit-learn.org/stable/modules/calibration.html",
+    "https://vit.ac.in/files/ebooks/Research-Integrity-Policy/files/basic-html/page7.html"
+  ],
+  "failed": [],
+  "ok": 14,
+  "total": 14
+}
