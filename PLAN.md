@@ -50,7 +50,7 @@ Execution rules:
 - Rubric weights: Requirements 10 · Design & Docs 20 · Implementation 25 · Innovation/Depth 15 · GitHub/VC 10 · Report 20.
 
 **Working agreements.**
-- Python 3.11+ (verify best target via research), macOS Apple Silicon primary, **must also run on Windows** (avoid bash-only tooling in the core path; CLI is the single cross-platform entrypoint, Makefile is a convenience wrapper).
+- Python **3.12+** (R6: numpy 2.5/scipy 1.18 require ≥3.12; ADR-002), macOS Apple Silicon primary, **must also run on Windows** (avoid bash-only tooling in the core path; CLI is the single cross-platform entrypoint, Makefile is a convenience wrapper).
 - No GPU, no PyTorch. Keep dependencies mainstream and installable via `pip` on M2 and Windows.
 - Every script/notebook deterministic: fixed seeds, config-driven, no hidden state.
 - The raw CSV is **immutable**. Record its SHA-256 in `data/raw/README.md` and in every model run.
@@ -75,7 +75,7 @@ Columns: `event_name, season, match_number, date, city, venue, team1, team2, tos
 | 6 | 60 raw venue strings for far fewer stadiums (e.g. `Wankhede Stadium` / `Wankhede Stadium, Mumbai`; `M Chinnaswamy`/`M.Chinnaswamy`; Feroz Shah Kotla → Arun Jaitley Stadium; Sardar Patel Stadium, Motera → Narendra Modi Stadium; multiple Mohali/Chandigarh/New Chandigarh variants; Sheikh Zayed vs Zayed Cricket Stadium). `city` has Bangalore/Bengaluru duplicates and 51 `Unknown` (all Dubai/Sharjah venues). | `configs/venue_canonical.yaml` built via research (R2); impute city/country from canonical venue; assert 0 unmapped venues. |
 | 7 | `match_number` null for 74 rows = playoff matches (4 per season; 3 in 2008 and 2009). | Derive `stage` (league/qualifier/eliminator/final) by order within season; `champion` per season = winner of the season's last match; cross-check against sources (R10). |
 | 8 | Player lists: 811 unique names in `INITIALS Surname` format; 11 players per side through 2022, **12 from 2023** (Impact Player era, ~97–99% of matches). Impact player not identifiable. | Normalize names; `impact_era` flag (season_year ≥ 2023). Squad features must tolerate 11 or 12. Name-alias check (R2). |
-| 9 | Anomalies: one row with `team2_wickets = 12` (2017-04-29 Gujarat Lions v MI, no winner); no-result rows with tiny scores (e.g. 2, 25/2 with 0). Six decided matches are inconsistent with "winner bat-first ⇔ win_by_runs>0" — all pre-2017, likely Duckworth-Lewis outcomes. | Flag, quarantine, log. Derive `dls_flag` (winner scored fewer runs, or margin inconsistent with batting order). Exclude no-result run totals from scoring stats. |
+| 9 | Anomalies: one row with `team2_wickets = 12` (2017-04-29 Gujarat Lions v MI, no winner); no-result rows with tiny scores (e.g. 2, 25/2 with 0). Six decided matches are inconsistent with "winner bat-first ⇔ win_by_runs>0" — all pre-2017, likely Duckworth-Lewis outcomes. **[Revised after R8]** All 16 tie rows add super-over runs/wickets to the innings totals (the "12 wickets" = 10 + 2 super-over wickets); 08-05-2025 was voided and replayed. | Correct ties with regulation scores from `data/external/super_over_winners.csv` (ADR-004); `voided` flag; `dls_flag` = heuristic OR `data/external/dls_matches.csv`. Exclude no-result/voided run totals from scoring stats. See `docs/plan_review.md`. |
 | 10 | Base rates (decided matches): **bat-first wins 45.3%** (chasing 54.7%); **toss winner wins 51.6%**; toss decision `field` 825 vs `bat` 418. | These are baselines B1/B2 in section 7 and headline EDA facts. |
 
 `team1_players`/`team2_players` are the XIs of *that* match → known only at toss time (post-toss tier). `player_of_match`, runs, wickets, margins, `result_type` are **post-match** and forbidden as features.
@@ -279,7 +279,7 @@ Dashboard pages: Home (KPIs, data freshness, quality status) · Data Explorer ·
 - **Final holdout:** 2025 + 2026 (~146 decided matches). Touched **once**, after the final model/calibrator choice is frozen and logged. Report bootstrap CIs (≥ 2,000 resamples) — with n ≈ 146, expect wide intervals; say so.
 - Standard random K-fold is **prohibited** for T1/T2 (assert in code that folds are chronological).
 
-**Baselines (report all).** B0 constant p=0.5 · B1 chase-bias prior (bat-second wins 54.7%) · B2 "toss winner wins" (Tier B) · B3 higher-Elo wins · B4 venue chase-rate. A model must beat these on log-loss with a paired bootstrap to be claimed as useful.
+**Baselines (report all).** B0 constant p=0.5 · B1 chase-bias prior (bat-second win rate **estimated on the training fold only** — the 54.7% all-data figure would leak the holdout; plan_review #6) · B2 "toss winner wins" (Tier B) · B3 higher-Elo wins · B4 venue chase-rate. A model must beat these on log-loss with a paired bootstrap to be claimed as useful.
 
 **Model families (≥ 4).** L2 logistic regression (scaled) · Random Forest · HistGradientBoosting (and/or XGBoost/LightGBM per R6) · a regularized stacked/blended model · optionally Elo-only logistic as an interpretable ablation. Search spaces small and documented (n is small — avoid heavy tuning; watch overfitting to walk-forward folds).
 
