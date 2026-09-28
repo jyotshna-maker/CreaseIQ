@@ -274,6 +274,56 @@ def benchmark(
         )
 
 
+@app.command()
+def report(
+    check_links: bool = typer.Option(
+        False, "--check-links", help="Re-verify every reference URL (network)."
+    ),
+    pdf: bool = typer.Option(True, "--pdf/--no-pdf", help="Also print the PDF with Chromium."),
+) -> None:
+    """Refresh generated docs (NFR table, README results, schema) and build the PDF report (FR-22)."""
+    from creaseiq.db.loader import schema_ddl
+    from creaseiq.reporting.nfr import build_nfr_summary, render_nfr_markdown
+    from creaseiq.reporting.readme import render_results_block, update_readme
+    from creaseiq.reporting.report_builder import (
+        build_pdf,
+        check_references,
+        find_chromium,
+        load_context,
+        render_html,
+    )
+    from creaseiq.utils import read_json, write_json
+
+    settings = _bootstrap()
+    reports, docs, root = settings.path("reports_dir"), settings.path("docs_dir"), settings.root
+    nfr = build_nfr_summary(reports)
+    write_json(reports / "nfr.json", nfr)
+    (docs / "nfr_verification.md").write_text(render_nfr_markdown(nfr), encoding="utf-8")
+    (docs / "schema.sql").write_text(schema_ddl(), encoding="utf-8")
+    perf = read_json(reports / "perf.json") if (reports / "perf.json").exists() else None
+    update_readme(
+        root / "README.md",
+        render_results_block(
+            read_json(reports / "metrics.json"), read_json(reports / "analytics.json"), perf
+        ),
+    )
+    if check_links:
+        write_json(
+            reports / "reference_check.json",
+            check_references(root / "report" / "sections" / "15_references.md"),
+        )
+    build = root / "report" / "build"
+    build.mkdir(parents=True, exist_ok=True)
+    html_path = build / "CreaseIQ_Project_Report.html"
+    html_path.write_text(
+        _guard(lambda: render_html(settings, load_context(settings))), encoding="utf-8"
+    )
+    console.print(f"[green]OK[/] HTML -> {html_path.relative_to(root)}")
+    if pdf:
+        out = build_pdf(html_path, root / "report" / "CreaseIQ_Project_Report.pdf", find_chromium())
+        console.print(f"[green]OK[/] PDF -> {out.relative_to(root)}")
+
+
 @app.command("all")
 def run_all() -> None:
     """validate → build-db → analyze → train (the whole pipeline)."""
