@@ -1,0 +1,28 @@
+%% D4 Use-case diagram. Mermaid has no native use-case syntax, so actors are drawn as
+%% circles and use cases as stadium shapes inside the system boundary. FR IDs link to requirements.
+flowchart LR
+  AN(("👤 Analyst /<br/>Student"))
+  FAN(("👤 Cricket fan"))
+  MT(("👤 Maintainer"))
+  subgraph SYS["CreaseIQ system boundary"]
+    UC1(["Explore & filter matches<br/>FR-11"])
+    UC2(["Export sanitised CSV<br/>FR-11"])
+    UC3(["View team records, titles, H2H, Elo<br/>FR-06, FR-13"])
+    UC4(["Analyse toss, chasing & venues<br/>FR-07, FR-08"])
+    UC5(["View scoring & margin trends<br/>FR-09, FR-10"])
+    UC6(["Predict a match (pre/post-toss)<br/>FR-16"])
+    UC7(["See explanation of prediction<br/>FR-16"])
+    UC8(["Run what-if scenarios<br/>FR-19"])
+    UC9(["Simulate a season<br/>FR-20"])
+    UC10(["Inspect model evaluation & drift<br/>FR-15, FR-21"])
+    UC11(["Validate & ingest data<br/>FR-01..FR-03"])
+    UC12(["Append new matches<br/>FR-05"])
+    UC13(["Rebuild DB<br/>FR-04"])
+    UC14(["Train, evaluate & register models<br/>FR-12..FR-18, FR-22"])
+    UC15(["Benchmark performance<br/>NFR-01"])
+  end
+  AN --- UC1 & UC2 & UC3 & UC4 & UC5 & UC10
+  FAN --- UC6 & UC8 & UC9 & UC3
+  MT --- UC11 & UC12 & UC13 & UC14 & UC15
+  UC6 -. "«include»" .-> UC7
+  UC12 -. "«include»" .-> UC11

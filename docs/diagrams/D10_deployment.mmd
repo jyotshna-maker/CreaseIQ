@@ -1,0 +1,25 @@
+%% D10 Deployment / environment
+flowchart LR
+  subgraph DEV["Developer laptop (Windows 11 · macOS · Linux)"]
+    PY["Python 3.12 / 3.13 venv<br/>pip install -r requirements.txt"]
+    CLI2["creaseiq CLI"]
+    ST["streamlit run src/creaseiq/app/Home.py<br/>localhost:8501"]
+    FS[("project folder<br/>data/ · models/ · reports/")]
+    SQLITE[("data/creaseiq.db<br/>SQLite")]
+    PY --> CLI2 & ST
+    CLI2 --> FS & SQLITE
+    ST --> FS & SQLITE
+  end
+  subgraph GH["GitHub"]
+    REPO[("public repository")]
+    ACT["Actions CI matrix<br/>ubuntu · windows · macos × py3.12/3.13"]
+    REPO --> ACT
+  end
+  subgraph OPT["Optional"]
+    SCC["Streamlit Community Cloud<br/>(read-only demo)"]
+    PG[("PostgreSQL<br/>CREASEIQ_DB_URL")]
+  end
+  DEV -- "git push" --> REPO
+  REPO -. deploy .-> SCC
+  CLI2 -. "switch by URL (NFR-08)" .-> PG
+  BR["Browser"] --> ST

@@ -1,0 +1,53 @@
+%% D1 System architecture: layers (dependencies point downward only) and data stores
+flowchart TB
+  subgraph UI["Presentation layer"]
+    APP["Streamlit dashboard<br/>app/Home.py + 6 pages"]
+    CLI["Typer CLI<br/>creaseiq validate · train · predict · …"]
+  end
+  subgraph SVC["Services layer"]
+    PS["PredictionService"]
+    AS["AnalyticsService"]
+    SS["ScenarioService"]
+    IS["ingest_service (uploads)"]
+    BS["benchmark_service"]
+    CTX["AppContext"]
+  end
+  subgraph DOM["Domain layer"]
+    AN["analytics/<br/>toss · teams · venues · clusters"]
+    FE["features/<br/>Elo · form · H2H · venue · squad · FeatureBuilder"]
+    MO["models/<br/>train · calibrate · evaluate · registry · predict"]
+    SI["simulation/<br/>what-if · Monte Carlo"]
+    RE["reporting/<br/>figures · model card · drift · NFR"]
+    VZ["viz/<br/>Plotly charts"]
+  end
+  subgraph DATA["Data layer"]
+    DA["data/<br/>source · schema · ingest · cleaning · canonical"]
+    DB["db/<br/>SQLAlchemy models · loader · repository"]
+  end
+  subgraph CORE["Core"]
+    CF["config · logging_setup · exceptions · utils"]
+  end
+  subgraph STORES["Stores"]
+    RAW[("raw CSV<br/>immutable, SHA-256")]
+    EXT[("data/external<br/>verified facts")]
+    YAML[("configs/*.yaml<br/>knowledge base")]
+    PQ[("Parquet cache")]
+    SQL[("SQLite / Postgres")]
+    REG[("model registry<br/>joblib + SHA-256")]
+    REP[("reports/*.json<br/>figures")]
+  end
+  APP --> SVC
+  CLI --> SVC
+  SVC --> DOM
+  DOM --> DATA
+  DATA --> CORE
+  DOM --> CORE
+  SVC --> CORE
+  DA --- RAW
+  DA --- EXT
+  DA --- YAML
+  DA --- PQ
+  DB --- SQL
+  MO --- REG
+  RE --- REP
+  CI["GitHub Actions CI<br/>ruff · mypy · lint-imports · pytest · bandit · pip-audit"] -. checks .-> UI

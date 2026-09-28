@@ -1,0 +1,13 @@
+{
+  "theme": "neutral",
+  "themeVariables": {
+    "fontFamily": "Segoe UI, Helvetica, Arial, sans-serif",
+    "fontSize": "15px",
+    "primaryColor": "#E8F1FA",
+    "primaryBorderColor": "#0072B2",
+    "lineColor": "#555555"
+  },
+  "flowchart": { "htmlLabels": true, "curve": "basis" },
+  "sequence": { "mirrorActors": false },
+  "er": { "layoutDirection": "TB" }
+}
