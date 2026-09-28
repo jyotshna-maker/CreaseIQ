@@ -6,15 +6,15 @@
     "python": "3.12.10"
   },
   "n": 60,
-  "page_render_s": 0.5095645999972476,
+  "page_render_s": 0.5674171999999089,
   "pages_s": {
-    "1_Data_Explorer": 0.06791759999759961,
-    "2_Team_Analytics": 0.3084224999984144,
-    "3_Venue_and_Toss": 0.5095645999972476,
-    "4_Predict_Match": 0.013062399993941654,
-    "5_Model_Lab": 0.06506579999404494,
-    "6_What_If": 0.013645600003656,
-    "Home": 0.024624099998618476
+    "1_Data_Explorer": 0.043253900003037415,
+    "2_Team_Analytics": 0.3167879000029643,
+    "3_Venue_and_Toss": 0.5674171999999089,
+    "4_Predict_Match": 0.013635100003739353,
+    "5_Model_Lab": 0.06752029999915976,
+    "6_What_If": 0.011556199999176897,
+    "Home": 0.02553980000084266
   },
   "passed": {
     "page_render_s": true,
@@ -22,15 +22,15 @@
     "pipeline_s": true,
     "prediction_ms": true
   },
-  "peak_memory_mb": 39.839212,
-  "pipeline_s": 6.635727299995779,
-  "prediction_ms": 8.758700001635589,
-  "prediction_p95_ms": 9.766200004378334,
+  "peak_memory_mb": 39.823455,
+  "pipeline_s": 6.586094099999173,
+  "prediction_ms": 9.329649998107925,
+  "prediction_p95_ms": 10.869899997487664,
   "stages_s": {
-    "data": 2.3502830999932485,
-    "db": 2.7534649000008358,
-    "features": 1.4367323999977089,
-    "train_best": 0.0952222999985679
+    "data": 2.3269423999954597,
+    "db": 2.695201000002271,
+    "features": 1.4746153000014601,
+    "train_best": 0.08930969999346416
   },
   "targets": {
     "page_render_s": 2.0,

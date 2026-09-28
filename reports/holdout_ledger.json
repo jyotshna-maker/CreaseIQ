@@ -2,7 +2,7 @@
   "post_toss": {
     "selections": {
       "cb307204cef4d652": {
-        "evaluations": 2,
+        "evaluations": 3,
         "first_evaluated_at": "2026-09-28T20:29:23Z",
         "selection": {
           "calibration": "none",
@@ -55,7 +55,7 @@
   "pre_toss": {
     "selections": {
       "ca1c1c58a4c3147e": {
-        "evaluations": 2,
+        "evaluations": 3,
         "first_evaluated_at": "2026-09-28T20:28:39Z",
         "selection": {
           "calibration": "none",

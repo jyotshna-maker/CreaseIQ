@@ -15,7 +15,7 @@ It then builds a win-probability model the *right* way:
 - no information from the future;
 - no bias from which team is listed first;
 - time-ordered validation, calibration and baselines;
-- a holdout that is evaluated once.
+- a holdout that is touched only after the selection is frozen and hashed.
 
 The honest result is that pre-match IPL outcomes are close to a coin flip, and the project proves that rather than hiding it.
 
@@ -71,7 +71,7 @@ The honest result is that pre-match IPL outcomes are close to a coin flip, and t
 22. *How are the tree models made symmetric?* Prediction averages p(A,B) and 1 − p(B,A) (ADR-005). A test checks invariance to 1e-9.
 23. *How was Elo tuned?* A grid over K, home bonus, season regression and margin on/off, scored by walk-forward log-loss on development seasons only.
 24. *What are the baselines, and why?* Coin flip, chase prior, toss winner, Elo probability and venue chase rate. A model is only useful if it beats simple rules, checked with paired tests.
-25. *Why is the holdout "evaluated once", and how can we trust that?* The selection is frozen and hashed before evaluation, and every evaluation is counted in `reports/holdout_ledger.json`. ADR-006 discloses one exploratory recomputation of the same frozen selection.
+25. *How do we know the holdout wasn't used to choose the model?* Each tier's selection is frozen and hashed before evaluation. The ledger (`reports/holdout_ledger.json`) shows exactly **one distinct selection per tier**. It also counts every recomputation of that same selection (re-runs of `creaseiq train` are deterministic and give identical numbers). ADR-006 discloses that the ledger file was reset once after an exploratory run.
 26. *Your model is worse than a coin on 2025–26. Is the project a failure?* No. That is the honest result. The CIs overlap the coin flip, and the pre-2023 patterns weakened: home sides won only about 40% in 2023 and 2025. Claiming 80% would require leakage. The project's value is the method.
 27. *What would you check if the AUC were 0.9?* Assume leakage: post-match columns, future data in aggregates, random splits, orientation. The "too good" guard warns above AUC 0.72.
 28. *What is the paired bootstrap?* Resample matches, recompute the mean difference in per-match log-loss between the model and a baseline, and read the CI of that difference. Pairing removes shared noise.
@@ -80,7 +80,7 @@ The honest result is that pre-match IPL outcomes are close to a coin flip, and t
 31. *How do you explain a prediction?* For the linear model, each feature contributes `coef × x / scale` to the log-odds. The contributions sum to the logit, and the top three become a sentence.
 32. *What is PSI, and what did it show?* The Population Stability Index compares feature distributions. Scoring features drift strongly in the Impact Player era, which warns that the training data no longer resembles current play.
 33. *What unsupervised learning is used?* k-means on shrunk venue profiles, with k chosen by silhouette. It is descriptive only and never a model input.
-34. *What is the score regressor, and is it useful?* Ridge and gradient boosting predict first-innings runs. It barely beats a recent-league-mean baseline, and we say so.
+34. *What is the score regressor, and is it useful?* Ridge and gradient boosting predict first-innings runs. It does **not** beat a rolling recent-league-mean baseline (worse in walk-forward, statistically tied on the holdout), and we say so.
 
 **Engineering**
 35. *Why a layered architecture?* One implementation of each use case serves both the CLI and the UI, and the domain is testable without the UI. The layering is enforced by import-linter and an AST test.

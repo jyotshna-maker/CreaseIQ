@@ -33,7 +33,7 @@ D2 (`diagrams/D2_data_pipeline.png`) shows the end-to-end process that `creaseiq
 6. As-of features are built.
 7. Model selection runs as walk-forward CV.
 8. The selection is frozen and hashed.
-9. The holdout is evaluated once.
+9. The holdout is evaluated for the frozen selection only, and every evaluation is logged.
 10. The selected configuration is refit and registered.
 11. Predictions are served.
 

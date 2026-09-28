@@ -29,7 +29,7 @@ def render_results_block(
         + str(metrics["splits"]["dev_last_season"])
         + "; the holdout, "
         + ", ".join(map(str, metrics["splits"]["holdout_seasons"]))
-        + ", was evaluated once. A coin flip scores log-loss 0.6931.",
+        + ", was evaluated only after each tier's selection was frozen and hashed (one selection per tier; every recomputation is logged in `reports/holdout_ledger.json`). A coin flip scores log-loss 0.6931.",
         "",
         "| Tier | Model | Walk-forward log-loss | Holdout log-loss [95% CI] | Holdout accuracy | Holdout AUC |",
         "|---|---|---|---|---|---|",

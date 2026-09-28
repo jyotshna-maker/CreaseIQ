@@ -5,4 +5,4 @@ app/cli -> services -> analytics|features|models|simulation|reporting|viz -> dat
 -> config|logging_setup|exceptions|utils
 """
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"

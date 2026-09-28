@@ -5,6 +5,18 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-09-29
+### Added
+- Final acceptance checklist (`docs/acceptance_checklist.md`), `scripts/set_repo_url.py`, and the model-selection runtime recorded in metrics.
+### Fixed
+- `.gitattributes` keeps data and artifacts byte-exact, because a Windows clean clone had failed the raw-CSV hash check.
+- Git commit provenance is recorded even when git is not on PATH.
+- `creaseiq info` no longer wraps paths.
+- An order-dependent logging test.
+- Report nested lists, holdout wording (one frozen selection per tier), NFR-01 scope label, stale counts, D8 import edges and venue-cluster labels, all from the independent review.
+### Verified
+- Clean clone on Windows: fresh venv → `creaseiq all` → 393/393 tests pass.
+
 ## [0.9.0] - 2026-09-29
 ### Added
 - `creaseiq report`: a template-driven (Jinja2 + Markdown) project report printed to PDF with Chromium. It includes a reference link checker, auto-numbered figures and tables, and autoescaping.
