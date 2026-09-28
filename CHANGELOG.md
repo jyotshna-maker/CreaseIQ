@@ -5,6 +5,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-29
+### Added
+- Normalized SQLite schema (3NF) with FK/CHECK/UNIQUE constraints and two views, an idempotent loader and a parameterised repository (FR-04).
+- Analytics (FR-06..FR-10): a causal toss test with MDE, chasing advantage with an era z-test, a shrunk venue profile table, head-to-head records, home advantage, scoring trends, POTM leaderboards, squad continuity and an umpire table.
+- Unsupervised k-means venue profiling (ADR-001).
+- `creaseiq build-db` and `creaseiq analyze`, which generate `reports/analytics.json` and `docs/analytics_findings.md`.
+
 ## [0.2.0] - 2026-09-29
 ### Added
 - Data layer (M1): pandera schema plus row rules, strict and lenient validation with quarantine, a hash-verified CSV source, fail-loud canonical maps and the cleaning pipeline (FR-01..FR-03).
