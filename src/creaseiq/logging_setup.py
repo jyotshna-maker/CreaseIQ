@@ -100,6 +100,11 @@ def configure_logging(
     """
     logger = logging.getLogger("creaseiq")
     logger.setLevel(level.upper())
+    # Frameworks (e.g. Streamlit) may call logging.config with disable_existing_loggers=True,
+    # which silently disables our module loggers; re-enable them.
+    for name, obj in logging.root.manager.loggerDict.items():
+        if name.startswith("creaseiq") and isinstance(obj, logging.Logger):
+            obj.disabled = False
     if getattr(logger, _CONFIGURED_FLAG, False):
         return logger
     formatter = KeyValueFormatter()
