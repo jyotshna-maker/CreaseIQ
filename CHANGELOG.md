@@ -5,6 +5,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-09-29
+### Added
+- Margin-aware Elo engine with season carry-over and an optional early-season K boost (FR-13).
+- Form, head-to-head, venue and squad state components, plus an as-of `FeatureBuilder` with date-batch processing, hash-seeded orientation, a declared symmetry and a column allow-list (FR-12, ADR-005).
+- Leakage test suite: future deletion and mutation, same day, label shuffle, allow-list, orientation signal.
+- `creaseiq features`.
+
 ## [0.3.0] - 2026-09-29
 ### Added
 - Normalized SQLite schema (3NF) with FK/CHECK/UNIQUE constraints and two views, an idempotent loader and a parameterised repository (FR-04).
