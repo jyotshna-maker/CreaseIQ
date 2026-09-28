@@ -51,9 +51,26 @@ def _settle(page: Page, extra: float = 2.5) -> None:
     time.sleep(extra)
 
 
+def crop_trailing_blank(path: Path, margin: int = 40) -> None:
+    """Trim the empty area below the last content row (the sidebar column is ignored)."""
+    import numpy as np
+    from PIL import Image
+
+    img = Image.open(path).convert("RGB")
+    arr = np.asarray(img).astype(int)
+    main = arr[:, int(arr.shape[1] * 0.25) :, :]
+    background = main[-1, -1, :]
+    rows = np.where(np.abs(main - background).sum(axis=2).max(axis=1) > 30)[0]
+    if len(rows):
+        bottom = min(arr.shape[0], int(rows.max()) + margin)
+        img.crop((0, 0, arr.shape[1], bottom)).save(path)
+
+
 def _shot(page: Page, name: str) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    page.screenshot(path=str(OUT / f"{name}.png"), full_page=True)
+    path = OUT / f"{name}.png"
+    page.screenshot(path=str(path), full_page=True)
+    crop_trailing_blank(path)
     print("saved", name)
 
 

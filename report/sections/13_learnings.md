@@ -1,0 +1,12 @@
+# 13. Learnings & Key Takeaways
+
+1. **Most of the work is data understanding.** The hardest and most valuable part was not the model. It was noticing that a column changes meaning in 2018, that ties hide super overs, and that one "no result" was a voided match. Profiling, domain research and fail-loud validation are worth more than an extra model family.
+2. **Leakage is easy to create and hard to see.** Aggregates computed over the whole dataset, random splits, post-match columns and even row orientation can all leak. The reliable defence is structural (as-of date batches, allow-lists) backed by adversarial tests that *try* to leak.
+3. **Honest evaluation beats impressive numbers.** Walk-forward validation, baselines, confidence intervals and a locked holdout showed that pre-match IPL prediction is barely better than a coin flip. The literature agrees (T20 is highly random [2], [3]). Claims of 80–90% accuracy are a warning sign, not a target.
+4. **Probabilities matter more than labels.** Log-loss and calibration measure whether "60%" really means 60%. Accuracy can look fine while the probabilities are useless, and selecting on calibration is the more useful practice [9].
+5. **Statistical tests need effect sizes and power.** "Not significant" is only informative with a minimum detectable effect. The toss analysis rules out effects larger than about four points; it does not "prove zero". Separating causal from associational questions (the toss vs the decision) prevents wrong conclusions.
+6. **Symmetry can be designed in.** Declaring features antisymmetric and dropping the intercept made the logistic model exactly invariant to team order. Tests then verify the invariance mechanically.
+7. **Simplicity wins on small data.** The one-SE rule repeatedly chose Elo-logit or logistic models over forests and boosting. With about 1k samples, variance dominates.
+8. **Engineering discipline makes research reproducible.** Seeds, pinned dependencies, config files, a registry with hashes, idempotent rebuilds, a holdout ledger and CI turn "it worked on my laptop" into evidence.
+9. **Layering pays for itself.** Because the dashboard and the CLI share the same services, every feature was testable once, without a browser.
+10. **Documentation is part of the product.** ADRs recorded *why* decisions were made. That made the plan review, the report and viva preparation straightforward.

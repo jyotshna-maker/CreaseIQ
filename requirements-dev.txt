@@ -9,4 +9,6 @@ pip-audit==2.10.1
 import-linter==2.15
 pypdf==6.19.0
 playwright==1.63.0
+Markdown==3.11
+pypdfium2==5.13.0
 types-PyYAML

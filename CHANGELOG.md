@@ -5,6 +5,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-09-29
+### Added
+- `creaseiq report`: a template-driven (Jinja2 + Markdown) project report printed to PDF with Chromium. It includes a reference link checker, auto-numbered figures and tables, and autoescaping.
+- The 15 report sections, a structure test, and home-win rate by season in the analytics summary.
+### Fixed
+- Module loggers disabled by framework logging configuration are re-enabled.
+
 ## [0.8.0] - 2026-09-29
 ### Added
 - Diagrams D1–D12 (Mermaid sources plus SVG and PNG), generated schema DDL, and real Playwright screenshots of every page.
