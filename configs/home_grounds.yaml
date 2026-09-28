@@ -6,8 +6,11 @@ neutral_seasons:
   2009: "Held in South Africa"
   2020: "Held in the UAE"
   2021: "India phase in neutral hubs, then UAE"
-# The 2014 first leg (UAE) and 2022 league stage (Maharashtra hub) are neutral in part. UAE and
-# hub venues are simply not listed as anyone's home, so those matches resolve to neutral automatically.
+  2022: "League stage in a Maharashtra hub (Mumbai/Pune); playoffs Kolkata/Ahmedabad"
+# The 2014 first leg (UAE) is neutral in part: UAE venues are simply not listed as anyone's
+# home, so those matches resolve to neutral automatically. When a relocated venue hosts two
+# 'home' teams (Visakhapatnam 2016: MI, RPS and SRH), both flags are set and cancel out in
+# the home-difference feature.
 
 homes:
   csk:
