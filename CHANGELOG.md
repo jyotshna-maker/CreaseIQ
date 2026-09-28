@@ -5,6 +5,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-29
+### Added
+- Data layer (M1): pandera schema plus row rules, strict and lenient validation with quarantine, a hash-verified CSV source, fail-loud canonical maps and the cleaning pipeline (FR-01..FR-03).
+- Corrections for tie rows (super-over runs removed), the voided-match flag, dls_flag, era-aware stages and derived champions (ADR-004).
+- Generated data-quality report, data dictionary and `creaseiq validate`.
+
 ## [0.1.0] - 2026-09-28
 ### Added
 - Phase 0 research notes (R1–R11) with sources, confidence and the decisions each one drives.
