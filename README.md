@@ -36,7 +36,7 @@ The headline finding is that pre-match IPL outcomes are close to a coin flip. Cr
 - The chasing side won **54.7%** (p = 0.001).
 - First-innings scores rose by **+27.1 runs** in the Impact Player era (Cohen's d = 0.82).
 
-**Win-probability models.** Walk-forward validation used development seasons ≤ 2024; the holdout, 2025, 2026, was evaluated once. A coin flip scores log-loss 0.6931.
+**Win-probability models.** Walk-forward validation used development seasons ≤ 2024; the holdout, 2025, 2026, was evaluated only after each tier's selection was frozen and hashed (one selection per tier; every recomputation is logged in `reports/holdout_ledger.json`). A coin flip scores log-loss 0.6931.
 
 | Tier | Model | Walk-forward log-loss | Holdout log-loss [95% CI] | Holdout accuracy | Holdout AUC |
 |---|---|---|---|---|---|
@@ -45,7 +45,7 @@ The headline finding is that pre-match IPL outcomes are close to a coin flip. Cr
 
 **Honest verdict.** The models edge a coin flip in walk-forward validation, but none of them beats it on the 2025–26 holdout: relationships learned before 2023 weakened. See [`docs/model_card.md`](docs/model_card.md).
 
-**Performance.** The full pipeline takes 6.6 s. A warm prediction takes 8.8 ms, and the slowest dashboard page renders in 0.51 s. Peak memory is 40 MB.
+**Performance.** The full pipeline takes 6.6 s. A warm prediction takes 9.3 ms, and the slowest dashboard page renders in 0.57 s. Peak memory is 40 MB.
 <!-- RESULTS:END -->
 
 ## Features

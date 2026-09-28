@@ -239,8 +239,9 @@
       "use_margin": false
     }
   },
+  "experiment_runtime_s": 106.5,
   "generated_by": "creaseiq train",
-  "git_commit": "unknown",
+  "git_commit": "d16d3cca16cc52f4862ba4836c4f9f52478cdea4",
   "score_regression": {
     "chosen": "ridge",
     "features": [
@@ -772,7 +773,7 @@
       },
       "holdout_access": {
         "distinct_selections_evaluated": 1,
-        "evaluations_of_this_selection": 2,
+        "evaluations_of_this_selection": 3,
         "first_evaluated_at": "2026-09-28T20:29:23Z",
         "reused_with_new_selection": false,
         "selection_hash": "cb307204cef4d652"
@@ -1567,7 +1568,7 @@
           "std": 0.0010916974864035374
         }
       ],
-      "registry_run_id": "10f5038ec812",
+      "registry_run_id": "6f5f430d8c19",
       "selection": {
         "best_by_mean": "logreg",
         "chosen": "logreg",
@@ -1908,7 +1909,7 @@
       },
       "holdout_access": {
         "distinct_selections_evaluated": 1,
-        "evaluations_of_this_selection": 2,
+        "evaluations_of_this_selection": 3,
         "first_evaluated_at": "2026-09-28T20:28:39Z",
         "reused_with_new_selection": false,
         "selection_hash": "ca1c1c58a4c3147e"
@@ -2565,7 +2566,7 @@
           "std": 0.0042956714281876755
         }
       ],
-      "registry_run_id": "5a55646abb0c",
+      "registry_run_id": "0a5fd2d5a97f",
       "selection": {
         "best_by_mean": "elo_logit",
         "chosen": "elo_logit",

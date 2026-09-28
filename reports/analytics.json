@@ -1178,7 +1178,7 @@
         "chase_win_rate_shrunk": 0.5802156836639595,
         "cluster": 0,
         "field_share": 0.7931034482758621,
-        "label": "high-scoring, defend-friendly",
+        "label": "higher-scoring, less chase-friendly",
         "matches": 29,
         "venue": "BRSABV Ekana Cricket Stadium",
         "venue_id": "ekana"
@@ -1188,7 +1188,7 @@
         "chase_win_rate_shrunk": 0.49913460258287845,
         "cluster": 0,
         "field_share": 0.6666666666666666,
-        "label": "high-scoring, defend-friendly",
+        "label": "higher-scoring, less chase-friendly",
         "matches": 27,
         "venue": "Brabourne Stadium",
         "venue_id": "brabourne"
@@ -1198,7 +1198,7 @@
         "chase_win_rate_shrunk": 0.4452850105559465,
         "cluster": 0,
         "field_share": 0.8947368421052632,
-        "label": "high-scoring, defend-friendly",
+        "label": "higher-scoring, less chase-friendly",
         "matches": 19,
         "venue": "HPCA Stadium",
         "venue_id": "hpca"
@@ -1208,7 +1208,7 @@
         "chase_win_rate_shrunk": 0.5587998208687864,
         "cluster": 0,
         "field_share": 0.9134615384615384,
-        "label": "high-scoring, defend-friendly",
+        "label": "higher-scoring, less chase-friendly",
         "matches": 104,
         "venue": "M. Chinnaswamy Stadium",
         "venue_id": "chinnaswamy"
@@ -1218,7 +1218,7 @@
         "chase_win_rate_shrunk": 0.5358511220580187,
         "cluster": 0,
         "field_share": 0.7058823529411765,
-        "label": "high-scoring, defend-friendly",
+        "label": "higher-scoring, less chase-friendly",
         "matches": 17,
         "venue": "Maharaja Yadavindra Singh International Cricket Stadium",
         "venue_id": "mys_mullanpur"
@@ -1228,7 +1228,7 @@
         "chase_win_rate_shrunk": 0.5189800057954216,
         "cluster": 0,
         "field_share": 0.8048780487804879,
-        "label": "high-scoring, defend-friendly",
+        "label": "higher-scoring, less chase-friendly",
         "matches": 41,
         "venue": "Narendra Modi Stadium",
         "venue_id": "narendra_modi"
@@ -1238,7 +1238,7 @@
         "chase_win_rate_shrunk": 0.5494182999685568,
         "cluster": 0,
         "field_share": 0.7651515151515151,
-        "label": "high-scoring, defend-friendly",
+        "label": "higher-scoring, less chase-friendly",
         "matches": 132,
         "venue": "Wankhede Stadium",
         "venue_id": "wankhede"
@@ -1248,7 +1248,7 @@
         "chase_win_rate_shrunk": 0.5358511220580187,
         "cluster": 1,
         "field_share": 0.5294117647058824,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 17,
         "venue": "ACA-VDCA Cricket Stadium",
         "venue_id": "aca_vdca"
@@ -1258,7 +1258,7 @@
         "chase_win_rate_shrunk": 0.5357475702303289,
         "cluster": 1,
         "field_share": 0.625,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 104,
         "venue": "Arun Jaitley Stadium",
         "venue_id": "arun_jaitley"
@@ -1268,7 +1268,7 @@
         "chase_win_rate_shrunk": 0.541871921182266,
         "cluster": 1,
         "field_share": 0.7297297297297297,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 37,
         "venue": "DY Patil Stadium",
         "venue_id": "dy_patil"
@@ -1278,7 +1278,7 @@
         "chase_win_rate_shrunk": 0.5182637791616321,
         "cluster": 1,
         "field_share": 0.5869565217391305,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 46,
         "venue": "Dubai International Cricket Stadium",
         "venue_id": "dubai_ics"
@@ -1288,7 +1288,7 @@
         "chase_win_rate_shrunk": 0.5692867851788392,
         "cluster": 1,
         "field_share": 0.6728971962616822,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 107,
         "venue": "Eden Gardens",
         "venue_id": "eden_gardens"
@@ -1298,7 +1298,7 @@
         "chase_win_rate_shrunk": 0.5558870464164296,
         "cluster": 1,
         "field_share": 0.7213114754098361,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 61,
         "venue": "I. S. Bindra PCA Stadium",
         "venue_id": "pca_mohali"
@@ -1308,7 +1308,7 @@
         "chase_win_rate_shrunk": 0.4987192118226601,
         "cluster": 1,
         "field_share": 0.3333333333333333,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 15,
         "venue": "Kingsmead",
         "venue_id": "kingsmead"
@@ -1318,7 +1318,7 @@
         "chase_win_rate_shrunk": 0.47611302165628777,
         "cluster": 1,
         "field_share": 0.47959183673469385,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 98,
         "venue": "M. A. Chidambaram Stadium",
         "venue_id": "chepauk"
@@ -1328,7 +1328,7 @@
         "chase_win_rate_shrunk": 0.466688201566664,
         "cluster": 1,
         "field_share": 0.6274509803921569,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 51,
         "venue": "MCA Stadium",
         "venue_id": "mca_pune"
@@ -1338,7 +1338,7 @@
         "chase_win_rate_shrunk": 0.545591635669046,
         "cluster": 1,
         "field_share": 0.5777777777777777,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 90,
         "venue": "Rajiv Gandhi International Cricket Stadium",
         "venue_id": "uppal"
@@ -1348,7 +1348,7 @@
         "chase_win_rate_shrunk": 0.49847525216983346,
         "cluster": 1,
         "field_share": 0.5,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 12,
         "venue": "Sardar Patel Stadium (old Motera)",
         "venue_id": "motera_old"
@@ -1358,7 +1358,7 @@
         "chase_win_rate_shrunk": 0.6035779102929738,
         "cluster": 1,
         "field_share": 0.7,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 10,
         "venue": "Saurashtra Cricket Association Stadium",
         "venue_id": "sca_rajkot"
@@ -1368,7 +1368,7 @@
         "chase_win_rate_shrunk": 0.6342048755841859,
         "cluster": 1,
         "field_share": 0.5882352941176471,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 68,
         "venue": "Sawai Mansingh Stadium",
         "venue_id": "sms_jaipur"
@@ -1378,7 +1378,7 @@
         "chase_win_rate_shrunk": 0.6175784288306974,
         "cluster": 1,
         "field_share": 0.7142857142857143,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 28,
         "venue": "Sharjah Cricket Stadium",
         "venue_id": "sharjah"
@@ -1388,7 +1388,7 @@
         "chase_win_rate_shrunk": 0.6121809225257501,
         "cluster": 1,
         "field_share": 0.5,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 12,
         "venue": "SuperSport Park",
         "venue_id": "supersport_park"
@@ -1398,7 +1398,7 @@
         "chase_win_rate_shrunk": 0.5881773399014778,
         "cluster": 1,
         "field_share": 0.5135135135135135,
-        "label": "lower-scoring, chase-friendly",
+        "label": "lower-scoring, more chase-friendly",
         "matches": 37,
         "venue": "Zayed Cricket Stadium",
         "venue_id": "zayed_abu_dhabi"
@@ -1410,14 +1410,14 @@
         "chase_win_rate_shrunk": 0.5268120779276526,
         "cluster": 0,
         "field_share": 0.7919829160546443,
-        "label": "high-scoring, defend-friendly"
+        "label": "higher-scoring, less chase-friendly"
       },
       {
         "avg_first_innings_shrunk": 165.65825265385953,
         "chase_win_rate_shrunk": 0.5498884390154432,
         "cluster": 1,
         "field_share": 0.5874684461250685,
-        "label": "lower-scoring, chase-friendly"
+        "label": "lower-scoring, more chase-friendly"
       }
     ],
     "k": 2,

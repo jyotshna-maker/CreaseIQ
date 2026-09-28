@@ -3,14 +3,14 @@
     "holdout_logged": {
       "post_toss": {
         "distinct_selections_evaluated": 1,
-        "evaluations_of_this_selection": 2,
+        "evaluations_of_this_selection": 3,
         "first_evaluated_at": "2026-09-28T20:29:23Z",
         "reused_with_new_selection": false,
         "selection_hash": "cb307204cef4d652"
       },
       "pre_toss": {
         "distinct_selections_evaluated": 1,
-        "evaluations_of_this_selection": 2,
+        "evaluations_of_this_selection": 3,
         "first_evaluated_at": "2026-09-28T20:28:39Z",
         "reused_with_new_selection": false,
         "selection_hash": "ca1c1c58a4c3147e"
@@ -29,7 +29,7 @@
       "category": "Performance",
       "evidence": "reports/perf.json",
       "id": "NFR-01",
-      "measured": "pipeline 6.6 s (\u2264 90); prediction 8.8 ms median, p95 9.8 ms (\u2264 200); slowest page 0.51 s (\u2264 2)",
+      "measured": "pipeline ingest\u2192DB\u2192features\u2192train of the registered configuration 6.6 s (\u2264 90; the one-off model-selection search is reported separately in metrics.json); prediction 9.3 ms median, p95 10.9 ms (\u2264 200); slowest page 0.57 s (\u2264 2)",
       "passed": true
     },
     {
