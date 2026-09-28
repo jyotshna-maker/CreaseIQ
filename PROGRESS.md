@@ -8,8 +8,8 @@ Status format: phase · done · next · blockers.
 |---|---|---|
 | 0 Research, review, scaffolding | v0.1.0 | ✅ done (CI is verified locally only until the first push) |
 | 1 Data layer | v0.2.0 | ✅ done: 0 quarantined, 37 venues / 15 franchises, champions verified, 96% data coverage |
-| 2 Database + analytics | v0.3.0 | next |
-| 3 Features + Elo | v0.4.0 | pending |
+| 2 Database + analytics | v0.3.0 | ✅ done: idempotent DB (checksum test), analytics 1-10, findings generated, 96% coverage |
+| 3 Features + Elo | v0.4.0 | next |
 | 4 Modeling & evaluation | v0.5.0 | pending |
 | 5 Services, CLI, app | v0.6.0 | pending |
 | 6 Hardening | v0.7.0 | pending |
@@ -38,6 +38,15 @@ Status format: phase · done · next · blockers.
 - The real CSV validates with 0 quarantined rows (strict mode passes). 4,547 fixes are counted in `docs/data_quality_report.md`.
 - The D/L heuristic flags 14 rows, and every one in the years the external list covers is confirmed there. In total 19 rows are flagged (heuristic OR external).
 - 2022 was added to the neutral seasons. Visakhapatnam in 2016 is home to three teams, and those flags cancel out in the home-difference feature.
+
+## Phase 2 notes
+- The DB loads 1,243 matches, 27,909 squad rows, 811 players and 152 officials in about 0.6 s. Rebuilding gives identical checksums.
+- Findings (`docs/analytics_findings.md`):
+  - Toss: no detectable causal effect (+1.6 pp, p = 0.29, CI 48.8–54.4%).
+  - Chasing: a real advantage (54.7%, p = 0.001), with no change in the Impact Player era.
+  - Home: 53.2%, borderline (p = 0.057).
+  - Impact Player era: +27.1 first-innings runs (d = 0.82).
+- The EDA notebook is committed in Phase 5, together with `viz.charts`.
 
 ## Blockers
 - **GitHub push:** `gh` must be authenticated by the student (`gh auth login`). Work continues locally with full history until then.
