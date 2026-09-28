@@ -9,8 +9,8 @@ Status format: phase · done · next · blockers.
 | 0 Research, review, scaffolding | v0.1.0 | ✅ done (CI is verified locally only until the first push) |
 | 1 Data layer | v0.2.0 | ✅ done: 0 quarantined, 37 venues / 15 franchises, champions verified, 96% data coverage |
 | 2 Database + analytics | v0.3.0 | ✅ done: idempotent DB (checksum test), analytics 1-10, findings generated, 96% coverage |
-| 3 Features + Elo | v0.4.0 | next |
-| 4 Modeling & evaluation | v0.5.0 | pending |
+| 3 Features + Elo | v0.4.0 | ✅ done: leakage tests (5 kinds) pass, symmetry verified per feature, build 0.33 s |
+| 4 Modeling & evaluation | v0.5.0 | next |
 | 5 Services, CLI, app | v0.6.0 | pending |
 | 6 Hardening | v0.7.0 | pending |
 | 7 Documentation & diagrams | v0.8.0 | pending |
@@ -48,6 +48,10 @@ Status format: phase · done · next · blockers.
   - Impact Player era: +27.1 first-innings runs (d = 0.82).
 - The EDA notebook is committed in Phase 5, together with `viz.charts`.
 
+## Phase 3 notes
+- Univariate AUCs are weak, as expected: elo_diff 0.536 overall and 0.512 on 2023+. The best single features are xi_experience_diff and xi_potm_diff at 0.545. Several features invert on 2023+ (home_diff 0.473). The honest expectation is a modest gain over baselines at best.
+- The per-season elo_diff AUC ranges from 0.41 (2022) to 0.68 (2014). Season-to-season variance is large, so walk-forward std must be reported.
+
 ## Blockers
 - **GitHub push:** `gh` must be authenticated by the student (`gh auth login`). Work continues locally with full history until then.
 
@@ -62,4 +66,6 @@ Status format: phase · done · next · blockers.
 8. **Research-tool reliability:** ESPNcricinfo blocks automated fetches, and the page summariser misreported some facts. The subagents fell back to raw Wikipedia wikitext, and one subagent's venue tally (40) disagreed with the mapping's own count (37). We trust the count derived from the mapping.
 10. **Logging vs test runners:** a console log handler kept a reference to a stream that CliRunner had closed, and the second CLI test crashed. The fix is to resolve `sys.stderr` on every emit.
 11. **pandas 3 defaults:** the Arrow-backed string dtype and Copy-on-Write needed explicit handling. For example, `np.select` with a `None` default was replaced.
+12. **Slow feature builds:** in pandas 3, `itertuples` over roughly 950 date groups took 7 s per build, which made grid search and the leakage tests impractical. Profiling showed 117k indexer calls. Converting to plain records once cut this to 0.33 s.
+13. **Weak signal:** pre-match features carry little signal, especially since 2023, when the Impact Player rule and auction churn arrived. This had to be reported honestly rather than tuned away.
 9. **Baseline leakage in the plan:** the B1 prior of 54.7% was computed on data that includes the holdout seasons.

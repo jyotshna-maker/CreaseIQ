@@ -99,6 +99,26 @@ def analyze() -> None:
     )
 
 
+@app.command()
+def features() -> None:
+    """Build leakage-safe as-of features and the Elo history (FR-12, FR-13)."""
+    from creaseiq.data.pipeline import load_processed
+    from creaseiq.features.builder import FeatureBuilder
+    from creaseiq.models.params import feature_params_from_settings
+
+    settings = _bootstrap()
+    matches, players = _guard(lambda: load_processed(settings))
+    fs = FeatureBuilder(feature_params_from_settings(settings)).build(matches, players)
+    out = settings.path("processed_dir")
+    fs.frame.to_parquet(out / "features.parquet", index=False)
+    fs.elo_history.to_parquet(out / "elo_history.parquet", index=False)
+    top = sorted(fs.state.elo.ratings.items(), key=lambda kv: -kv[1])[:3]
+    console.print(
+        f"[green]OK[/] {len(fs.frame)} feature rows; current Elo leaders: "
+        + ", ".join(f"{t} {r:.0f}" for t, r in top)
+    )
+
+
 def _bootstrap() -> Settings:
     """Load settings, configure logging and start a run id."""
     settings = get_settings()
