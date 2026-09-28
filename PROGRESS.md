@@ -11,8 +11,8 @@ Status format: phase · done · next · blockers.
 | 2 Database + analytics | v0.3.0 | ✅ done: idempotent DB (checksum test), analytics 1-10, findings generated, 96% coverage |
 | 3 Features + Elo | v0.4.0 | ✅ done: leakage tests (5 kinds) pass, symmetry verified per feature, build 0.33 s |
 | 4 Modeling & evaluation | v0.5.0 | ✅ done: metrics.json with CIs, model card, figures, registry; holdout reported honestly |
-| 5 Services, CLI, app | v0.6.0 | next |
-| 6 Hardening | v0.7.0 | pending |
+| 5 Services, CLI, app | v0.6.0 | ✅ done: 7 pages pass AppTest, 12 CLI commands, NFR-01 met (6.6 s / 8.8 ms / 0.51 s / 40 MB) |
+| 6 Hardening | v0.7.0 | next |
 | 7 Documentation & diagrams | v0.8.0 | pending |
 | 8 Report | v0.9.0 | pending |
 | 9 Final QA & release | v1.0.0 | pending |
@@ -77,4 +77,5 @@ Status format: phase · done · next · blockers.
 13. **Weak signal:** pre-match features carry little signal, especially since 2023, when the Impact Player rule and auction churn arrived. This had to be reported honestly rather than tuned away.
 14. **A holdout that is worse than a coin flip:** the tempting move was to re-tune until 2025–26 looked good. Instead the selection was frozen and hashed before evaluation, and the negative result is reported as a finding about regime change.
 15. **A bug caught by tests:** the asset writer assumed `docs/` existed, which failed in an isolated project. A loop-variable shadowing bug in the registry code was caught by mypy.
+16. **Appending future seasons:** alias validity windows ended in 2026, which would have rejected any 2027 upload. Current names are now open-ended. Appends go to a separate file, so the raw file stays immutable.
 9. **Baseline leakage in the plan:** the B1 prior of 54.7% was computed on data that includes the holdout seasons.
