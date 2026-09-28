@@ -8,6 +8,7 @@ exit with code 1 instead of showing a traceback (NFR-02).
 from __future__ import annotations
 
 from collections.abc import Callable
+from pathlib import Path
 from typing import Any
 
 import typer
@@ -146,6 +147,9 @@ def train(
     write_training_outputs(
         settings, metrics, fs.elo_history, build_analytics_summary(matches, players, settings.seed)
     )
+    processed = settings.path("processed_dir")
+    fs.frame.to_parquet(processed / "features.parquet", index=False)
+    fs.elo_history.to_parquet(processed / "elo_history.parquet", index=False)
     _print_metrics(metrics)
 
 
@@ -160,6 +164,123 @@ def evaluate() -> None:
         console.print("[red]Error:[/] No metrics yet. Run `creaseiq train` first.")
         raise typer.Exit(code=1)
     _print_metrics(read_json(path))
+
+
+@app.command()
+def ingest(
+    append: Path = typer.Option(
+        ..., "--append", exists=False, help="CSV of new matches (31 raw columns)."
+    ),
+    dry_run: bool = typer.Option(
+        True, "--dry-run/--apply", help="Validate only (default) or apply."
+    ),
+) -> None:
+    """Validate and append new matches without touching the raw file (FR-05)."""
+    from creaseiq.exceptions import InputError
+    from creaseiq.services.ingest_service import process_upload
+
+    settings = _bootstrap()
+
+    def run() -> Any:
+        if not append.is_file():
+            raise InputError(f"File not found: {append}")
+        return process_upload(settings, append.read_bytes(), append.name, dry_run=dry_run)
+
+    report = _guard(run)
+    console.print(
+        f"received {report.rows_received} · new {report.rows_new} · duplicates {report.rows_duplicate} · applied {report.applied}"
+    )
+    for msg in report.messages:
+        console.print(f"  {msg}")
+
+
+@app.command()
+def predict(
+    team_a: str = typer.Argument(..., help="Franchise id, e.g. mi"),
+    team_b: str = typer.Argument(..., help="Franchise id, e.g. csk"),
+    venue: str = typer.Option(..., "--venue", help="Venue id, e.g. wankhede"),
+    date: str | None = typer.Option(None, help="YYYY-MM-DD (default: day after the last match)"),
+    stage: str = typer.Option(
+        "league", help="league | qualifier_1 | eliminator | qualifier_2 | final"
+    ),
+    toss_winner: str | None = typer.Option(
+        None, help="Franchise id that won the toss (post-toss tier)"
+    ),
+    toss_decision: str | None = typer.Option(None, help="bat | field"),
+) -> None:
+    """Predict a match (pre-toss, or post-toss when the toss is given) (FR-16)."""
+    from creaseiq.services.context import AppContext
+    from creaseiq.services.prediction_service import PredictionRequest, PredictionService
+
+    settings = _bootstrap()
+    svc = PredictionService(AppContext(settings))
+    out = _guard(
+        lambda: svc.predict(
+            PredictionRequest(team_a, team_b, venue, date, stage, toss_winner, toss_decision)
+        )
+    )
+    console.print(
+        f"[bold]{out['team_a_name']}[/] {out['p_a']:.1%}  vs  [bold]{out['team_b_name']}[/] {out['p_b']:.1%}  ({out['tier']}, {out['model']}, {out['latency_ms']:.0f} ms)"
+    )
+    console.print(out["explanation"])
+
+
+@app.command()
+def whatif(
+    team_a: str = typer.Argument(...),
+    team_b: str = typer.Argument(...),
+    venue: str = typer.Option(..., "--venue"),
+    opponents: bool = typer.Option(False, "--opponents", help="Also compare other opponents"),
+) -> None:
+    """How the toss, venue or opponent changes P(team A wins) (FR-19)."""
+    from creaseiq.services.context import AppContext
+    from creaseiq.services.prediction_service import PredictionRequest
+    from creaseiq.services.scenario_service import ScenarioService
+
+    settings = _bootstrap()
+    table = _guard(
+        lambda: ScenarioService(AppContext(settings)).what_if(
+            PredictionRequest(team_a, team_b, venue), include_opponents=opponents
+        )
+    )
+    for r in table.itertuples():
+        console.print(f"{r.p_a:6.1%}  {r.delta:+6.1%}  {r.scenario}")
+
+
+@app.command()
+def simulate(n_sims: int = typer.Option(10_000, help="Number of simulated seasons")) -> None:
+    """Hypothetical season simulation: title and top-4 odds (FR-20, P2)."""
+    from creaseiq.services.context import AppContext
+    from creaseiq.services.scenario_service import ScenarioService
+
+    settings = _bootstrap()
+    odds = _guard(lambda: ScenarioService(AppContext(settings)).season_odds(n_sims))
+    for r in odds.itertuples():
+        console.print(f"{r.team_name:<30} title {r.p_title:6.1%}   top-4 {r.p_top4:6.1%}")
+
+
+@app.command()
+def benchmark(
+    pages: bool = typer.Option(True, "--pages/--no-pages", help="Also time dashboard pages"),
+) -> None:
+    """Measure pipeline time, prediction latency, page render and memory (NFR-01) -> reports/perf.json."""
+    from creaseiq.services.benchmark_service import run_benchmark
+
+    settings = _bootstrap()
+    res = _guard(lambda: run_benchmark(settings, include_pages=pages))
+    for key, ok in res["passed"].items():
+        console.print(
+            f"{'[green]PASS[/]' if ok else '[red]FAIL[/]'} {key}: {res[key]:.3f} (target <= {res['targets'][key]})"
+        )
+
+
+@app.command("all")
+def run_all() -> None:
+    """validate → build-db → analyze → train (the whole pipeline)."""
+    validate(strict=False)
+    build_db()
+    analyze()
+    train(no_register=False)
 
 
 def _print_metrics(metrics: dict[str, Any]) -> None:

@@ -77,6 +77,10 @@ ignore = ["S101", "E501", "RUF001", "RUF002", "RUF003"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S", "N802", "N806"]
+# Streamlit multipage convention: Home.py and pages/1_Name.py are not valid module names.
+"src/creaseiq/app/**" = ["N999"]
+# Typer declares CLI options through default arguments (documented idiom).
+"src/creaseiq/cli.py" = ["B008"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

@@ -23,6 +23,7 @@ htmlcov/
 data/creaseiq.db
 data/creaseiq.db-journal
 data/interim/
+data/appended/
 data/processed/
 logs/
 *.log

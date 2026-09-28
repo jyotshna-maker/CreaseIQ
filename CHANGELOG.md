@@ -5,6 +5,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-09-29
+### Added
+- Services layer: prediction with allow-list validation and a prediction log, an analytics facade with CSV-injection-safe export, all-or-nothing uploads with atomic append and rollback, what-if analysis, and season Monte Carlo.
+- Streamlit dashboard: Home, Data Explorer, Team Analytics, Venue & Toss, Predict Match, Model Lab and What-If, with a friendly-error guard, empty states and a disclaimer.
+- CLI commands: `ingest`, `predict`, `whatif`, `simulate`, `benchmark` and `all`.
+- Benchmark written to `reports/perf.json`; all NFR-01 targets pass.
+### Changed
+- Current franchise aliases are open-ended, and appended matches are read after the immutable raw CSV.
+
 ## [0.5.0] - 2026-09-29
 ### Added
 - Modelling (FR-14..FR-18): Elo grid search, five model families, walk-forward CV, one-SE selection, time-ordered calibration, fold-trained baselines B0–B4, ablations, a one-shot holdout with a ledger, bootstrap CIs, paired bootstrap and Diebold–Mariano tests, and a too-good guard.

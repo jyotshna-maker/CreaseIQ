@@ -8,6 +8,7 @@ project:
 paths:
   raw_csv: data/raw/ipl_matches.csv
   raw_sha256: db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c
+  appended_csv: data/appended/appended_matches.csv   # validated uploads (FR-05); raw stays immutable
   interim_dir: data/interim
   processed_dir: data/processed
   external_dir: data/external

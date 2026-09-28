@@ -17,7 +17,7 @@ from creaseiq.data.quality_report import (
     render_data_dictionary,
     write_quality_outputs,
 )
-from creaseiq.data.source import CsvMatchSource, MatchSource
+from creaseiq.data.source import CombinedCsvSource, CsvMatchSource, MatchSource
 from creaseiq.logging_setup import get_logger, timed
 
 logger = get_logger(__name__)
@@ -39,10 +39,9 @@ class DataPipelineResult:
 
 
 def default_source(settings: Settings) -> MatchSource:
-    """The configured raw CSV, with hash verification (the raw file is immutable)."""
-    return CsvMatchSource(
-        settings.path("raw_csv"), expected_sha256=settings.get("paths.raw_sha256")
-    )
+    """The hash-verified raw CSV plus any validated appended matches (FR-05)."""
+    raw = CsvMatchSource(settings.path("raw_csv"), expected_sha256=settings.get("paths.raw_sha256"))
+    return CombinedCsvSource(raw, settings.path("appended_csv"))
 
 
 def run_data_pipeline(
