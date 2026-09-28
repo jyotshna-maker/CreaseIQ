@@ -2,6 +2,7 @@
 # Renames of the SAME franchise share a franchise_id (ratings/history carry over).
 # Distinct franchises (new owner/contract) get their own id even if they share a city.
 # Any raw team string not listed here makes the pipeline fail loudly.
+# Current names of active franchises are open-ended (valid_to: 2100) so future seasons can be appended.
 
 franchises:
   csk:            {name: Chennai Super Kings, short: CSK, active: true, note: "Suspended 2016-17"}
@@ -21,19 +22,19 @@ franchises:
   kochi_tuskers:  {name: Kochi Tuskers Kerala, short: KTK, active: false, note: "2011 only"}
 
 aliases:
-  "Chennai Super Kings":          {franchise: csk,  valid_from: 2008, valid_to: 2026}
-  "Mumbai Indians":               {franchise: mi,   valid_from: 2008, valid_to: 2026}
-  "Kolkata Knight Riders":        {franchise: kkr,  valid_from: 2008, valid_to: 2026}
-  "Rajasthan Royals":             {franchise: rr,   valid_from: 2008, valid_to: 2026}
+  "Chennai Super Kings":          {franchise: csk,  valid_from: 2008, valid_to: 2100}
+  "Mumbai Indians":               {franchise: mi,   valid_from: 2008, valid_to: 2100}
+  "Kolkata Knight Riders":        {franchise: kkr,  valid_from: 2008, valid_to: 2100}
+  "Rajasthan Royals":             {franchise: rr,   valid_from: 2008, valid_to: 2100}
   "Delhi Daredevils":             {franchise: dc,   valid_from: 2008, valid_to: 2018}
-  "Delhi Capitals":               {franchise: dc,   valid_from: 2019, valid_to: 2026}
+  "Delhi Capitals":               {franchise: dc,   valid_from: 2019, valid_to: 2100}
   "Kings XI Punjab":              {franchise: pbks, valid_from: 2008, valid_to: 2020}
-  "Punjab Kings":                 {franchise: pbks, valid_from: 2021, valid_to: 2026}
+  "Punjab Kings":                 {franchise: pbks, valid_from: 2021, valid_to: 2100}
   "Royal Challengers Bangalore":  {franchise: rcb,  valid_from: 2008, valid_to: 2023}
-  "Royal Challengers Bengaluru":  {franchise: rcb,  valid_from: 2024, valid_to: 2026}
-  "Sunrisers Hyderabad":          {franchise: srh,  valid_from: 2013, valid_to: 2026}
-  "Gujarat Titans":               {franchise: gt,   valid_from: 2022, valid_to: 2026}
-  "Lucknow Super Giants":         {franchise: lsg,  valid_from: 2022, valid_to: 2026}
+  "Royal Challengers Bengaluru":  {franchise: rcb,  valid_from: 2024, valid_to: 2100}
+  "Sunrisers Hyderabad":          {franchise: srh,  valid_from: 2013, valid_to: 2100}
+  "Gujarat Titans":               {franchise: gt,   valid_from: 2022, valid_to: 2100}
+  "Lucknow Super Giants":         {franchise: lsg,  valid_from: 2022, valid_to: 2100}
   "Deccan Chargers":              {franchise: deccan_chargers, valid_from: 2008, valid_to: 2012}
   "Gujarat Lions":                {franchise: gujarat_lions,   valid_from: 2016, valid_to: 2017}
   "Rising Pune Supergiants":      {franchise: rps,  valid_from: 2016, valid_to: 2016}

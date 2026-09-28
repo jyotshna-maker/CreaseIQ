@@ -83,3 +83,29 @@ class CsvMatchSource:
             return pd.read_csv(self.path, dtype=str, keep_default_na=True)
         except (pd.errors.ParserError, UnicodeDecodeError, ValueError) as exc:
             raise DataValidationError(f"Could not parse CSV {self.path.name}: {exc}") from exc
+
+
+class CombinedCsvSource:
+    """The immutable raw CSV (hash-verified) followed by validated appended matches (FR-05).
+
+    Accepted uploads are never written into the raw file. They live in a separate appended
+    file, which every pipeline run reads after the raw data.
+    """
+
+    def __init__(self, raw: CsvMatchSource, appended: Path) -> None:
+        self.raw = raw
+        self.appended = Path(appended)
+        self.name = "csv:raw+appended" if self.appended.exists() else raw.name
+
+    def load(self) -> pd.DataFrame:
+        """Raw rows, then appended rows (if any)."""
+        raw = self.raw.load()
+        if not self.appended.exists():
+            return raw
+        extra = CsvMatchSource(self.appended).load()
+        return pd.concat([raw, extra], ignore_index=True)
+
+    def fingerprint(self) -> str:
+        """Raw hash, extended with the appended file's hash when present."""
+        fp = self.raw.fingerprint()
+        return f"{fp}+{sha256_file(self.appended)[:16]}" if self.appended.exists() else fp
