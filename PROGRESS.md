@@ -15,7 +15,7 @@ Status format: phase · done · next · blockers.
 | 6 Hardening | v0.7.0 | ✅ done: 8/8 NFRs verified with evidence (docs/nfr_verification.md), coverage 96.3%, bandit 0, pip-audit 0 |
 | 7 Documentation & diagrams | v0.8.0 | ✅ done: D1–D12, 7 real screenshots, README/statement, architecture, course mapping, traceability, viva prep (40 Q&A) |
 | 8 Report | v0.9.0 | ✅ done: 49-page PDF (15 sections in order, 26 figures, 23 tables), references verified (14/14) |
-| 9 Final QA & release | v1.0.0 | next |
+| 9 Final QA & release | v1.0.0 | ✅ done: independent review fixed; clean clone passes 393/393; checklist in docs/acceptance_checklist.md. Push is pending the student's `gh auth login`. |
 
 ## Phase 0 checklist
 - [x] Assignment PDF read. It has 7 pages and no course name; the student confirmed the course is Machine Learning.
@@ -58,6 +58,10 @@ Status format: phase · done · next · blockers.
 - The walk-forward log-loss of the chosen models is below a coin flip. **On the 2025–26 holdout, neither tier beats the coin**, and the ledger shows one frozen selection per tier. The home side won only 40% in 2023 and in 2025, versus 53% historically, so the pre-2023 patterns broke down.
 - Score regression: ridge holdout MAE of about 30 runs against 30.1 for the recent-league-mean baseline, a negligible gain. The venue-level baseline has a -22 run bias because it lags the Impact Player scoring jump.
 - **Integrity disclosure:** an exploratory smoke run evaluated the holdout for the same frozen selection. Its ledger file was deleted before the official run, and this is disclosed in ADR-006. The results were identical.
+
+## Phase 9 notes
+- The independent review found no leakage or holdout misuse. Its formatting, wording and consistency findings were fixed.
+- A clean clone first failed the raw-CSV hash check (line-ending conversion by Git for Windows). `.gitattributes` fixed it. A second clean clone then showed a wrapped-path CLI test failure, which was also fixed. The final clean clone passes all 393 tests.
 
 ## Blockers
 - **GitHub push:** `gh` must be authenticated by the student (`gh auth login`). Work continues locally with full history until then.
