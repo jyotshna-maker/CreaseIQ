@@ -20,7 +20,7 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license">
 </p>
 
-<p align="center"><sub>Build Your Own Project (VITyarthi) · Machine Learning · Jyotshna Payasi (26BCE10651) · VIT Bhopal</sub></p>
+<p align="center"><sub>Build Your Own Project (VITyarthi) · Python Essentials · Jyotshna Payasi (26BCE10651) · VIT Bhopal</sub></p>
 
 <p align="center">
   <img src="docs/screenshots/05_predict_match.png" alt="CreaseIQ match prediction dashboard" width="900">
