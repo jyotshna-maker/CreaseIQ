@@ -1,13 +1,20 @@
-# CreaseIQ: IPL Match Intelligence Platform
+<h1 align="center">🏏 CreaseIQ</h1>
 
-[![CI](https://github.com/OWNER/creaseiq/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/creaseiq/actions/workflows/ci.yml)
-![Python](https://img.shields.io/badge/python-3.12%20%7C%203.13-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+<p align="center"><strong>IPL Match Intelligence Platform</strong></p>
 
-> A validated IPL data pipeline, statistically sound analytics, and a leakage-safe, calibrated pre-match win-probability engine that reports its real accuracy.
-> *Build Your Own Project (VITyarthi) · Machine Learning · Jyotshna Payasi (26BCE10651), VIT Bhopal*
+<p align="center"><em>Clean data · honest analytics · calibrated win probabilities</em></p>
 
-![Predict Match](docs/screenshots/05_predict_match.png)
+<p align="center">
+  <a href="https://github.com/jyotshna-maker/creaseiq/actions/workflows/ci.yml"><img src="https://github.com/jyotshna-maker/creaseiq/actions/workflows/ci.yml/badge.svg" alt="CI workflow"></a>
+  <img src="https://img.shields.io/badge/python-3.12%20%7C%203.13-blue" alt="Python 3.12 and 3.13">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license">
+</p>
+
+<p align="center"><sub>Build Your Own Project (VITyarthi) · Machine Learning · Jyotshna Payasi (26BCE10651) · VIT Bhopal</sub></p>
+
+<p align="center">
+  <img src="docs/screenshots/05_predict_match.png" alt="CreaseIQ match prediction dashboard" width="900">
+</p>
 
 ## Overview
 CreaseIQ turns a raw IPL match file (1,243 matches, 2008–2026, Cricsheet-derived) into:
