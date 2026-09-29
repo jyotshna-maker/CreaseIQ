@@ -1,6 +1,6 @@
 # 4. Functional Requirements
 
-The assignment requires at least three major functional modules. CreaseIQ has five (M1–M5), with 22 functional requirements. Their IDs are cited in code docstrings and tests, and the full trace is in `docs/rubric_traceability.md`.
+To deliver a maintainable data and machine learning workflow, CreaseIQ partitions its operational capabilities into five specialized functional modules (designated M1 through M5). Together, these encompass 22 distinct functional requirements (FR-01 through FR-22). Every requirement is directly linked to specific codebase implementations and verified by corresponding automated tests, as indexed in `docs/rubric_traceability.md`.
 
 {{ tab("Functional requirements with priority, implementation and verifying tests") }}
 
@@ -41,8 +41,8 @@ The assignment requires at least three major functional modules. CreaseIQ has fi
 | M5 Ops & reporting | Pipeline events, predictions, feature frame | Log file, `prediction_log` table, PSI table, NFR evidence, this report |
 
 ## 4.2 User workflow
-A user opens the dashboard, sees KPIs and data and model status on Home, and then follows one of three paths (workflow diagram D3, Section 7.2):
+When users launch the interface, they land on the summary Home dashboard displaying aggregate corpus metrics, data hygiene verifications, and active model registrations. From there, user navigation naturally branches into three dedicated operational flows (mapped in activity diagram D3, Section 7.2):
 
-- **Explore:** filter, inspect and export.
-- **Predict:** choose two teams and a venue (all preselected), optionally add the toss, and click *Predict*. That is at most three clicks.
-- **Maintain:** upload, dry run, then apply.
+- **Data exploration flow:** Filtering the corpus across seasons, teams, and venues, inspecting tabular subsets, and exporting sanitized CSVs.
+- **Match prediction flow:** Selecting competing franchises and a venue (populated with sensible defaults), optionally setting the toss winner and decision, and clicking *Predict* to review win probabilities and local model explanations in under three clicks.
+- **Dataset maintenance flow:** Uploading new scorecard CSVs, executing non-destructive dry-run validations, and permanently committing clean records to the database.

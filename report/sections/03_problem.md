@@ -1,20 +1,19 @@
 # 3. Problem Statement
 
 ## 3.1 The problem
-IPL data is rich but inconsistent. Several failure modes make naive analysis wrong:
+Working with seventeen years of historical cricket scorecards quickly reveals that public sports datasets are riddled with subtle irregularities. Inexperienced modelling workflows frequently produce invalid inferences due to four core complications:
 
-- **Renamed and replaced franchises.** For example, Delhi Daredevils became Delhi Capitals. Deccan Chargers and Sunrisers Hyderabad, however, are *different* franchises.
-- **One stadium, many spellings.** A stadium can appear under several spellings or under old and new names.
-- **Season labels that are not years.**
-- **Hidden semantic traps** that the raw columns never announce.
+- **Organizational mutations and franchise continuity:** Franchises in the IPL frequently rebrand, merge, or exit. For instance, Delhi Daredevils simply underwent a corporate name change to Delhi Capitals in 2019 while retaining squad continuity and historical rights. In contrast, Deccan Chargers and Sunrisers Hyderabad represent distinct legal and historical entities despite sharing a home base, because the former was terminated by the league before the latter was auctioned as a new franchise.
+- **Venue fragmentation and orthographic variance:** Stadiums appear under varying transcriptions, local vernaculars, commercial sponsorship names, or following major renovations. Treating "Sardar Patel Stadium, Motera" and "Narendra Modi Stadium" as unrelated venues destroys sample size for ground-specific priors.
+- **Inconsistent temporal nomenclature:** Tournament logs mix raw single-year integers (`2019`) with multi-year formats (`2007/08`, `2020/21`) created by pandemic rescheduling and calendar quirks.
+- **Latent semantic shifts:** The most treacherous bugs in sports data are structural shifts that carry no explicit warning in column headers. For instance, the sequence in which teams are listed in raw scorecard schemas often changes silently across historical epochs.
 
-Students, analysts and fans lack a clean, validated, reproducible dataset. They also lack a principled way to quantify the toss, venue, form and era effects. On top of that, many machine-learning "IPL predictors" published online leak post-match information or ignore time order. They report accuracies that cannot be reproduced on genuinely unseen matches.
+Because existing open-source IPL notebooks typically ignore these traps, public predictions often report overfitted accuracies exceeding 85%. In practice, these models inadvertently exploit information leakage—such as peeking into post-innings run differentials or training across future time boundaries. 
 
-CreaseIQ therefore sets out to deliver three things:
-
-1. A validated, canonical dataset with an auditable record of every change.
-2. Statistically sound analytics that report uncertainty.
-3. A leakage-safe, calibrated pre-match win-probability engine whose accuracy is measured honestly.
+CreaseIQ establishes an open, reproducible framework addressing these gaps:
+1. Constructing an auditable, canonical dataset where every correction and identity mapping is documented in code.
+2. Delivering inferential statistical tests that quantify uncertainty rather than asserting overconfident conclusions.
+3. Establishing a strictly leak-free probabilistic classification pipeline evaluated under honest temporal holdouts.
 
 ## 3.2 Data traps discovered (and handled)
 {{ tab("Data problems found during profiling and research, and how they are handled") }}
@@ -31,19 +30,19 @@ CreaseIQ therefore sets out to deliver three things:
 
 ## 3.3 Scope
 **In scope:**
-- The supplied match file (2008–2026) and validated uploads of new matches.
-- A relational database.
-- Analytics: toss, chasing, teams, venues, scoring eras, player-of-the-match.
-- Two-tier win probability: pre-toss and post-toss.
-- First-innings score regression.
-- What-if scenarios and a season simulation.
-- A dashboard, CLI, tests, CI and documentation.
+- Processing the complete 2008–2026 scorecard corpus, alongside support for validated user additions.
+- Normalized relational database storage backing interactive analytical queries.
+- Empirical statistical testing covering the toss, chasing biases, venue scoring baselines, and tournament rule changes.
+- Pre-match and post-toss probabilistic outcome estimation.
+- Expected first-innings total score regression.
+- Interactive what-if scenario exploration and full-season Monte Carlo projections.
+- Multi-interface delivery via a responsive Streamlit dashboard and Typer CLI, validated by test automation.
 
 **Out of scope:**
-- Ball-by-ball or live in-play prediction.
-- Betting odds or betting advice.
-- Player batting and bowling statistics, which are not in the data.
-- Multi-user accounts. CreaseIQ is a single-user local application holding only public match records, so authentication would add risk without benefit.
+- Real-time in-play ball-by-ball micro-predictions during live broadcasts.
+- Gambling odds estimation or financial betting recommendation tools.
+- Granular player-level stroke analysis or wagon wheels (which are absent in aggregate match scorecards).
+- Multi-tenant authentication systems. Because the project operates as a local analytical tool on public sports records, adding complex credential management would introduce security overhead without analytical utility.
 
 ## 3.4 Target users
 {{ tab("Target users and their needs") }}

@@ -1,7 +1,7 @@
 {
   "active": {
-    "post_toss": "6f5f430d8c19",
-    "pre_toss": "0a5fd2d5a97f"
+    "post_toss": "154aeb7fe4aa",
+    "pre_toss": "27287b53961d"
   },
   "runs": [
     {
@@ -109,6 +109,78 @@
         "C": 0.003
       },
       "run_id": "6f5f430d8c19",
+      "tier": "post_toss",
+      "trained_through": 2026
+    },
+    {
+      "artifact_path": "pre_toss_elo_logit.joblib",
+      "artifact_sha256": "52801c0a9b6878c3bf2d6c13c9814cd7cbe0a1cce1e20b541772a9e0481c47dd",
+      "created_at": "2026-09-29T14:52:44Z",
+      "data_sha256": "db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c",
+      "git_commit": "51c6c67f026bd61262d6f7ed0dd56329d60c3b1f",
+      "metrics": {
+        "holdout_auc": 0.4532988871224165,
+        "holdout_log_loss": 0.7060402229961685
+      },
+      "model_name": "elo_logit",
+      "params": {
+        "C": 1.0
+      },
+      "run_id": "18bd03ea7ea9",
+      "tier": "pre_toss",
+      "trained_through": 2026
+    },
+    {
+      "artifact_path": "post_toss_logreg.joblib",
+      "artifact_sha256": "7d2f65992737610cd4f2c732e3c0c29a6e0ba09ae788cb649ef975c66beb7d79",
+      "created_at": "2026-09-29T14:52:44Z",
+      "data_sha256": "db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c",
+      "git_commit": "51c6c67f026bd61262d6f7ed0dd56329d60c3b1f",
+      "metrics": {
+        "holdout_auc": 0.4888712241653418,
+        "holdout_log_loss": 0.6974227059814229
+      },
+      "model_name": "logreg",
+      "params": {
+        "C": 0.003
+      },
+      "run_id": "9b2a7780d072",
+      "tier": "post_toss",
+      "trained_through": 2026
+    },
+    {
+      "artifact_path": "pre_toss_elo_logit.joblib",
+      "artifact_sha256": "52801c0a9b6878c3bf2d6c13c9814cd7cbe0a1cce1e20b541772a9e0481c47dd",
+      "created_at": "2026-09-29T15:02:02Z",
+      "data_sha256": "db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c",
+      "git_commit": "51c6c67f026bd61262d6f7ed0dd56329d60c3b1f",
+      "metrics": {
+        "holdout_auc": 0.4532988871224165,
+        "holdout_log_loss": 0.7060402229961685
+      },
+      "model_name": "elo_logit",
+      "params": {
+        "C": 1.0
+      },
+      "run_id": "27287b53961d",
+      "tier": "pre_toss",
+      "trained_through": 2026
+    },
+    {
+      "artifact_path": "post_toss_logreg.joblib",
+      "artifact_sha256": "7d2f65992737610cd4f2c732e3c0c29a6e0ba09ae788cb649ef975c66beb7d79",
+      "created_at": "2026-09-29T15:02:02Z",
+      "data_sha256": "db81a92c740ef6d936f4f2361b4b4120468ae0acbcaed352a9707cfd0873d99c",
+      "git_commit": "51c6c67f026bd61262d6f7ed0dd56329d60c3b1f",
+      "metrics": {
+        "holdout_auc": 0.4888712241653418,
+        "holdout_log_loss": 0.6974227059814229
+      },
+      "model_name": "logreg",
+      "params": {
+        "C": 0.003
+      },
+      "run_id": "154aeb7fe4aa",
       "tier": "post_toss",
       "trained_through": 2026
     }

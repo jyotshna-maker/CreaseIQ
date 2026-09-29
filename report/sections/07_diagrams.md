@@ -1,15 +1,15 @@
 # 7. Design Diagrams
 
-All diagrams are written as Mermaid sources in `docs/diagrams/` and drawn from the actual code: class names, table columns and import rules match the source files.
+All system schematics are maintained as version-controlled Mermaid text specifications under `docs/diagrams/`. The diagrams are generated straight from our codebase—ensuring class interfaces, database schemas, and module import constraints reflect actual source code rather than conceptual sketches.
 
 ## 7.1 Use case diagram
-Three actors use the system:
+The platform addresses three distinct user roles:
 
-- **Analyst / student:** explore, analyse and export.
-- **Cricket fan:** predict, what-if and simulate.
-- **Maintainer:** ingest, append, rebuild, train and benchmark.
+- **Statistical analysts and students:** Exploring cleaned datasets, evaluating causal hypotheses, and exporting filtered records.
+- **Cricket followers and enthusiasts:** Running pre-match win projections, investigating what-if scenarios, and simulating entire seasons.
+- **System maintainers:** Managing data ingestion, executing schema migrations, retraining models, and auditing benchmarks.
 
-Each use case carries its FR identifiers. Mermaid has no native use-case notation, so actors are drawn as circles and use cases as rounded shapes inside the system boundary.
+Each interaction scenario maps back to our functional requirements (FR). Because standard Mermaid lacks an explicit UML use-case palette, actors are rendered as circular terminal nodes while functional capabilities appear as bounded subgraphs.
 
 {{ fig("docs/diagrams/D4_use_case.png", "Use case diagram (D4)", "62%") }}
 
@@ -31,30 +31,29 @@ Each use case carries its FR identifiers. Mermaid has no native use-case notatio
 ## 7.5 ER diagram and schema
 {{ fig("docs/diagrams/D9_er.png", "Entity-relationship diagram generated from the ORM models (D9)") }}
 
-**Schema summary.** The schema has ten tables and two views:
+**Relational architecture:** The database schema organizes IPL match dynamics across ten tables and two analytical SQL views:
 
 - **Dimension tables:** `franchise`, `team_alias`, `venue`, `season`, `player`, `official`.
-- **Fact tables:** `match` and the associative `match_player`.
-- **Operational tables:** `model_run` and `prediction_log`.
-- **Views:** `v_team_season_summary` and `v_head_to_head`.
+- **Fact tables:** `match` (recording individual contest metadata) and `match_player` (associating squads per fixture).
+- **Audit tables:** `model_run` and `prediction_log` (retaining operational telemetry and prediction latency).
+- **Pre-aggregated views:** `v_team_season_summary` and `v_head_to_head`.
 
-**Constraints.** The database enforces:
+**Relational constraints:** Data consistency is enforced at the database engine level via:
 
-- a natural key, `UNIQUE(date, team1_id, team2_id)`;
-- `CHECK`s on the toss decision, result type, distinct teams, "winner present iff complete" and probabilities in [0, 1];
-- foreign keys, with `PRAGMA foreign_keys=ON`.
+- Natural composite unique keying across `UNIQUE(date, team1_id, team2_id)`.
+- Explicit `CHECK` constraints on toss decisions, result categories, team distinctions, complete-match winner presence, and unit-interval probabilities.
+- Mandatory foreign key validation enabled via SQLite's `PRAGMA foreign_keys=ON`.
 
-The full DDL is generated from the models into `docs/schema.sql`.
+The complete schema definition file is generated directly from our SQLAlchemy declarative models into `docs/schema.sql`.
 
-**Normalisation (3NF).** Every non-key attribute depends on the key, the whole key and nothing but the key:
+**Relational normalization (3NF):** Every table satisfies Third Normal Form requirements:
+- Franchise naming history is isolated in `franchise`, while historical renames are captured with explicit active windows in `team_alias`.
+- Ground metadata resides entirely within `venue`.
+- Individual participants and match umpires reside in distinct tables indexed by surrogate keys.
+- Match day lineups are modelled through the associative `match_player` relation (`match_id, team_id, player_id`), eliminating repeating squad arrays.
+- The `match` entity records only foreign references and properties unique to that specific fixture.
 
-- Franchise names live only in `franchise`, and aliases (with validity years) in `team_alias`.
-- Venue attributes live only in `venue`.
-- Player and official names live in their own tables, referenced by surrogate ids.
-- Squads form a many-to-many relation (`match_player`, composite key `match_id, team_id, player_id`), not a repeating group.
-- `match` holds only foreign keys and attributes of the match itself.
-
-The one deliberate redundancy is `season.champion_id`, which can be derived from the season's final. It is kept as a documented, test-verified convenience.
+The single intentional denormalization is `season.champion_id`, caching the tournament winner rather than recalculating the playoff final winner on every query. This tradeoff is explicitly guarded by automated unit tests.
 
 ## 7.6 Model lifecycle
 {{ fig("docs/diagrams/D12_model_lifecycle.png", "Model lifecycle state diagram (D12)", "70%") }}

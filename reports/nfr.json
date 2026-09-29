@@ -3,14 +3,14 @@
     "holdout_logged": {
       "post_toss": {
         "distinct_selections_evaluated": 1,
-        "evaluations_of_this_selection": 3,
+        "evaluations_of_this_selection": 5,
         "first_evaluated_at": "2026-09-28T20:29:23Z",
         "reused_with_new_selection": false,
         "selection_hash": "cb307204cef4d652"
       },
       "pre_toss": {
         "distinct_selections_evaluated": 1,
-        "evaluations_of_this_selection": 3,
+        "evaluations_of_this_selection": 5,
         "first_evaluated_at": "2026-09-28T20:28:39Z",
         "reused_with_new_selection": false,
         "selection_hash": "ca1c1c58a4c3147e"

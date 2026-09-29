@@ -17,7 +17,14 @@ from rich.console import Console
 from creaseiq import __version__
 from creaseiq.config import Settings, get_settings
 from creaseiq.exceptions import CreaseIQError
+import sys
 from creaseiq.logging_setup import configure_logging, new_run_id
+
+if sys.platform == "win32":
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 app = typer.Typer(
     name="creaseiq",

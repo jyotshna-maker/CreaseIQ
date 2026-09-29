@@ -109,7 +109,7 @@ def check_references(references_md: Path, timeout: float = 15.0) -> dict[str, An
 
 
 def find_chromium() -> str | None:
-    """Chromium for Playwright: ``$CREASEIQ_CHROMIUM``, else Puppeteer's Chrome, else Playwright's own."""
+    """Chromium for Playwright: ``$CREASEIQ_CHROMIUM``, else Puppeteer's Chrome, else system Chrome/Edge, else Playwright's own."""
     env = os.environ.get("CREASEIQ_CHROMIUM")
     if env:
         return env
@@ -118,6 +118,14 @@ def find_chromium() -> str | None:
     for c in sorted(base.glob("*/chrome-*/**/*"), reverse=True):
         if c.is_file() and c.name in names:
             return str(c)
+    for p in (
+        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+    ):
+        if Path(p).is_file():
+            return p
     return None
 
 
@@ -203,10 +211,9 @@ def render_html(settings: Settings, context: dict[str, Any]) -> str:
 
 
 def build_pdf(html_path: Path, pdf_path: Path, chromium: str | None = None) -> Path:
-    """Print the HTML to an A4 PDF with Chromium (Playwright), with page numbers in the footer."""
+    """Print the HTML to an A4 PDF with Chromium (Playwright)."""
     from playwright.sync_api import sync_playwright
 
-    footer = '<div style="font-size:8px;width:100%;text-align:center;color:#666;">CreaseIQ Project Report · page <span class="pageNumber"></span> of <span class="totalPages"></span></div>'
     with sync_playwright() as pw:
         browser = pw.chromium.launch(executable_path=chromium)
         page = browser.new_page()
@@ -216,9 +223,7 @@ def build_pdf(html_path: Path, pdf_path: Path, chromium: str | None = None) -> P
             format="A4",
             print_background=True,
             margin={"top": "18mm", "bottom": "18mm", "left": "16mm", "right": "16mm"},
-            display_header_footer=True,
-            header_template="<div></div>",
-            footer_template=footer,
+            display_header_footer=False,
             outline=True,
             tagged=True,
         )

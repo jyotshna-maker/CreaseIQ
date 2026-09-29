@@ -239,9 +239,9 @@
       "use_margin": false
     }
   },
-  "experiment_runtime_s": 106.5,
+  "experiment_runtime_s": 373.2,
   "generated_by": "creaseiq train",
-  "git_commit": "d16d3cca16cc52f4862ba4836c4f9f52478cdea4",
+  "git_commit": "51c6c67f026bd61262d6f7ed0dd56329d60c3b1f",
   "score_regression": {
     "chosen": "ridge",
     "features": [
@@ -773,7 +773,7 @@
       },
       "holdout_access": {
         "distinct_selections_evaluated": 1,
-        "evaluations_of_this_selection": 3,
+        "evaluations_of_this_selection": 5,
         "first_evaluated_at": "2026-09-28T20:29:23Z",
         "reused_with_new_selection": false,
         "selection_hash": "cb307204cef4d652"
@@ -1568,7 +1568,7 @@
           "std": 0.0010916974864035374
         }
       ],
-      "registry_run_id": "6f5f430d8c19",
+      "registry_run_id": "154aeb7fe4aa",
       "selection": {
         "best_by_mean": "logreg",
         "chosen": "logreg",
@@ -1909,7 +1909,7 @@
       },
       "holdout_access": {
         "distinct_selections_evaluated": 1,
-        "evaluations_of_this_selection": 3,
+        "evaluations_of_this_selection": 5,
         "first_evaluated_at": "2026-09-28T20:28:39Z",
         "reused_with_new_selection": false,
         "selection_hash": "ca1c1c58a4c3147e"
@@ -2566,7 +2566,7 @@
           "std": 0.0042956714281876755
         }
       ],
-      "registry_run_id": "0a5fd2d5a97f",
+      "registry_run_id": "27287b53961d",
       "selection": {
         "best_by_mean": "elo_logit",
         "chosen": "elo_logit",

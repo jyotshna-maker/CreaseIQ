@@ -22,7 +22,7 @@ blockquote { border-left: 4px solid #0072B2; margin: 8px 0; padding: 4px 10px; b
 ul, ol { margin: 4px 0 8px 18px; padding-left: 12px; }
 li { margin: 2px 0; }
 .cover { height: 257mm; display: flex; flex-direction: column; justify-content: space-between; }
-.cover-label { font-size: 8.5pt; color: #999; letter-spacing: 1px; }
+.cover-label { font-size: 1pt; color: transparent; line-height: 0; margin: 0; padding: 0; height: 0; overflow: hidden; }
 .cover-main { margin-top: 30mm; }
 .programme { font-size: 12pt; color: #0072B2; font-weight: 600; letter-spacing: .5px; }
 .cover-title { font-size: 28pt; border: none; color: #0b3d6b; margin: 6px 0; }

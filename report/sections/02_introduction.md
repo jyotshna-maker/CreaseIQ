@@ -1,47 +1,48 @@
 # 2. Introduction
 
 ## 2.1 Context
-The Indian Premier League (IPL) is the world's most-watched T20 cricket competition. Since 2008 it has produced {{ q.results.matches | int }} matches over {{ q.seasons | length }} seasons, and every one has a public scorecard. Fans, journalists and analysts argue about the same questions each season:
+Twenty-over cricket is notoriously volatile. In a short match where a single dropped catch or a couple of clean hits can flip the result, enthusiasts, broadcast commentators, and analysts routinely debate key strategic factors:
 
-- Does winning the toss decide the match?
-- Is chasing easier?
-- Did the 2023 *Impact Player* rule change the game?
-- Can anyone predict who will win?
+- Does winning the pre-match coin toss genuinely tilt the odds of winning?
+- Has chasing down targets under lights become an overwhelming advantage?
+- How drastically did the 2023 Impact Player tactical substitution rule inflate first-innings scores?
+- Can an algorithmic model reliably anticipate which team will come out on top before play begins?
 
-The data needed to answer them exists, but it is messy. Answers that are both statistically sound and honest about their uncertainty are rare.
+While ball-by-ball and match-level records from {{ q.seasons | length }} seasons (encompassing {{ q.results.matches | int }} official fixtures since 2008) are publicly available, standard analyses often stumble over deceptive quirks in the underlying logs. More importantly, pre-game probability estimates that candidly acknowledge real-world uncertainty remain surprisingly rare in the sports analytics space.
 
 ## 2.2 What CreaseIQ is
-CreaseIQ is a complete machine-learning project built on the supplied IPL match file. It has five functional modules:
+CreaseIQ represents an end-to-end applied machine learning platform engineered directly from historical Indian Premier League match scorecards. Rather than stitching together ad-hoc scripts, the system is organised into five cohesive functional subsystems:
 
-1. **Data engineering (M1).** Validates, cleans and canonicalises the raw file into a normalised relational database, and records every correction in an auditable quality report.
-2. **Analytics & visualisation (M2).** Answers the questions above with proper statistical tests and confidence intervals, through an interactive dashboard.
-3. **Prediction engine (M3).** Estimates pre-match win probabilities with *leakage-safe* features, time-ordered validation, calibration and baselines, and explains each prediction.
-4. **Scenarios (M4).** What-if analysis (toss, venue, opponent) and a Monte Carlo season simulation.
-5. **Operations & reporting (M5).** Structured logging, a prediction log, drift monitoring and generated evidence (model card, figures, NFR verification).
+1. **Data engineering (M1):** Ingests, inspects, and standardises raw scorecard records into a clean relational database, recording every single transformation inside an inspectable quality ledger.
+2. **Analytics & visualisation (M2):** Examines historical trends, team records, venue behaviours, and toss dynamics using formal hypothesis testing and confidence intervals, accessible through an interactive dashboard.
+3. **Prediction engine (M3):** Computes pre-game win probabilities through strict *leakage-safe* temporal feature sets, walk-forward cross-validation, probability calibration, and local feature attribution.
+4. **Scenarios (M4):** Provides an interactive "what-if" perturbation surface (evaluating venue shifts and toss decisions) alongside a Monte Carlo tournament simulation.
+5. **Operations & reporting (M5):** Tracks system operations via structured run-keyed logs, maintains persistent inference audits, monitors population feature drift, and automates documentation and model card generation.
 
 ## 2.3 Objectives
-1. Ingest, validate, clean and canonicalise the dataset, with an auditable quality report.
-2. Store it in a normalised schema with reproducible, idempotent rebuilds.
-3. Provide statistically sound analytics (toss, venue, team and era effects) that report their uncertainty.
-4. Predict match outcomes with leakage-safe features, walk-forward validation, calibrated probabilities and explanations.
-5. Offer an accessible dashboard and CLI with logging, monitoring and thorough test coverage.
-6. Document the design and results against the assignment's artefact list.
+Our practical implementation was guided by six key milestones:
+1. Parse and validate the historical match repository, systematically isolating flawed entries while outputting an auditable data quality trail.
+2. Structure all verified entities into a normalized third-normal-form SQLite repository capable of repeatable, idempotent builds.
+3. Run statistically disciplined inference on toss outcomes, venue scoring tiers, franchise records, and rule changes with explicit uncertainty bounds.
+4. Train pre-match win classifiers using strict temporal cutoffs to eliminate information leakage, evaluating models via walk-forward splits and calibrated outputs.
+5. Deliver a practical, user-friendly Streamlit web interface and a companion Typer terminal interface, backed by thorough test suites.
+6. Compile our technical decisions, empirical metrics, and architectural tradeoffs into a complete project deliverable matching course evaluation standards.
 
 ## 2.4 Relevance to the course
-The project is an end-to-end application of machine learning. It covers:
+This project serves as a comprehensive capstone integrating the core themes of the AI and Machine Learning curriculum:
 
-- **Data preprocessing:** schema validation, anomaly correction, imputation.
-- **Exploratory and inferential statistics.**
-- **Feature engineering:** including sequential Elo ratings.
-- **Supervised classification and regression:** logistic regression, random forests, gradient boosting and ridge regression.
-- **Unsupervised learning:** k-means venue clustering.
-- **Model selection and evaluation for time-ordered data:** walk-forward CV, the one-standard-error rule, bootstrap confidence intervals and paired tests.
-- **Probability calibration and interpretability.**
-- **ML ethics:** data leakage, honest reporting, a betting disclaimer.
+- **Data hygiene and preprocessing:** Declarative contract validation, handling structural renames, anomaly correction, and value imputation.
+- **Exploratory analysis and inferential statistics:** Wilson score intervals, causal toss testing, two-sample Welch tests, and effect size measurement.
+- **Feature representation:** As-of temporal state accumulation and sequential margin-weighted Elo rating dynamics.
+- **Supervised classification and regression:** Regularized logistic models, tree ensembles (Random Forest, Histogram Gradient Boosting), and linear regularized score estimators.
+- **Unsupervised clustering:** Grouping stadium scoring environments through k-means clustering.
+- **Time-series validation rigor:** Expanding-window walk-forward validation, the one-standard-error heuristic, bootstrap intervals, and paired baseline tests.
+- **Calibration and interpretability:** Sigmoid probability mapping, reliability analysis, and intuitive prediction driver breakdowns.
+- **Engineering ethics:** Rigorous leakage detection, truthful reporting of modest predictive power, and clear disclaimers prohibiting betting usage.
 
-The AI-fundamentals topics of the VITyarthi course are also mapped explicitly. Hyperparameter search is treated as heuristic search, the YAML identity rules as a knowledge base, and the prediction service as a simple agent. `docs/course_mapping.md` maps each topic to its implementing file and test.
+In addition, foundational AI ideas find practical expression here: hyperparameter grid exploration functions as state-space search, YAML identity mappings operate as an explicit domain knowledge base, and the prediction coordinator functions as a discrete inference agent (mapped in detail in `docs/course_mapping.md`).
 
 ## 2.5 Structure of this report
-Sections 3–5 define the problem and the functional and non-functional requirements. Sections 6–8 present the architecture, the design diagrams and the reasoning behind each design decision. Section 9 details the implementation: dataset, cleaning, features, model selection and evaluation methodology. Section 10 shows the results and real screenshots, and Section 11 the testing approach. Sections 12–14 reflect on challenges, learnings and future work, and Section 15 lists the references.
+The rest of this document walks through the project lifecycle: Sections 3 through 5 define the core data challenges alongside our functional and non-functional engineering requirements. Sections 6 to 8 outline the system architecture, UML design schematics, and key architectural decision records. Section 9 walks through implementation choices spanning data cleaning, Elo formulation, and model training. Section 10 reviews our experimental metrics alongside live application captures, followed by the verification framework in Section 11. Finally, Sections 12 through 14 reflect on practical development hurdles, personal technical takeaways, and proposed future expansions, concluding with references in Section 15.
 
-<p class="callout"><b>Headline result.</b> CreaseIQ's most important finding is honest: pre-match IPL outcomes are close to a coin flip. The best walk-forward log-loss is {{ m.tiers.post_toss.selection.walk_forward_mean_log_loss | f(4) }}, against 0.6931 for a coin. On the 2025–26 holdout, which was evaluated only after the selection was frozen, no model beat the coin. Online "predictors" that claim 80–90% accuracy are almost always leaking information (Section 8).</p>
+<p class="callout"><b>Headline result.</b> CreaseIQ's most critical takeaway is one of scientific candour: predicting T20 cricket outcomes prior to the match is fundamentally close to tossing a coin. Our strongest walk-forward log-loss achieved {{ m.tiers.post_toss.selection.walk_forward_mean_log_loss | f(4) }}, compared against the uninformative 0.6931 baseline. When assessed on the untouched 2025–26 holdout dataset after model selections were permanently locked, no model systematically outperformed a baseline coin flip. As explored in Section 8, online projects touting 85% to 90% accuracy almost invariably suffer from subtle data leakage.</p>

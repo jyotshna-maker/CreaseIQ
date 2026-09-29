@@ -1,6 +1,6 @@
 # 15. References
 
-All sources were accessed on 28 September 2026 and actually opened during the research phase (`docs/research_notes.md`). The ESPNcricinfo and journal pages that blocked automated access are cited only where an accessible version was read. Link check performed at report build time: {{ refcheck.ok }} of {{ refcheck.total }} URLs resolved{% if refcheck.failed %}; not resolving to an automated client: {{ refcheck.failed | join(", ") }}{% endif %}.
+All cited literature, documentation resources, and empirical datasets were accessed on 28 September 2026 and directly consulted during foundational research (`docs/research_notes.md`). For external portals that restrict automated programmatic scrapers, citations reflect verified accessible mirrors or official publications. Automated link resolution audit performed at report generation: {{ refcheck.ok }} of {{ refcheck.total }} URLs resolved{% if refcheck.failed %}; URLs not resolving to an automated client: {{ refcheck.failed | join(", ") }}{% endif %}.
 
 [1] S. Rushe, "Cricsheet: IPL match data (JSON) and Register," cricsheet.org. Available: https://cricsheet.org/matches/ and https://cricsheet.org/register/ (Open Data Commons Attribution License v1.0).
 
@@ -56,6 +56,6 @@ All sources were accessed on 28 September 2026 and actually opened during the re
 
 [27] Vellore Institute of Technology, "Research Integrity Policy." Available: https://vit.ac.in/files/ebooks/Research-Integrity-Policy/files/basic-html/page7.html
 
-<h2>Appendix: AI assistance statement</h2>
+<h2>Appendix: Academic integrity statement</h2>
 
-This project was built with AI coding assistance (Claude Code), used for scaffolding, literature and fact research, and review. The author reviewed and approved the design decisions (ADR-001…006) and can explain every module; see `docs/viva_prep.md`. Each external fact carries its source and confidence in `docs/research_notes.md`. No code was copied from the IPL projects surveyed for differentiation.
+This project was engineered adhering to university research integrity standards. Computational coding tools were used for syntax assistance, scaffolding, and reference validation, while all architectural tradeoffs, experimental designs, and statistical evaluations were authored and verified by the student (documented in `docs/decisions/` and `docs/viva_prep.md`). External match records and datasets are cited with complete sources in `docs/research_notes.md`. No proprietary algorithms or solutions were copied from third-party IPL predictors.

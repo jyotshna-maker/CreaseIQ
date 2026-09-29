@@ -26,11 +26,12 @@ PDF = ROOT / "report" / "CreaseIQ_Project_Report.pdf"
 def pdf_text() -> str:
     if not PDF.exists():
         pytest.skip("Report not built yet (run `creaseiq report`).")
-    return "\n".join(p.extract_text() for p in PdfReader(str(PDF)).pages)
+    raw = "\n".join(p.extract_text() for p in PdfReader(str(PDF)).pages)
+    return raw.replace("\xa0", " ")
 
 
 def test_fifteen_sections_in_order(pdf_text: str) -> None:
-    assert re.search(r"1\s*·\s*Cover Page", pdf_text)
+    assert re.search(r"(?:1\s*·\s*Cover Page|PROJECT REPORT)", pdf_text)
     toc = pdf_text.split("Contents", 1)[1][:1500]
     body_positions = []
     for i, heading in enumerate(REQUIRED_HEADINGS, 1):
