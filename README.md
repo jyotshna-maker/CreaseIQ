@@ -1,3 +1,13 @@
+| | |
+|:---|:---|
+| **Project Title** | CreaseIQ: IPL Match Intelligence Platform |
+| **Submitted by** | Jyotshna Payasi |
+| **Registration number** | 26BCE10651 |
+| **Faculty** | Dr. Pradeep Kumar Mishra |
+| **Submission date** | 30 September 2026 |
+
+---
+
 <h1 align="center">🏏 CreaseIQ</h1>
 
 <p align="center"><strong>IPL Match Intelligence Platform</strong></p>
@@ -5,7 +15,7 @@
 <p align="center"><em>Clean data · honest analytics · calibrated win probabilities</em></p>
 
 <p align="center">
-  <a href="https://github.com/jyotshna-maker/creaseiq/actions/workflows/ci.yml"><img src="https://github.com/jyotshna-maker/creaseiq/actions/workflows/ci.yml/badge.svg" alt="CI workflow"></a>
+  <a href="https://github.com/jyotshna-maker/CreaseIQ/actions/workflows/ci.yml"><img src="https://github.com/jyotshna-maker/CreaseIQ/actions/workflows/ci.yml/badge.svg" alt="CI workflow"></a>
   <img src="https://img.shields.io/badge/python-3.12%20%7C%203.13-blue" alt="Python 3.12 and 3.13">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license">
 </p>

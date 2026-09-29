@@ -7,5 +7,6 @@ student: "Jyotshna Payasi"
 registration_number: "26BCE10651"
 section: ""            # e.g. "Slot A1". Left blank on purpose; fill in before submitting.
 university: "Vellore Institute of Technology, Bhopal"
-date: "29 September 2026"
-repository_url: "(link added when the repository is published on GitHub)"   # set to the real URL after `gh repo create`
+faculty: "Dr. Pradeep Kumar Mishra"
+date: "30 September 2026"
+repository_url: "https://github.com/jyotshna-maker/CreaseIQ"
